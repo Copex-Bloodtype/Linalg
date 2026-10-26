@@ -1,0 +1,529 @@
+{
+  "n_items": 8,
+  "n_records": 40,
+  "by_condition": {
+    "direct": {
+      "calls": 8,
+      "errors": 0,
+      "blank_correct": 3,
+      "blank_scored": 8,
+      "inherited": 1,
+      "chosen": 7
+    },
+    "forced_matrix": {
+      "calls": 8,
+      "errors": 0,
+      "blank_correct": 4,
+      "blank_scored": 8,
+      "inherited": 1,
+      "chosen": 7
+    },
+    "forced_space": {
+      "calls": 8,
+      "errors": 0,
+      "blank_correct": 4,
+      "blank_scored": 8,
+      "inherited": 0,
+      "chosen": 8
+    },
+    "translate_to_matrix": {
+      "calls": 8,
+      "errors": 0,
+      "blank_correct": 8,
+      "blank_scored": 8,
+      "inherited": 8,
+      "chosen": 0
+    },
+    "translate_to_space": {
+      "calls": 8,
+      "errors": 0,
+      "blank_correct": 8,
+      "blank_scored": 8,
+      "inherited": 8,
+      "chosen": 0
+    }
+  },
+  "calls": [
+    {
+      "item_id": "Linear_algebra_0054",
+      "condition": "direct",
+      "error": null,
+      "blank_correct": false,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 868,
+        "completion_tokens": 9181,
+        "total_tokens": 10049
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0054",
+      "condition": "forced_matrix",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 864,
+        "completion_tokens": 8025,
+        "total_tokens": 8889
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0054",
+      "condition": "forced_space",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 864,
+        "completion_tokens": 9543,
+        "total_tokens": 10407
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0054",
+      "condition": "translate_to_matrix",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1259,
+        "completion_tokens": 7923,
+        "total_tokens": 9182
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0054",
+      "condition": "translate_to_space",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1213,
+        "completion_tokens": 8924,
+        "total_tokens": 10137
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0310",
+      "condition": "direct",
+      "error": null,
+      "blank_correct": false,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 762,
+        "completion_tokens": 1659,
+        "total_tokens": 2421
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0310",
+      "condition": "forced_matrix",
+      "error": null,
+      "blank_correct": false,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 758,
+        "completion_tokens": 3461,
+        "total_tokens": 4219
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0310",
+      "condition": "forced_space",
+      "error": null,
+      "blank_correct": false,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 758,
+        "completion_tokens": 1181,
+        "total_tokens": 1939
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0310",
+      "condition": "translate_to_matrix",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1015,
+        "completion_tokens": 3471,
+        "total_tokens": 4486
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0310",
+      "condition": "translate_to_space",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1016,
+        "completion_tokens": 6559,
+        "total_tokens": 7575
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0313",
+      "condition": "direct",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 876,
+        "completion_tokens": 6912,
+        "total_tokens": 7788
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0313",
+      "condition": "forced_matrix",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 872,
+        "completion_tokens": 7602,
+        "total_tokens": 8474
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0313",
+      "condition": "forced_space",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 872,
+        "completion_tokens": 6225,
+        "total_tokens": 7097
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0313",
+      "condition": "translate_to_matrix",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1182,
+        "completion_tokens": 5988,
+        "total_tokens": 7170
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0313",
+      "condition": "translate_to_space",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1167,
+        "completion_tokens": 5366,
+        "total_tokens": 6533
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0333",
+      "condition": "direct",
+      "error": null,
+      "blank_correct": false,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 773,
+        "completion_tokens": 2124,
+        "total_tokens": 2897
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0333",
+      "condition": "forced_matrix",
+      "error": null,
+      "blank_correct": false,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 769,
+        "completion_tokens": 4655,
+        "total_tokens": 5424
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0333",
+      "condition": "forced_space",
+      "error": null,
+      "blank_correct": false,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 769,
+        "completion_tokens": 8423,
+        "total_tokens": 9192
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0333",
+      "condition": "translate_to_matrix",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1077,
+        "completion_tokens": 11374,
+        "total_tokens": 12451
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0333",
+      "condition": "translate_to_space",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1103,
+        "completion_tokens": 5279,
+        "total_tokens": 6382
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0345",
+      "condition": "direct",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 857,
+        "completion_tokens": 13738,
+        "total_tokens": 14595
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0345",
+      "condition": "forced_matrix",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 853,
+        "completion_tokens": 9576,
+        "total_tokens": 10429
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0345",
+      "condition": "forced_space",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 853,
+        "completion_tokens": 9862,
+        "total_tokens": 10715
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0345",
+      "condition": "translate_to_matrix",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1193,
+        "completion_tokens": 8815,
+        "total_tokens": 10008
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0345",
+      "condition": "translate_to_space",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1212,
+        "completion_tokens": 7295,
+        "total_tokens": 8507
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0468",
+      "condition": "direct",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 795,
+        "completion_tokens": 2490,
+        "total_tokens": 3285
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0468",
+      "condition": "forced_matrix",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 791,
+        "completion_tokens": 6973,
+        "total_tokens": 7764
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0468",
+      "condition": "forced_space",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 791,
+        "completion_tokens": 4592,
+        "total_tokens": 5383
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0468",
+      "condition": "translate_to_matrix",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1147,
+        "completion_tokens": 4179,
+        "total_tokens": 5326
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0468",
+      "condition": "translate_to_space",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1118,
+        "completion_tokens": 4310,
+        "total_tokens": 5428
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0494",
+      "condition": "direct",
+      "error": null,
+      "blank_correct": false,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 851,
+        "completion_tokens": 4024,
+        "total_tokens": 4875
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0494",
+      "condition": "forced_matrix",
+      "error": null,
+      "blank_correct": false,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 847,
+        "completion_tokens": 4306,
+        "total_tokens": 5153
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0494",
+      "condition": "forced_space",
+      "error": null,
+      "blank_correct": false,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 847,
+        "completion_tokens": 5040,
+        "total_tokens": 5887
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0494",
+      "condition": "translate_to_matrix",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1221,
+        "completion_tokens": 7684,
+        "total_tokens": 8905
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0494",
+      "condition": "translate_to_space",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1212,
+        "completion_tokens": 7846,
+        "total_tokens": 9058
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0501",
+      "condition": "direct",
+      "error": null,
+      "blank_correct": false,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 852,
+        "completion_tokens": 3767,
+        "total_tokens": 4619
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0501",
+      "condition": "forced_matrix",
+      "error": null,
+      "blank_correct": false,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 848,
+        "completion_tokens": 3803,
+        "total_tokens": 4651
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0501",
+      "condition": "forced_space",
+      "error": null,
+      "blank_correct": false,
+      "convention_source": "chosen",
+      "usage": {
+        "prompt_tokens": 848,
+        "completion_tokens": 6111,
+        "total_tokens": 6959
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0501",
+      "condition": "translate_to_matrix",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1150,
+        "completion_tokens": 7720,
+        "total_tokens": 8870
+      }
+    },
+    {
+      "item_id": "Linear_algebra_0501",
+      "condition": "translate_to_space",
+      "error": null,
+      "blank_correct": true,
+      "convention_source": "inherited",
+      "usage": {
+        "prompt_tokens": 1188,
+        "completion_tokens": 7858,
+        "total_tokens": 9046
+      }
+    }
+  ],
+  "scoring_note": "blank_correct 只表示可核对结论里的填空与参照空一致。它不判断写法是否真的换了，也不判断取法是否真的沿用。"
+}

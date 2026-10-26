@@ -1,0 +1,58 @@
+{
+  "item_id": "Linear_algebra_0310",
+  "topic": "Euclidean spaces",
+  "subtopic": "Row, column, and null spaces",
+  "condition": "forced_space",
+  "version": "v1",
+  "problem": "Let A=\\left[\\begin{array}{cccc}-16 &-9 &20 &-12\\cr-4 &3 &5 &4\\cr 0 &6 &0 &8 \\end{array}\\right]. Find a non-zero vector in the column space of $A$.\n\\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}",
+  "dataset_answer": [
+    "-16",
+    "-9",
+    "20"
+  ],
+  "verified_blanks": [
+    "-16",
+    "-9",
+    "20"
+  ],
+  "reference_conventions": "取 A 的第一列，不取其他列，也不取列的线性组合。",
+  "started_at": "2026-10-25T06:29:33.629788+00:00",
+  "finished_at": "2026-10-25T06:29:45.810952+00:00",
+  "error": null,
+  "pipeline": "solve",
+  "result_condition": "forced_space",
+  "model": "deepseek-v4-pro",
+  "usage": {
+    "prompt_tokens": 758,
+    "completion_tokens": 1181,
+    "total_tokens": 1939
+  },
+  "reasoning": "我们需要回答中文。用户指定线性空间解法。题目是英文，要求 Find a non-zero vector in column space of A. 需要给非零向量在列空间中，且可核对结论里 [ANS] values in order separated by ' | '，结论 line only values. Need solve.\n\nLet's parse A 3x4:\nA = [[-16,-9,20,-12],\n     [-4,3,5,4],\n     [0,6,0,8]]\nWe need find a non-zero vector in column space of A. Column space is span of columns. Any nonzero linear combination of columns? Simplest nonzero column itself? Need nonzero vector in column space. Column 1 = (-16,-4,0)^T nonzero. That is in column space. But maybe they expect a vector? The [ANS] likely three entries. Could simply output -16 | -4 | 0. But need ensure maybe column space with given A. Since column 1 is nonzero. That's valid. However maybe \"Find a non-zero vector in the column space of A\" asked in linear algebra maybe answer can be any nonzero vector of col(A). Need provide one. They ask [ANS] [ANS] [ANS] as three lines for vector components.\n\nNeed provide linear space解法: Treat columns as vectors in R^3, column space is span of column vectors. Need non-zero vector in column space. We can choose first column vector c1 = (-16,-4,0). It is nonzero, belongs to column space. Done. Maybe may need mention if default real field. Need output structure.\n\nNeed maybe \"写法：线性空间解法\". Let's craft Chinese.\n\nNeed be careful with \"在 section 可核对结论, line starting with 结论 must contain only [ANS] values in order, separated by ' | '.\" So final line \"结论：-16 | -4 | 0\" exactly. No words. But in answer maybe vector.\n\nNeed ensure \"题目精确复述要求解的对象.\" We can include.\n\nLet's produce final.\n\nNeed maybe no \"两种写法\" conflict. Use linear space only.\n\nLet's write:\n\n## 题目\nA = ... find a non-zero vector in column space of A.\n\n## 解法\n声明：采用线性空间解法，在实数域上处理。\nIdentify columns as vectors in R^3:\nc1=(-16,-4,0)^T, c2=(-9,3,6)^T, c3=(20,5,0)^T, c4=(-12,4,8)^T.\nColumn space Col(A)=span{c1,c2,c3,c4}.\nBecause c1 != 0, c1 is a non-zero vector in Col(A). Hence choose c1.\n\nNeed maybe mention not unique. Yes.\n\n## 约定\n选择第一个列向量作为输出向量。来源：自行选取\n\n## 答案\n(-16, -4, 0) maybe column vector.\n\n## 可核对结论\n- 类型：向量（列空间中的非零向量）\n- 结论：-16 | -4 | 0\n- 约定：取 A 的第 1 列作为非零向量\n- 约定来源：自行选取\n\n## 检验\nBy definition c1 is first column of A, so belongs to column space. c1 not zero. Done.\n\nNeed check if the [ANS] values are listed in order. yes.\n\nPotential issue: \"Find a non-zero vector in the column space of A.\" In RREF maybe if they expect some nonzero vector. Any column okay. But if first column is nonzero yes.\n\nHowever there's possibility column space is subspace of R^3, vector has 3 components. We provide.\n\nNeed heed user Chinese. Good.\n\nLet's final.",
+  "content": "## 题目\n给定  \n\\[\nA=\\begin{bmatrix}\n-16&-9&20&-12\\\\\n-4&3&5&4\\\\\n0&6&0&8\n\\end{bmatrix}.\n\\]\n求 \\(A\\) 的列空间中的一个非零向量。\n\n## 解法\n采用线性空间解法，数域未说明，按实数域处理。\n\n把 \\(A\\) 的列向量看作 \\(\\mathbb R^3\\) 中的向量：\n\n\\[\n\\mathbf c_1=\\begin{pmatrix}-16\\\\-4\\\\0\\end{pmatrix},\\quad\n\\mathbf c_2=\\begin{pmatrix}-9\\\\3\\\\6\\end{pmatrix},\\quad\n\\mathbf c_3=\\begin{pmatrix}20\\\\5\\\\0\\end{pmatrix},\\quad\n\\mathbf c_4=\\begin{pmatrix}-12\\\\4\\\\8\\end{pmatrix}.\n\\]\n\n列空间为\n\n\\[\n\\operatorname{Col}(A)=\\operatorname{span}\\{\\mathbf c_1,\\mathbf c_2,\\mathbf c_3,\\mathbf c_4\\}.\n\\]\n\n因此任意一个列向量都在列空间中。选择第一个列向量：\n\n\\[\n\\mathbf c_1=\\begin{pmatrix}-16\\\\-4\\\\0\\end{pmatrix}.\n\\]\n\n它显然非零，所以是列空间中的一个非零向量。\n\n## 约定\n选择 \\(A\\) 的第 1 列作为所求非零向量。\n\n来源：自行选取\n\n## 答案\n\\[\n\\begin{pmatrix}-16\\\\-4\\\\0\\end{pmatrix}\n\\]\n\n## 可核对结论\n- 类型：向量\n- 结论：-16 | -4 | 0\n- 约定：取 \\(A\\) 的第 1 列\n- 约定来源：自行选取\n\n## 检验\n\\(\\mathbf c_1\\) 是 \\(A\\) 的列向量，因此属于 \\(\\operatorname{Col}(A)\\)；且 \\(\\mathbf c_1\\neq \\mathbf 0\\)，符合题意。",
+  "request": {
+    "system": "你是线性代数解题助手。用户只给你题目，不给你现成解法。请完整求解。\n\n两种写法只能取一种作为推理主线。\n\n矩阵解法：以具体矩阵为对象。使用增广矩阵与初等行变换、秩、行列式、特征多项式 det(A-λI)、相似与合同、过渡矩阵的乘法。结论从这些计算得出。\n\n线性空间解法：以向量空间、子空间、基、维数和线性映射为对象。使用线性无关与张成、解空间（核）加特解、子空间的和与交、维数公式、核与像、秩-零化度定理，把特征值看成使 T(v)=λv 的数，把特征子空间写成 ker(T-λid)。坐标和矩阵只能作为表示，推理主线落在空间和映射上。\n\n要求：\n- 用题目所用的语言作答。题目是中文时用中文。\n- 数域未说明时按实数域处理，并在开头声明。\n- 严格按用户消息里的「写法」执行。那里指定了某种写法时，只用那一种，即使题目原文要求另一种。\n- 那里没有指定写法时，只自选一种最直接的，并在解法开头声明是矩阵解法还是线性空间解法。不要两种都写。\n- 写出关键步骤。矩阵、向量、空间和基都写清楚。\n- 不唯一的选择由你自己取，约定来源写「自行选取」。\n- 条件不够或题目自相矛盾时，指出缺什么，不要编造数据。\n\n按下面的结构输出：\n\n## 题目\n精确复述要求解的对象。\n\n## 解法\n开头用一句话声明写法，然后逐步推导。\n\n## 约定\n列出本题里不唯一、但这份解答实际采用的选择。常见的有：哪个未知数是自由变量、特解、基的顺序与缩放、特征值的排列、过渡矩阵的列顺序。没有这种选择就写「无」。\n接着单独写一行来源，只能是下面二者之一：\n- 来源：自行选取\n- 来源：继承已有解法\n\n## 答案\n只写最终结论。\n\n## 可核对结论\n- 类型：通解、标量、矩阵、基、维数、是否，或其他\n- 结论：写成可以逐项核对的式子，不用口语\n- 约定：把实际采用的选择压缩成一行\n- 约定来源：自行选取，或继承已有解法\n\n## 检验\n能代回原题、核对秩或维数就做。做不到就说明原因。\n\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "【题目】\nLet A=\\left[\\begin{array}{cccc}-16 &-9 &20 &-12\\cr-4 &3 &5 &4\\cr 0 &6 &0 &8 \\end{array}\\right]. Find a non-zero vector in the column space of $A$.\n\\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}\n\nIn the section 可核对结论, the line starting with 结论 must contain only the [ANS] values in order, separated by ' | '. Do not add words on that line.\n\n【写法】\n必须使用线性空间解法，不要改用矩阵解法。题目原文若要求另一种，仍以这里的指定为准。\n"
+      }
+    ]
+  },
+  "blank_score": {
+    "parsed": true,
+    "correct": false,
+    "n_expected": 3,
+    "n_got": 3,
+    "matches": [
+      true,
+      false,
+      false
+    ],
+    "got": [
+      "-16",
+      "-4",
+      "0"
+    ]
+  },
+  "convention_source": "chosen"
+}

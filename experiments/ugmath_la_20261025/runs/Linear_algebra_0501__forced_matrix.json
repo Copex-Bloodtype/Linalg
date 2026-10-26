@@ -1,0 +1,78 @@
+{
+  "item_id": "Linear_algebra_0501",
+  "topic": "Linear transformations",
+  "subtopic": "Kernel and image",
+  "condition": "forced_matrix",
+  "version": "v1",
+  "problem": "Let A=\\left[\\begin{array}{cccc} 1 &3 &1 &1\\cr 0 &1 &2 &-2\\cr-1 &-2 &1 &-3 \\end{array}\\right]. Find a pair of vectors $\\vec{u}, \\vec{v}$ in ${\\mathbb R}^4$ that span the set of all $\\vec{x}\\in {\\mathbb R}^4$ that are mapped into the zero vector by the transformation $\\vec{x} \\mapsto A\\vec{x}$.\n$\\vec{u}=$ \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}, $\\vec{v}=$ \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}.",
+  "dataset_answer": [
+    "-7",
+    "2",
+    "0",
+    "1",
+    "5",
+    "-2",
+    "1",
+    "0"
+  ],
+  "verified_blanks": [
+    "-7",
+    "2",
+    "0",
+    "1",
+    "5",
+    "-2",
+    "1",
+    "0"
+  ],
+  "reference_conventions": "有序对先写自由变量 x4 对应的向量 u=(-7,2,0,1)，再写自由变量 x3 对应的向量 v=(5,-2,1,0)。",
+  "started_at": "2026-10-25T06:36:41.674196+00:00",
+  "finished_at": "2026-10-25T06:37:15.527461+00:00",
+  "error": null,
+  "pipeline": "solve",
+  "result_condition": "forced_matrix",
+  "model": "deepseek-v4-pro",
+  "usage": {
+    "prompt_tokens": 848,
+    "completion_tokens": 3803,
+    "total_tokens": 4651
+  },
+  "reasoning": "We need answer in Chinese? User wrote Chinese instruction but problem in English. We need solve matrix A 3x4, find pair vectors u,v in R^4 spanning null space. They require matrix解法. Need output structure. Need maybe declare real field? \"数域未说明时按实数域处理，并在开头声明.\" Since problem R^4, real.\n\nNeed solve nullspace of A. Need find two vectors spanning set all x mapped to zero. We need matrix solution using row reduction, etc. Need maybe find basis for nullspace. We need ensure pair spans null space; likely nullity 2? Let's compute.\n\nA = [[1,3,1,1],[0,1,2,-2],[-1,-2,1,-3]].\n\nLet's row reduce.\n\nStart augmented [A|0]? Matrix解法. We can row reduce A.\n\nR1 = [1 3 1 1]\nR2 = [0 1 2 -2]\nR3 = [-1 -2 1 -3]\n\nEliminate first column: R3 + R1 -> R3: [-1+1=0, -2+3=1, 1+1=2, -3+1=-2]. So R3 becomes [0,1,2,-2], same as R2.\n\nMatrix:\nR1 [1 3 1 1]\nR2 [0 1 2 -2]\nR3 [0 1 2 -2]\n\nEliminate R3 - R2 -> R3 zero.\n\nR1: [1 3 1 1]\nR2: [0 1 2 -2]\nR3: [0 0 0 0]\n\nNow eliminate second column entry in R1: R1 - 3 R2 = [1, 0, 1-6? wait 1 - 3*2 = 1-6=-5, 1 - 3*(-2)=1+6=7]. So R1 = [1,0,-5,7].\n\nRREF:\n[1 0 -5 7]\n[0 1 2 -2]\n[0 0 0 0].\n\nThus equations: x1 -5x3 +7x4 = 0 => x1 = 5x3 -7x4. x2 + 2x3 -2x4 =0 => x2 = -2x3 +2x4. Free variables x3,x4. Let x3=s, x4=t. Then x = [5s -7t, -2s +2t, s, t] = s [5, -2, 1, 0] + t[-7, 2, 0, 1]. So u,v can be these two vectors. Check they span nullspace. Need perhaps choose u,v. Could be any basis. The prompt \"Find a pair of vectors u,v in R^4 that span set\". Need output u= column [ANS] etc. We can set u = [5,-2,1,0]? v=[-7,2,0,1]? Need ensure order. Maybe if ANS values in order separated by ' | ' in conclusion line. Need include u entries then v entries. They say \"结论 must contain only [ANS] values in order, separated by ' | '.\" We need provide all 8 numbers maybe. Could be \"5 | -2 | 1 | 0 | -7 | 2 | 0 | 1\". Need maybe if they want u and v. We should maybe choose u maybe first free vector corresponding to x3, v corresponding x4. Are there any issues? Need check A u =0: A*(5,-2,1,0): row1 5 -6 +1 =0? Wait A row1 [1,3,1,1] dot [5,-2,1,0] = 5 -6 +1 =0 yes. Row2 [0,1,2,-2] dot = -2+2=0. Row3 [-1,-2,1,-3] dot = -5+4+1=0. v: [-7,2,0,1]: row1 -7+6+0+1=0; row2 2+0-2=0; row3 7-4+0-3=0 yes. Good.\n\nNeed structure exactly. \"## 题目 精确复述要求解的对象.\" Could quote. \"## 解法 开头用一句话声明写法，然后逐步推导.\" Need perhaps include \"按实数域处理\" in beginning? They say \"数域未说明时按实数域处理，并在开头声明.\" Since problem is real. We can mention in 解法: \"按实数域处理；使用矩阵解法。\" Need maybe \"## 约定\" etc. In 约定 list choices: free variables x3,x4; u,v assigned to free variables; order. Source自行选取.\n\nNeed final answer: u = column? Make clear. \"## 答案 最终结论.\" Could include \"u=(5,-2,1,0)^T, v=(-7,2,0,1)^T span nullspace.\" But problem wants fill arrays. The \"可核对结论\" with exact line \"结论: 5 | -2 | 1 | 0 | -7 | 2 | 0 | 1\" no words. Need maybe mention \"类型: 基（u,v）\" etc. Let's think about output format.\n\nThe user specifically: \"In the section 可核对结论, the line starting with 结论 must contain only the [ANS] values in order, separated by ' | '. Do not add words on that line.\" So need exactly.\n\nNeed ensure there are no extra words? They say line starting with 结论 must contain only [ANS] values in order. So after \"结论：\" maybe no words. Could write \"结论：5 | -2 | 1 | 0 | -7 | 2 | 0 | 1\". Good.\n\nNeed \"## 可核对结论\" with type, conclusion, convention, source. Could include \"约定：自由变量取 x3,x4，先 x3 后 x4；u 对 x3，v 对 x4\" as one line. Source: 自行选取.\n\nNeed \"## 检验\" maybe verify A u=0 and A v=0, rank nullity. We can show.\n\nNeed be careful with \"矩阵解法\" vs \"线性空间解法\": Use matrix as object, row reduction, equations. We shouldn't phrase linear transformations with nullspace etc maybe okay; matrix solution. We can mention \"把齐次方程 A x = 0 的增广矩阵化为 RREF\". That's matrix.\n\nNeed maybe no need to mention \"span all x\" maybe.\n\nLet's maybe include:\n\n## 题目\nLet \\(A=\\begin{bmatrix}... \\end{bmatrix}\\). Find a pair of vectors \\(\\vec u,\\vec v\\in\\mathbb R^4\\) that span the set of all \\(\\vec x\\in\\mathbb R^4\\) mapped to zero by \\(\\vec x\\mapsto A\\vec x\\).\n\n## 解法\n按实数域处理；使用矩阵解法。\nWe need find nullspace by solving \\(A\\vec x=\\vec0\\). Row reduce:\n\\[\n\\begin{bmatrix}\n1&3&1&1\\\\\n0&1&2&-2\\\\\n-1&-2&1&-3\n\\end{bmatrix}\n\\to ...\n\\]\nMaybe include:\nR3+R1 -> \\( [0,1,2,-2]\\), then R3-R2 -> zero, R1-3R2 -> \\( [1,0,-5,7]\\).\nRREF:\n\\( \\begin{bmatrix} 1&0&-5&7\\\\ 0&1&2&-2\\\\ 0&0&0&0 \\end{bmatrix}\\).\nThus\n\\[\nx_1-5x_3+7x_4=0,\\quad x_2+2x_3-2x_4=0.\n\\]\nSet \\(x_3=s,x_4=t\\). Then\n\\[\n\\vec x=\\begin{bmatrix}5s-7t\\\\-2s+2t\\\\s\\\\t\\end{bmatrix}\n=s\\begin{bmatrix}5\\\\-2\\\\1\\\\0\\end{bmatrix}\n+t\\begin{bmatrix}-7\\\\2\\\\0\\\\1\\end{bmatrix}.\n\\]\nSo choose \\(u=[5,-2,1,0]^T, v=[-7,2,0,1]^T\\).\n\n## 约定\n- 自由变量取 \\(x_3,x_4\\)。\n- \\(u\\) 对应 \\(x_3=1,x_4=0\\)，\\(v\\) 对应 \\(x_3=0,x_4=1\\)。\n来源：自行选取\n\n## 答案\n\\[\n\\vec u=\\begin{bmatrix}5\\\\-2\\\\1\\\\0\\end{bmatrix},\\quad\n\\vec v=\\begin{bmatrix}-7\\\\2\\\\0\\\\1\\end{bmatrix}.\n\\]\n\n## 可核对结论\n- 类型：基（或空空间的两个生成元）\n- 结论：5 | -2 | 1 | 0 | -7 | 2 | 0 | 1\n- 约定：自由变量 x3,x4；u 对 x3，v 对 x4\n- 约定来源：自行选取\n\n## 检验\n\\(A\\vec u=0\\) compute. Let's compute explicitly:\nA u:\nrow1: 1(5)+3(-2)+1(1)+1(0)=5-6+1=0.\nrow2: 0(5)+1(-2)+2(1)+(-2)(0)=-2+2=0.\nrow3: -1(5)-2(-2)+1(1)+(-3)(0)=-5+4+1=0.\n\\(A\\vec v\\):\nrow1: -7+6+0+1=0; row2: 2+0-2=0; row3: 7-4+0-3=0.\nAlso rank A = 2, nullity = 4 - 2 = 2, so two independent vectors span null space. Maybe compute determinant? No.\n\nNeed check if \"type\" maybe \"基\". The final conclusion: [ANS] maybe no commas? Should be pipe.\n\nPotential issue: The problem statement has \\(\\vec u=\\) \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}, $\\vec v}= same. It asks \"Find a pair of vectors u,v that span the set\". They may expect any basis. Our answer fits. Need maybe \"v\" might have signs different, but span okay. There is no unique. The \"约定来源\" should be \"自行选取\".\n\nNeed maybe output no Markdown table? Fine.\n\nNeed maybe include \"## 题目\" exactly. Use \"Let \\(A=\\dots\\).\" Could copy exactly.\n\nNeed maybe mention \"矩阵解法\" even though problem in English. Let's ensure all in Chinese except mathematical symbols. Good.\n\nNeed maybe mention \"按实数域处理\" in 解法 opener. Yes.\n\nNeed maybe avoid using \"核\" \"零空间\" too much due linear space? But matrix solution can mention nullspace? It says matrix solution with specific matrices; okay. \"解齐次线性方程组\".\n\nNeed maybe if user expects \"do not add words on conclusion line\": I will ensure exactly line \"结论：5 | -2 | 1 | 0 | -7 | 2 | 0 | 1\" with no additional words. \"结论：\" is before values, but they said line starting with 结论 must contain only values separated by ' | '. So maybe should not include \"结论：\"? Hmm They say \"the line starting with 结论 must contain only the [ANS] values in order, separated by ' | '. Do not add words on that line.\" In the format, they ask include \"- 结论：写成可以逐项核对的式子\". So line begins \"结论：\" then values. The phrase \"结论：\" maybe is label; do they consider that a word? Usually they say line starting with 结论. It might be allowed because they specified \"line starting with 结论\". The instruction \"Do not add words on that line\" likely means no explanatory words beyond the label and values. But they emphasize \"must contain only the [ANS] values in order\". Could maybe write exactly:\n- 结论：5 | -2 | 1 | 0 | -7 | 2 | 0 | 1\n\nThis is okay. But to be safe maybe use \"结论：5 | -2 | 1 | 0 | -7 | 2 | 0 | 1\" no extra.\n\nNeed maybe \"约定\" line says \"自由变量 x3,x4；u 对应 x3，v 对应 x4\" one line.\n\nNeed maybe \"检验\" completed. Good.\n\nLet's ensure row reduction:\nR1 = [1,3,1,1].\nR3 + R1: [-1,-2,1,-3]+[1,3,1,1] = [0,1,2,-2].\nR2 is [0,1,2,-2].\nThen R3 - R2 = 0.\nR1-3R2: [1,3,1,1] - [0,3,6,-6] = [1,0,-5,7].\nYes.\n\nLet's consider if there's a possibility rank is 2? Yes 3 rows, after row reduce two nonzero. Nullity=2. Pair spans all solutions.\n\nNeed maybe \"pair of vectors \\(\\vec u,\\vec v\\) in \\(\\mathbb R^4\\) that span ...\" Not necessarily independent? But a pair spans set; if they are dependent then no. We choose independent, fine.\n\nPotential nuance: If the nullspace dimension is 2, any two linearly independent null vectors. We provide two.\n\nNeed maybe the \"可核对结论\" type \"基（两个生成元）\" maybe better. Could say \"类型：向量（生成零空间的基）\" maybe. The \"答案\" wanted as \\([ANS]\\). Good.\n\nLet's final.",
+  "content": "## 题目\nLet  \n\\[\nA=\\begin{bmatrix}\n1&3&1&1\\\\\n0&1&2&-2\\\\\n-1&-2&1&-3\n\\end{bmatrix}.\n\\]\nFind a pair of vectors \\(\\vec u,\\vec v\\in \\mathbb R^4\\) that span the set of all \\(\\vec x\\in\\mathbb R^4\\) mapped into the zero vector by \\(\\vec x\\mapsto A\\vec x\\).\n\n## 解法\n按实数域处理；使用矩阵解法。\n\n求 \\(A\\vec x=\\vec 0\\) 的解。对 \\(A\\) 做初等行变换：\n\n\\[\n\\begin{bmatrix}\n1&3&1&1\\\\\n0&1&2&-2\\\\\n-1&-2&1&-3\n\\end{bmatrix}\n\\xrightarrow{R_3+R_1}\n\\begin{bmatrix}\n1&3&1&1\\\\\n0&1&2&-2\\\\\n0&1&2&-2\n\\end{bmatrix}\n\\xrightarrow{R_3-R_2}\n\\begin{bmatrix}\n1&3&1&1\\\\\n0&1&2&-2\\\\\n0&0&0&0\n\\end{bmatrix}\n\\]\n\n\\[\n\\xrightarrow{R_1-3R_2}\n\\begin{bmatrix}\n1&0&-5&7\\\\\n0&1&2&-2\\\\\n0&0&0&0\n\\end{bmatrix}.\n\\]\n\n所以方程组为  \n\\[\nx_1-5x_3+7x_4=0,\\qquad x_2+2x_3-2x_4=0.\n\\]\n\n令自由变量 \\(x_3=s,\\ x_4=t\\)，则\n\n\\[\n\\vec x=\n\\begin{bmatrix}\n5s-7t\\\\\n-2s+2t\\\\\ns\\\\\nt\n\\end{bmatrix}\n=\ns\\begin{bmatrix}\n5\\\\\n-2\\\\\n1\\\\\n0\n\\end{bmatrix}\n+\nt\\begin{bmatrix}\n-7\\\\\n2\\\\\n0\\\\\n1\n\\end{bmatrix}.\n\\]\n\n因此可取\n\n\\[\n\\vec u=\\begin{bmatrix}5\\\\-2\\\\1\\\\0\\end{bmatrix},\n\\qquad\n\\vec v=\\begin{bmatrix}-7\\\\2\\\\0\\\\1\\end{bmatrix}.\n\\]\n\n## 约定\n- 自由变量取 \\(x_3,x_4\\)。\n- \\(\\vec u\\) 对应 \\(x_3=1,x_4=0\\)，\\(\\vec v\\) 对应 \\(x_3=0,x_4=1\\)。\n\n来源：自行选取\n\n## 答案\n\\[\n\\vec u=\n\\begin{bmatrix}\n5\\\\\n-2\\\\\n1\\\\\n0\n\\end{bmatrix},\n\\qquad\n\\vec v=\n\\begin{bmatrix}\n-7\\\\\n2\\\\\n0\\\\\n1\n\\end{bmatrix}.\n\\]\n\n## 可核对结论\n- 类型：基\n- 结论：5 | -2 | 1 | 0 | -7 | 2 | 0 | 1\n- 约定：自由变量取 x3,x4；u 对 x3，v 对 x4\n- 约定来源：自行选取\n\n## 检验\n\\[\nA\\vec u=\n\\begin{bmatrix}\n1&3&1&1\\\\\n0&1&2&-2\\\\\n-1&-2&1&-3\n\\end{bmatrix}\n\\begin{bmatrix}\n5\\\\\n-2\\\\\n1\\\\\n0\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n0\\\\\n0\\\\\n0\n\\end{bmatrix}.\n\\]\n\n\\[\nA\\vec v=\n\\begin{bmatrix}\n1&3&1&1\\\\\n0&1&2&-2\\\\\n-1&-2&1&-3\n\\end{bmatrix}\n\\begin{bmatrix}\n-7\\\\\n2\\\\\n0\\\\\n1\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n0\\\\\n0\\\\\n0\n\\end{bmatrix}.\n\\]\n\n且 \\(\\vec u,\\vec v\\) 线性无关，所以它们张成整个解空间。",
+  "request": {
+    "system": "你是线性代数解题助手。用户只给你题目，不给你现成解法。请完整求解。\n\n两种写法只能取一种作为推理主线。\n\n矩阵解法：以具体矩阵为对象。使用增广矩阵与初等行变换、秩、行列式、特征多项式 det(A-λI)、相似与合同、过渡矩阵的乘法。结论从这些计算得出。\n\n线性空间解法：以向量空间、子空间、基、维数和线性映射为对象。使用线性无关与张成、解空间（核）加特解、子空间的和与交、维数公式、核与像、秩-零化度定理，把特征值看成使 T(v)=λv 的数，把特征子空间写成 ker(T-λid)。坐标和矩阵只能作为表示，推理主线落在空间和映射上。\n\n要求：\n- 用题目所用的语言作答。题目是中文时用中文。\n- 数域未说明时按实数域处理，并在开头声明。\n- 严格按用户消息里的「写法」执行。那里指定了某种写法时，只用那一种，即使题目原文要求另一种。\n- 那里没有指定写法时，只自选一种最直接的，并在解法开头声明是矩阵解法还是线性空间解法。不要两种都写。\n- 写出关键步骤。矩阵、向量、空间和基都写清楚。\n- 不唯一的选择由你自己取，约定来源写「自行选取」。\n- 条件不够或题目自相矛盾时，指出缺什么，不要编造数据。\n\n按下面的结构输出：\n\n## 题目\n精确复述要求解的对象。\n\n## 解法\n开头用一句话声明写法，然后逐步推导。\n\n## 约定\n列出本题里不唯一、但这份解答实际采用的选择。常见的有：哪个未知数是自由变量、特解、基的顺序与缩放、特征值的排列、过渡矩阵的列顺序。没有这种选择就写「无」。\n接着单独写一行来源，只能是下面二者之一：\n- 来源：自行选取\n- 来源：继承已有解法\n\n## 答案\n只写最终结论。\n\n## 可核对结论\n- 类型：通解、标量、矩阵、基、维数、是否，或其他\n- 结论：写成可以逐项核对的式子，不用口语\n- 约定：把实际采用的选择压缩成一行\n- 约定来源：自行选取，或继承已有解法\n\n## 检验\n能代回原题、核对秩或维数就做。做不到就说明原因。\n\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "【题目】\nLet A=\\left[\\begin{array}{cccc} 1 &3 &1 &1\\cr 0 &1 &2 &-2\\cr-1 &-2 &1 &-3 \\end{array}\\right]. Find a pair of vectors $\\vec{u}, \\vec{v}$ in ${\\mathbb R}^4$ that span the set of all $\\vec{x}\\in {\\mathbb R}^4$ that are mapped into the zero vector by the transformation $\\vec{x} \\mapsto A\\vec{x}$.\n$\\vec{u}=$ \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}, $\\vec{v}=$ \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}.\n\nIn the section 可核对结论, the line starting with 结论 must contain only the [ANS] values in order, separated by ' | '. Do not add words on that line.\n\n【写法】\n必须使用矩阵解法，不要改用线性空间解法。题目原文若要求另一种，仍以这里的指定为准。\n"
+      }
+    ]
+  },
+  "blank_score": {
+    "parsed": true,
+    "correct": false,
+    "n_expected": 8,
+    "n_got": 8,
+    "matches": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "got": [
+      "5",
+      "-2",
+      "1",
+      "0",
+      "-7",
+      "2",
+      "0",
+      "1"
+    ]
+  },
+  "convention_source": "chosen"
+}

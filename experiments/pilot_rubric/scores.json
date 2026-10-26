@@ -1,0 +1,489 @@
+{
+  "pilot_dir": "experiments/ugmath_la_20261025",
+  "pilot_unchanged": true,
+  "scores_are": "人工三项。keyword 与 blank_auto 只作对照，不进入结论、取法、写法。",
+  "items": [
+    {
+      "id": "Linear_algebra_0054",
+      "reference_kind": "自然",
+      "locked": "自由变量 x2,x3,x4,x7；特解取这些变量为 0"
+    },
+    {
+      "id": "Linear_algebra_0310",
+      "reference_kind": "参照有误",
+      "locked": "参照写成第一列 (-16,-9,20)。该向量是第一行，不在列空间内。真正的第一列是 (-16,-4,0)"
+    },
+    {
+      "id": "Linear_algebra_0313",
+      "reference_kind": "题目已固定",
+      "locked": "题目给出的有序基；P 的第 j 列是 B 的第 j 个向量在 C 下的坐标"
+    },
+    {
+      "id": "Linear_algebra_0333",
+      "reference_kind": "非自然",
+      "locked": "有序基先 9+x^2，再 x"
+    },
+    {
+      "id": "Linear_algebra_0345",
+      "reference_kind": "自然",
+      "locked": "特征值从小到大由题目规定；特征向量取首个非零坐标为正"
+    },
+    {
+      "id": "Linear_algebra_0468",
+      "reference_kind": "题目已固定",
+      "locked": "有序基 {1,t,t^2}；第 j 列是 T 作用在第 j 个基多项式上的坐标"
+    },
+    {
+      "id": "Linear_algebra_0494",
+      "reference_kind": "非自然",
+      "locked": "核基先 (-1,0,-1) 再 (0,-1,-2)；像基 (2,1)。不是行化简的参数基"
+    },
+    {
+      "id": "Linear_algebra_0501",
+      "reference_kind": "非自然",
+      "locked": "先 u=(-7,2,0,1)（x4），再 v=(5,-2,1,0)（x3）"
+    }
+  ],
+  "scores": [
+    {
+      "item_id": "Linear_algebra_0054",
+      "condition": "direct",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "自选",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": false,
+      "note": "行化简得到与参照相同的通解。自动填空因 4x2 没有乘号判错。取法相同是因为自由变量由主元列决定。"
+    },
+    {
+      "item_id": "Linear_algebra_0054",
+      "condition": "forced_matrix",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "符合",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": true,
+      "note": "按主元列回代。矩阵是所要求的写法。"
+    },
+    {
+      "item_id": "Linear_algebra_0054",
+      "condition": "forced_space",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "符合",
+      "confidence": "中",
+      "keyword": "自行选取",
+      "blank_auto": true,
+      "note": "正文先回代，再写成特解加四个核向量。若认为核只是包装，可改成换名。"
+    },
+    {
+      "item_id": "Linear_algebra_0054",
+      "condition": "translate_to_matrix",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "已换",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "做了 RREF，并把自由列、特解、核基和给定的空间解法逐条对应。"
+    },
+    {
+      "item_id": "Linear_algebra_0054",
+      "condition": "translate_to_space",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "已换",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "写成 T、秩-零化度、p+ker，自由变量和特解与参照相同。"
+    },
+    {
+      "item_id": "Linear_algebra_0310",
+      "condition": "direct",
+      "conclusion": "对",
+      "convention": "不同",
+      "form": "定义同一",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": false,
+      "note": "取真正的第一列 (-16,-4,0)，它在列空间里。自动填空按错误参照判错。"
+    },
+    {
+      "item_id": "Linear_algebra_0310",
+      "condition": "forced_matrix",
+      "conclusion": "对",
+      "convention": "不同",
+      "form": "定义同一",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": false,
+      "note": "同样是读出第一列。列与 T(e1) 在这题上是同一个对象。"
+    },
+    {
+      "item_id": "Linear_algebra_0310",
+      "condition": "forced_space",
+      "conclusion": "对",
+      "convention": "不同",
+      "form": "定义同一",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": false,
+      "note": "用列张成来写，选的仍是真正的第一列，没有引入与矩阵不同的计算。"
+    },
+    {
+      "item_id": "Linear_algebra_0310",
+      "condition": "translate_to_matrix",
+      "conclusion": "错",
+      "convention": "相同",
+      "form": "定义同一",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "把参照中的 (-16,-9,20) 当作第一列。该向量是第一行，不在列空间内。自动填空判对。"
+    },
+    {
+      "item_id": "Linear_algebra_0310",
+      "condition": "translate_to_space",
+      "conclusion": "错",
+      "convention": "相同",
+      "form": "定义同一",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "把同一错误向量写成 T(e1)。步骤对应是列与像的换名。"
+    },
+    {
+      "item_id": "Linear_algebra_0313",
+      "condition": "direct",
+      "conclusion": "对",
+      "convention": "题目已固定",
+      "form": "自选",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "P=C 逆乘 B。没有收到参照，关键词却写了继承，关键词不计分。"
+    },
+    {
+      "item_id": "Linear_algebra_0313",
+      "condition": "forced_matrix",
+      "conclusion": "对",
+      "convention": "题目已固定",
+      "form": "符合",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": true,
+      "note": "矩阵乘积求出唯一的 P。"
+    },
+    {
+      "item_id": "Linear_algebra_0313",
+      "condition": "forced_space",
+      "conclusion": "对",
+      "convention": "题目已固定",
+      "form": "符合",
+      "confidence": "中",
+      "keyword": "自行选取",
+      "blank_auto": true,
+      "note": "把 P 的列写成 B 基向量的 C 坐标。若认为这与乘逆是定义的两边，可改成定义同一。"
+    },
+    {
+      "item_id": "Linear_algebra_0313",
+      "condition": "translate_to_matrix",
+      "conclusion": "对",
+      "convention": "题目已固定",
+      "form": "已换",
+      "confidence": "中",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "把坐标方程对应到 C 逆乘 B 的列。取法没有可选余地。把握为中，理由同 forced_space。"
+    },
+    {
+      "item_id": "Linear_algebra_0313",
+      "condition": "translate_to_space",
+      "conclusion": "对",
+      "convention": "题目已固定",
+      "form": "已换",
+      "confidence": "中",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "由恒等映射的表示矩阵推出每个基向量的坐标。把握为中，可改成定义同一。"
+    },
+    {
+      "item_id": "Linear_algebra_0333",
+      "condition": "direct",
+      "conclusion": "对",
+      "convention": "不同",
+      "form": "自选",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": false,
+      "note": "用 ker L 和秩-零化度。基是 {x, x^2+9}，与参照张成相同，顺序相反。"
+    },
+    {
+      "item_id": "Linear_algebra_0333",
+      "condition": "forced_matrix",
+      "conclusion": "对",
+      "convention": "不同",
+      "form": "符合",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": false,
+      "note": "在 {1,x,x^2} 下求一行矩阵的零空间，再换回多项式。顺序与参照相反。"
+    },
+    {
+      "item_id": "Linear_algebra_0333",
+      "condition": "forced_space",
+      "conclusion": "对",
+      "convention": "不同",
+      "form": "符合",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": false,
+      "note": "L(f)=f'(5)-f(1)，用秩-零化度得到二维核。顺序为 x 然后 x^2+9。"
+    },
+    {
+      "item_id": "Linear_algebra_0333",
+      "condition": "translate_to_matrix",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "已换",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "把多项式条件写成 [L] 的零空间，并按参照把 9+x^2 放在 x 前面。"
+    },
+    {
+      "item_id": "Linear_algebra_0333",
+      "condition": "translate_to_space",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "已换",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "正文先得到 span{x, 9+x^2}，再按参照改成先 9+x^2 后 x。"
+    },
+    {
+      "item_id": "Linear_algebra_0345",
+      "condition": "direct",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "自选",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": true,
+      "note": "特征多项式加行化简。顺序和正首项与参照相同，也是题目和通常取法，不能说明沿用参照。"
+    },
+    {
+      "item_id": "Linear_algebra_0345",
+      "condition": "forced_matrix",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "符合",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": true,
+      "note": "矩阵求特征多项式，再解 (A-λI)v=0。"
+    },
+    {
+      "item_id": "Linear_algebra_0345",
+      "condition": "forced_space",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "换名",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": true,
+      "note": "先写 T，特征值仍由 det 得到，特征空间方程与矩阵零空间相同。"
+    },
+    {
+      "item_id": "Linear_algebra_0345",
+      "condition": "translate_to_matrix",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "换名",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "从称为空间的参照译回矩阵，两边都是特征多项式。结论行在下一行，自动填空仍判对。"
+    },
+    {
+      "item_id": "Linear_algebra_0345",
+      "condition": "translate_to_space",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "换名",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "把零空间改叫 ker(T-λid)，特征值步骤仍是 det([T]-λI)。"
+    },
+    {
+      "item_id": "Linear_algebra_0468",
+      "condition": "direct",
+      "conclusion": "对",
+      "convention": "题目已固定",
+      "form": "定义同一",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": true,
+      "note": "计算 T(1)、T(t)、T(t^2) 的坐标并按列排成矩阵。"
+    },
+    {
+      "item_id": "Linear_algebra_0468",
+      "condition": "forced_matrix",
+      "conclusion": "对",
+      "convention": "题目已固定",
+      "form": "定义同一",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "与直接求解是同一计算。没有收到参照，关键词却写了继承。"
+    },
+    {
+      "item_id": "Linear_algebra_0468",
+      "condition": "forced_space",
+      "conclusion": "对",
+      "convention": "题目已固定",
+      "form": "定义同一",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": true,
+      "note": "把同一组坐标列称为 [T]_B。"
+    },
+    {
+      "item_id": "Linear_algebra_0468",
+      "condition": "translate_to_matrix",
+      "conclusion": "对",
+      "convention": "题目已固定",
+      "form": "定义同一",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "步骤对应是「列」与「坐标列」的互相改名。"
+    },
+    {
+      "item_id": "Linear_algebra_0468",
+      "condition": "translate_to_space",
+      "conclusion": "对",
+      "convention": "题目已固定",
+      "form": "定义同一",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "表示矩阵的定义就是按列填 T(基) 的坐标。"
+    },
+    {
+      "item_id": "Linear_algebra_0494",
+      "condition": "direct",
+      "conclusion": "对",
+      "convention": "不同",
+      "form": "自选",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": false,
+      "note": "行化简得到核基 (-2,1,0)、(1,0,1) 和像基 (2,1)。与参照张成相同，生成元不同。"
+    },
+    {
+      "item_id": "Linear_algebra_0494",
+      "condition": "forced_matrix",
+      "conclusion": "对",
+      "convention": "不同",
+      "form": "符合",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": false,
+      "note": "RREF 的参数基，不是参照指定的那组。"
+    },
+    {
+      "item_id": "Linear_algebra_0494",
+      "condition": "forced_space",
+      "conclusion": "对",
+      "convention": "不同",
+      "form": "符合",
+      "confidence": "中",
+      "keyword": "自行选取",
+      "blank_auto": false,
+      "note": "用 T(e_i) 和秩-零化度，核仍由同一方程参数化。若认为这只是行化简换名，可改成换名。"
+    },
+    {
+      "item_id": "Linear_algebra_0494",
+      "condition": "translate_to_matrix",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "已换",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "行化简后故意不取参数基，而取参照的 (y,z)=(0,-1) 与 (-1,-2)。"
+    },
+    {
+      "item_id": "Linear_algebra_0494",
+      "condition": "translate_to_space",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "已换",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "由 T(v)=(x+2y-z)(2,1) 得到核与像，并保留参照的基。"
+    },
+    {
+      "item_id": "Linear_algebra_0501",
+      "condition": "direct",
+      "conclusion": "对",
+      "convention": "不同",
+      "form": "自选",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": false,
+      "note": "同一对生成元，顺序是先 x3 后 x4，与参照相反。"
+    },
+    {
+      "item_id": "Linear_algebra_0501",
+      "condition": "forced_matrix",
+      "conclusion": "对",
+      "convention": "不同",
+      "form": "符合",
+      "confidence": "高",
+      "keyword": "自行选取",
+      "blank_auto": false,
+      "note": "行化简后按自由变量 x3、x4 的自然顺序写出。"
+    },
+    {
+      "item_id": "Linear_algebra_0501",
+      "condition": "forced_space",
+      "conclusion": "对",
+      "convention": "不同",
+      "form": "符合",
+      "confidence": "中",
+      "keyword": "自行选取",
+      "blank_auto": false,
+      "note": "写成 ker T，方程仍是前两行。顺序与参照相反。可改成换名。"
+    },
+    {
+      "item_id": "Linear_algebra_0501",
+      "condition": "translate_to_matrix",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "已换",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "行化简后按参照把 x4 对应的向量放在前面。"
+    },
+    {
+      "item_id": "Linear_algebra_0501",
+      "condition": "translate_to_space",
+      "conclusion": "对",
+      "convention": "相同",
+      "form": "已换",
+      "confidence": "高",
+      "keyword": "继承已有解法",
+      "blank_auto": true,
+      "note": "用两个线性泛函的公共核和秩-零化度，顺序跟随参照。"
+    }
+  ]
+}

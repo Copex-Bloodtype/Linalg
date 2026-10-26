@@ -1,0 +1,4073 @@
+================================================================================
+Linear_algebra_0054  direct
+可核对结论
+- 类型：通解
+- 结论：-39-4x2+4x3+3x4 | x2 | x3 | x4 | x7+57 | x7-19 | x7 | -6
+- 约定：自由变量为 x2,x3,x4,x7
+- 约定来源：自行选取
+
+## 检验
+代回原方程：
+
+\[
+x8=-6,
+\]
+
+\[
+x6-x7-2x8=(x7-19)-x7+12=-7,
+\]
+
+\[
+x5+3x6-4x7=(x7+57)+3(x7-19)-4x7=0,
+\]
+
+\[
+\begin{aligned}
+&x1+4x2-4x3-3x4+x5+x6-2x7\\
+&=(-39-4x2+4x3+3x4)+4x2-4x3-3x4+(x7+57)+(x7-19)-2x7\\
+&=-1.
+\end{aligned}
+\]
+
+代回原题成立。
+---SOL---
+## 解法
+采用矩阵解法（实数域）。
+
+对增广矩阵继续行化简：
+
+\[
+R_3\leftarrow R_3+2R_4,\quad
+R_2\leftarrow R_2-3R_3,\quad
+R_1\leftarrow R_1-R_3,\quad
+R_1\leftarrow R_1-R_2
+\]
+
+得到简化行阶梯形：
+
+\[
+\left[\begin{array}{rrrrrrrr|r} 
+1 &4 &-4 &-3 &0 &0 &0 &0 &-39 \\
+0 &0 &0 &0 &1 &0 &-1 &0 &57 \\
+0 &0 &0 &0 &0 &1 &-1 &0 &-19 \\
+0 &0 &0 &0 &0 &0 &0 &1 &-6 
+\end{array}\right]
+\]
+
+对应方程组为
+
+\[
+\begin{aligned}
+x1+4x2-4x3-3x4 &= -39,\\
+x5-x7 &= 57,\\
+x6-x7 &= -19,\\
+x8 &= -6.
+\end{aligned}
+\]
+
+主元列为第 \(1,5,6,8\) 列，自由变量为 \(x2,x3,x4,x7\)。解得：
+
+\[
+\begin{aligned}
+x1 &= -39-4x2+4x3+3x4,\\
+x5 &= x7+57,\\
+x6 &= x7-19,\\
+x8 &= -6.
+\end{aligned}
+\]
+
+
+
+================================================================================
+Linear_algebra_0054  forced_matrix
+可核对结论
+- 类型：通解
+- 结论：-39 - 4*x2 + 4*x3 + 3*x4 | x2 | x3 | x4 | 57 + x7 | -19 + x7 | x7 | -6
+- 约定：自由变量取 x2,x3,x4,x7；顺序按原列顺序
+- 约定来源：自行选取
+
+## 检验
+将通解代入原方程组各行的左端：
+
+\[
+x_8=-6,
+\]
+
+\[
+x_6-x_7-2x_8=(x_7-19)-x_7-2(-6)=-7,
+\]
+
+\[
+x_5+3x_6-4x_7=(x_7+57)+3(x_7-19)-4x_7=0,
+\]
+
+\[
+x_1+4x_2-4x_3-3x_4+x_5+x_6-2x_7=-1.
+\]
+
+五行右端分别为 \(-1,0,-7,-6\)，均与原增广矩阵一致。
+---SOL---
+## 解法
+解法：矩阵解法，按实数域处理。
+
+给定矩阵已经是行最简形。主元列是第 \(1,5,6,8\) 列，因此基本变量为 \(x_1,x_5,x_6,x_8\)，自由变量为 \(x_2,x_3,x_4,x_7\)。
+
+对应方程组为
+
+\[
+\begin{aligned}
+x_1+4x_2-4x_3-3x_4+x_5+x_6-2x_7 &= -1,\\
+x_5+3x_6-4x_7 &= 0,\\
+x_6-x_7-2x_8 &= -7,\\
+x_8 &= -6.
+\end{aligned}
+\]
+
+从下往上回代：
+
+\[
+x_8=-6,
+\]
+
+\[
+x_6-x_7-2(-6)=-7
+\quad\Rightarrow\quad
+x_6=x_7-19,
+\]
+
+\[
+x_5+3(x_7-19)-4x_7=0
+\quad\Rightarrow\quad
+x_5=x_7+57,
+\]
+
+\[
+x_1+4x_2-4x_3-3x_4+(x_7+57)+(x_7-19)-2x_7=-1
+\]
+
+\[
+\Rightarrow\quad
+x_1=-39-4x_2+4x_3+3x_4.
+\]
+
+因此通解为
+
+\[
+\begin{pmatrix}
+x_1\\x_2\\x_3\\x_4\\x_5\\x_6\\x_7\\x_8
+\end{pmatrix}
+=
+\begin{pmatrix}
+-39\\0\\0\\0\\57\\-19\\0\\-6
+\end{pmatrix}
++x_2
+\begin{pmatrix}
+-4\\1\\0\\0\\0\\0\\0\\0
+\end{pmatrix}
++x_3
+\begin{pmatrix}
+4\\0\\1\\0\\0\\0\\0\\0
+\end{pmatrix}
++x_4
+\begin{pmatrix}
+3\\0\\0\\1\\0\\0\\0\\0
+\end{pmatrix}
++x_7
+\begin{pmatrix}
+0\\0\\0\\0\\1\\1\\1\\0
+\end{pmatrix}.
+\]
+
+
+
+================================================================================
+Linear_algebra_0054  forced_space
+可核对结论
+- 类型：通解
+- 结论：-39-4*x2+4*x3+3*x4 | x2 | x3 | x4 | 57+x7 | -19+x7 | x7 | -6
+- 约定：自由变量为 x2,x3,x4,x7
+- 约定来源：自行选取
+
+## 检验
+代回原方程组：
+
+\[
+x_8=-6
+\]
+
+满足第 4 式。
+
+第 3 式：
+
+\[
+(x_7-19)-x_7-2(-6)=-19+12=-7
+\]
+
+成立。
+
+第 2 式：
+
+\[
+(x_7+57)+3(x_7-19)-4x_7
+=x_7+57+3x_7-57-4x_7=0
+\]
+
+成立。
+
+第 1 式：
+
+\[
+(-39-4x_2+4x_3+3x_4)+4x_2-4x_3-3x_4+(x_7+57)+(x_7-19)-2x_7=-1
+\]
+
+成立。
+
+主变量有 \(4\) 个，自由变量有 \(4\) 个，未知数总数为 \(8\)，维数关系满足秩-零化度要求。
+---SOL---
+## 解法
+数域未说明，按 \(\mathbb R\) 处理。采用线性空间解法：把解集看作仿射子空间「特解 + 齐次核」，先确定自由变量，再用自由变量表示其余变量。
+
+由增广矩阵各行得到方程组：
+
+\[
+\begin{cases}
+x_1+4x_2-4x_3-3x_4+x_5+x_6-2x_7=-1,\\
+x_5+3x_6-4x_7=0,\\
+x_6-x_7-2x_8=-7,\\
+x_8=-6.
+\end{cases}
+\]
+
+由第 4 式得
+
+\[
+x_8=-6.
+\]
+
+代入第 3 式：
+
+\[
+x_6-x_7-2(-6)=-7
+\]
+
+\[
+x_6-x_7+12=-7
+\]
+
+\[
+x_6=x_7-19.
+\]
+
+代入第 2 式：
+
+\[
+x_5+3(x_7-19)-4x_7=0
+\]
+
+\[
+x_5+3x_7-57-4x_7=0
+\]
+
+\[
+x_5=x_7+57.
+\]
+
+将 \(x_5=x_7+57\)，\(x_6=x_7-19\) 代入第 1 式：
+
+\[
+x_1+4x_2-4x_3-3x_4+(x_7+57)+(x_7-19)-2x_7=-1
+\]
+
+\[
+x_1+4x_2-4x_3-3x_4+38=-1
+\]
+
+\[
+x_1=-39-4x_2+4x_3+3x_4.
+\]
+
+因此主变量为 \(x_1,x_5,x_6,x_8\)，自由变量为 \(x_2,x_3,x_4,x_7\)。
+
+写成向量形式：
+
+\[
+\begin{bmatrix}
+x_1\\x_2\\x_3\\x_4\\x_5\\x_6\\x_7\\x_8
+\end{bmatrix}
+=
+\begin{bmatrix}
+-39\\0\\0\\0\\57\\-19\\0\\-6
+\end{bmatrix}
++
+x_2
+\begin{bmatrix}
+-4\\1\\0\\0\\0\\0\\0\\0
+\end{bmatrix}
++
+x_3
+\begin{bmatrix}
+4\\0\\1\\0\\0\\0\\0\\0
+\end{bmatrix}
++
+x_4
+\begin{bmatrix}
+3\\0\\0\\1\\0\\0\\0\\0
+\end{bmatrix}
++
+x_7
+\begin{bmatrix}
+0\\0\\0\\0\\1\\1\\1\\0
+\end{bmatrix}.
+\]
+
+其中 \(x_2,x_3,x_4,x_7\in\mathbb R\) 任意。
+
+
+
+================================================================================
+Linear_algebra_0054  translate_to_matrix
+可核对结论
+- 类型：通解
+- 结论：-39-4*x2+4*x3+3*x4 | x2 | x3 | x4 | 57+x7 | -19+x7 | x7 | -6
+- 约定：自由变量按 x2,x3,x4,x7 取；特解取自由变量全为 0
+- 约定来源：继承已有解法
+
+## 检验
+将通解代回原增广矩阵对应的四个方程。
+
+第 4 个方程：
+
+\[
+x_8=-6
+\]
+
+成立。
+
+第 3 个方程：
+
+\[
+x_6-x_7-2x_8=(-19+x_7)-x_7-2(-6)=-7
+\]
+
+成立。
+
+第 2 个方程：
+
+\[
+x_5+3x_6-4x_7=(57+x_7)+3(-19+x_7)-4x_7=0
+\]
+
+成立。
+
+第 1 个方程：
+
+\[
+x_1+4x_2-4x_3-3x_4+x_5+x_6-2x_7
+\]
+
+代入得
+
+\[
+(-39-4x_2+4x_3+3x_4)+4x_2-4x_3-3x_4+(57+x_7)+(-19+x_7)-2x_7=-1
+\]
+
+成立。
+
+因此通解正确。
+---SOL---
+## 另一种解法
+本次采用矩阵解法。数域未说明，按实数域处理。
+
+对给定增广矩阵做初等行变换，将其化为简化行阶梯形（RREF）：
+
+\[
+\left[\begin{array}{rrrrrrrr|r}
+1&4&-4&-3&1&1&-2&0&-1\\
+0&0&0&0&1&3&-4&0&0\\
+0&0&0&0&0&1&-1&-2&-7\\
+0&0&0&0&0&0&0&1&-6
+\end{array}\right]
+\]
+
+依次做行变换：
+
+\[
+R_2\leftarrow R_2-3R_3
+\]
+
+得
+
+\[
+\left[\begin{array}{rrrrrrrr|r}
+1&4&-4&-3&1&1&-2&0&-1\\
+0&0&0&0&1&0&-1&6&21\\
+0&0&0&0&0&1&-1&-2&-7\\
+0&0&0&0&0&0&0&1&-6
+\end{array}\right]
+\]
+
+继续：
+
+\[
+R_1\leftarrow R_1-R_2,\quad R_1\leftarrow R_1-R_3
+\]
+
+得
+
+\[
+\left[\begin{array}{rrrrrrrr|r}
+1&4&-4&-3&0&0&0&-4&-15\\
+0&0&0&0&1&0&-1&6&21\\
+0&0&0&0&0&1&-1&-2&-7\\
+0&0&0&0&0&0&0&1&-6
+\end{array}\right]
+\]
+
+最后消去第 8 列上方非零项：
+
+\[
+R_1\leftarrow R_1+4R_4,\quad
+R_2\leftarrow R_2-6R_4,\quad
+R_3\leftarrow R_3+2R_4
+\]
+
+得到 RREF：
+
+\[
+\left[\begin{array}{rrrrrrrr|r}
+1&4&-4&-3&0&0&0&0&-39\\
+0&0&0&0&1&0&-1&0&57\\
+0&0&0&0&0&1&-1&0&-19\\
+0&0&0&0&0&0&0&1&-6
+\end{array}\right]
+\]
+
+主元列为第 \(1,5,6,8\) 列，自由列为第 \(2,3,4,7\) 列。因此自由变量为：
+
+\[
+x_2,x_3,x_4,x_7
+\]
+
+令 \(x_2=s,\ x_3=t,\ x_4=u,\ x_7=v\)。由 RREF 得到：
+
+\[
+x_1+4s-4t-3u=-39
+\]
+
+所以
+
+\[
+x_1=-39-4s+4t+3u
+\]
+
+其余行为：
+
+\[
+x_5-v=57,\qquad x_6-v=-19,\qquad x_8=-6
+\]
+
+因此
+
+\[
+x_5=57+v,\qquad x_6=-19+v,\qquad x_8=-6
+\]
+
+所以通解为：
+
+\[
+\begin{pmatrix}
+x_1\\x_2\\x_3\\x_4\\x_5\\x_6\\x_7\\x_8
+\end{pmatrix}
+=
+\begin{pmatrix}
+-39\\0\\0\\0\\57\\-19\\0\\-6
+\end{pmatrix}
++
+s
+\begin{pmatrix}
+-4\\1\\0\\0\\0\\0\\0\\0
+\end{pmatrix}
++
+t
+\begin{pmatrix}
+4\\0\\1\\0\\0\\0\\0\\0
+\end{pma
+---CORR---
+## 步骤对应
+- 线性空间解法中的“特解 \(+ \ker(T)\)” ↔ 矩阵解法中的 RREF 通解“非齐次特解 \(+\) 齐次通解”。
+- 线性空间解法中的自由坐标 \(x_2,x_3,x_4,x_7\) ↔ 矩阵解法中 RREF 的自由列 \(2,3,4,7\)。
+- 线性空间解法中的特解 \(p=(-39,0,0,0,57,-19,0,-6)\) ↔ 矩阵解法中令自由变量 \(x_2=x_3=x_4=x_7=0\) 后从 RREF 读出。
+- 线性空间解法中 \(\ker(T)\) 的基向量 ↔ 矩阵解法中齐次通解里自由变量逐个取 \(1\)、其余取 \(0\) 得到的参数向量。
+- 线性空间解法中的 \(x_8=-6,\ x_6=-19+x_7,\ x_5=57+x_7\) ↔ 矩阵解法中 RREF 的第 \(4,3,2\) 行。
+
+
+
+================================================================================
+Linear_algebra_0054  translate_to_space
+可核对结论
+- 类型：通解
+- 结论：-39-4*x2+4*x3+3*x4 | x2 | x3 | x4 | 57+x7 | -19+x7 | x7 | -6
+- 约定：自由变量为 x2,x3,x4,x7；特解取这些自由变量为 0；核基按 x2,x3,x4,x7 顺序
+- 约定来源：继承已有解法
+
+## 检验
+将特解代入原方程：
+\[
+T(p)=(-1,0,-7,-6)=b.
+\]
+将四个核空间基向量代入齐次方程：
+\[
+T(v_2)=T(v_3)=T(v_4)=T(v_7)=0.
+\]
+所以 \(p+\ker T\) 中的每个向量都是原方程组的解。又因为
+\[
+\operatorname{rank}T=4,\qquad \dim\ker T=4,
+\]
+核空间基向量个数正确，解集没有遗漏方向。结果与已有矩阵解法的回代结果一致。
+---SOL---
+## 另一种解法
+本次写法：线性空间解法。数域未说明，以下按实数域处理。
+
+把增广矩阵左 8 列记为系数矩阵 \(A\)，右端列记为  
+\[
+b=(-1,\ 0,\ -7,\ -6)^T.
+\]
+定义线性映射  
+\[
+T:\mathbb R^8\to\mathbb R^4,\qquad T(x)=Ax.
+\]
+原方程组等价于  
+\[
+T(x)=b.
+\]
+
+由阶梯形可知，主元列是第 \(1,5,6,8\) 列，所以  
+\[
+\operatorname{rank} T=4.
+\]
+由秩-零化度定理，
+\[
+\dim\ker T=8-4=4.
+\]
+选取自由变量为  
+\[
+x_2,\ x_3,\ x_4,\ x_7.
+\]
+
+先解齐次方程 \(T(x)=0\)：
+\[
+x_8=0,
+\]
+\[
+x_6-x_7-2x_8=0 \implies x_6=x_7,
+\]
+\[
+x_5+3x_6-4x_7=0 \implies x_5=x_7,
+\]
+\[
+x_1+4x_2-4x_3-3x_4+x_5+x_6-2x_7=0
+\implies x_1=-4x_2+4x_3+3x_4.
+\]
+于是 \(\ker T\) 的一组基为
+\[
+v_2=(-4,1,0,0,0,0,0,0),
+\]
+\[
+v_3=(4,0,1,0,0,0,0,0),
+\]
+\[
+v_4=(3,0,0,1,0,0,0,0),
+\]
+\[
+v_7=(0,0,0,0,1,1,1,0).
+\]
+这组基按自由变量 \(x_2,x_3,x_4,x_7\) 分别取 \(1\)、其余自由变量取 \(0\) 得到。
+
+再取非齐次方程 \(T(x)=b\) 的特解，令所有自由变量为 \(0\)，得
+\[
+p=(-39,0,0,0,57,-19,0,-6).
+\]
+因此解集是仿射子空间
+\[
+p+\ker T.
+\]
+即
+\[
+x=p+x_2v_2+x_3v_3+x_4v_4+x_7v_7.
+\]
+所以
+\[
+(x_1,x_2,x_3,x_4,x_5,x_6,x_7,x_8)
+=
+(-39-4x_2+4x_3+3x_4,\ x_2,\ x_3,\ x_4,\ 57+x_7,\ -19+x_7,\ x_7,\ -6).
+\]
+
+
+---CORR---
+## 步骤对应
+| 已有矩阵解法 | 本次线性空间解法 |
+|---|---|
+| 增广矩阵已为阶梯形，主元列 \(1,5,6,8\)，自由变量 \(x_2,x_3,x_4,x_7\) | 视左 8 列为线性映射 \(T:\mathbb R^8\to\mathbb R^4\)，主元列给出 \(\operatorname{rank}T=4\)，自由变量给出 \(\dim\ker T=4\) |
+| 回代得到 \(x_8=-6\)，\(x_6=x_7-19\)，\(x_5=x_7+57\)，\(x_1=-39-4x_2+4x_3+3x_4\) | 令自由变量 \(x_2,x_3,x_4,x_7\) 全为 0，得到特解 \(p=(-39,0,0,0,57,-19,0,-6)\) |
+| 用自由变量参数化全部解 | 解 \(T(x)=0\) 得到核空间基 \(v_2,v_3,v_4,v_7\) |
+| 通解由特解加齐次解给出 | 解集写作 \(p+\ker T=p+\operatorname{span}\{v_2,v_3,v_4,v_7\}\) |
+
+
+
+================================================================================
+Linear_algebra_0310  direct
+可核对结论
+- 类型：向量
+- 结论：-16 | -4 | 0
+- 约定：取 \(A\) 的第一列作为所求非零向量
+- 约定来源：自行选取
+
+## 检验
+This vector is exactly the first column of \(A\), so it belongs to the column space of \(A\). It is non-zero because its first entry is \(-16\neq 0\).
+---SOL---
+## 解法
+I will use the matrix method.  
+The column space of \(A\) is spanned by the columns of \(A\). Therefore, any column of \(A\) is in the column space.  
+The first column of \(A\) is
+
+\[
+\begin{bmatrix}
+-16\\
+-4\\
+0
+\end{bmatrix}.
+\]
+
+Since its first entry is \(-16\neq 0\), this vector is non-zero.
+
+
+
+================================================================================
+Linear_algebra_0310  forced_matrix
+可核对结论
+- 类型：矩阵（列向量）
+- 结论：-16 | -4 | 0
+- 约定：取 \(A\) 的第 1 列
+- 约定来源：自行选取
+
+## 检验
+\[
+A\begin{bmatrix}1\\0\\0\\0\end{bmatrix}
+=
+\begin{bmatrix}-16\\-4\\0\end{bmatrix}.
+\]
+The result is the first column of \(A\), which is non-zero, so it belongs to the column space of \(A\).
+---SOL---
+## 解法
+This solution uses the matrix method. The column space of \(A\) is the span of the columns of \(A\), so every column of \(A\) lies in \(\operatorname{col}(A)\). Choose the first column of \(A\):
+\[
+\begin{bmatrix}-16\\-4\\0\end{bmatrix}.
+\]
+This vector is non-zero.
+
+
+
+================================================================================
+Linear_algebra_0310  forced_space
+可核对结论
+- 类型：向量
+- 结论：-16 | -4 | 0
+- 约定：取 \(A\) 的第 1 列
+- 约定来源：自行选取
+
+## 检验
+\(\mathbf c_1\) 是 \(A\) 的列向量，因此属于 \(\operatorname{Col}(A)\)；且 \(\mathbf c_1\neq \mathbf 0\)，符合题意。
+---SOL---
+## 解法
+采用线性空间解法，数域未说明，按实数域处理。
+
+把 \(A\) 的列向量看作 \(\mathbb R^3\) 中的向量：
+
+\[
+\mathbf c_1=\begin{pmatrix}-16\\-4\\0\end{pmatrix},\quad
+\mathbf c_2=\begin{pmatrix}-9\\3\\6\end{pmatrix},\quad
+\mathbf c_3=\begin{pmatrix}20\\5\\0\end{pmatrix},\quad
+\mathbf c_4=\begin{pmatrix}-12\\4\\8\end{pmatrix}.
+\]
+
+列空间为
+
+\[
+\operatorname{Col}(A)=\operatorname{span}\{\mathbf c_1,\mathbf c_2,\mathbf c_3,\mathbf c_4\}.
+\]
+
+因此任意一个列向量都在列空间中。选择第一个列向量：
+
+\[
+\mathbf c_1=\begin{pmatrix}-16\\-4\\0\end{pmatrix}.
+\]
+
+它显然非零，所以是列空间中的一个非零向量。
+
+
+
+================================================================================
+Linear_algebra_0310  translate_to_matrix
+可核对结论
+- 类型：向量（列空间中的非零向量）
+- 结论：-16 | -9 | 20
+- 约定：取 \(A\) 的第一列，按行分量顺序列出
+- 约定来源：继承已有解法
+
+## 检验
+\[
+A=\begin{bmatrix}
+-16 & -9 & 20 & -12\\
+-4 & 3 & 5 & 4\\
+0 & 6 & 0 & 8
+\end{bmatrix}
+\]
+的第一列正是 \((-16,-9,20)^T\)，所以它在 \(\operatorname{col}(A)\) 中。它不是零向量，因为第一分量为 \(-16\neq 0\)。已有解法无计算错误。
+---SOL---
+## 另一种解法
+本次采用矩阵解法，直接以矩阵 \(A\) 的列为对象。
+
+将 \(A\) 按列分块：
+\[
+A=\begin{bmatrix}
+-16 & -9 & 20 & -12\\
+-4 & 3 & 5 & 4\\
+0 & 6 & 0 & 8
+\end{bmatrix}
+=
+\begin{bmatrix}
+| & | & | & |\\
+c_1 & c_2 & c_3 & c_4\\
+| & | & | & |
+\end{bmatrix}.
+\]
+其中第一列为
+\[
+c_1=\begin{bmatrix}-16\\-9\\20\end{bmatrix}.
+\]
+按定义，\(\operatorname{col}(A)=\operatorname{span}\{c_1,c_2,c_3,c_4\}\)，所以 \(c_1\in \operatorname{col}(A)\)。又因为 \(c_1\) 的第一个分量 \(-16\neq 0\)，所以 \(c_1\neq 0\)。
+
+因此一个非零向量为：
+\[
+\begin{bmatrix}-16\\-9\\20\end{bmatrix}.
+\]
+
+
+---CORR---
+## 步骤对应
+- 已有解法：设 \(T(x)=Ax\)，把列空间看作 \(\operatorname{im}(T)\)。  
+  本次解法：把列空间看作 \(A\) 的列向量的张成 \(\operatorname{col}(A)\)。
+- 已有解法：取 \(e_1\)。  
+  本次解法：取 \(A\) 的第一列 \(c_1\)。
+- 已有解法：计算 \(T(e_1)=Ae_1=(-16,-9,20)^T\)。  
+  本次解法：直接取出第一列 \(c_1=(-16,-9,20)^T\)。
+- 已有解法：说明该像非零，故在 \(\operatorname{im}(T)\) 中。  
+  本次解法：说明 \(c_1\neq 0\) 且 \(c_1\in \operatorname{col}(A)\)。
+
+
+
+================================================================================
+Linear_algebra_0310  translate_to_space
+可核对结论
+- 类型：列空间中的非零向量
+- 结论：-16 | -9 | 20
+- 约定：取第一列对应的向量
+- 约定来源：继承已有解法
+
+## 检验
+由构造，
+
+\[
+T(e_1)
+\]
+
+的坐标向量为
+
+\[
+(-16,-9,20)^T,
+\]
+
+且该向量非零，所以它在 \(\operatorname{im}(T)\) 中。对应回矩阵，\(Ae_1\) 正是第一列 \((-16,-9,20)^T\)，因此它确实属于列空间。已有矩阵解法无计算错误。
+---SOL---
+## 另一种解法
+本次采用线性空间解法（把矩阵视为线性映射的表示）。题中数域未说明，按实数域处理。
+
+设 \(T:\mathbb R^4\to \mathbb R^3\) 是以 \(A\) 为矩阵的线性映射，取 \(\mathbb R^4\) 的标准基 \(e_1,e_2,e_3,e_4\)，\(\mathbb R^3\) 的标准基 \(f_1,f_2,f_3\)。此时 \(A\) 的第 \(j\) 列就是 \(T(e_j)\) 在标准基下的坐标向量。
+
+因此，列空间就是 \(T\) 的像空间 \(\operatorname{im}(T)\)。特别地，
+
+\[
+[T(e_1)]_{\mathcal F}=
+\begin{pmatrix}
+-16\\
+-9\\
+20
+\end{pmatrix}.
+\]
+
+这个坐标向量不是零向量，所以 \(T(e_1)\neq 0\)。而 \(e_1\in \mathbb R^4\)，故 \(T(e_1)\in \operatorname{im}(T)\)。于是对应的坐标向量
+
+\[
+\begin{pmatrix}
+-16\\
+-9\\
+20
+\end{pmatrix}
+\]
+
+是列空间中的非零向量。
+
+
+---CORR---
+## 步骤对应
+| 已有矩阵解法 | 本次线性空间解法 |
+|---|---|
+| 取出 \(A\) 的列 \(c_1,c_2,c_3,c_4\) | 取出 \(T(e_1),T(e_2),T(e_3),T(e_4)\) 的坐标向量 |
+| 列空间是 \(\operatorname{span}(c_1,\ldots,c_4)\) | 列空间是 \(\operatorname{im}(T)=\operatorname{span}(T(e_1),\ldots,T(e_4))\) |
+| \(c_1=(-16,-9,20)^T\neq 0\) | \([T(e_1)]_{\mathcal F}=(-16,-9,20)^T\neq 0\)，故 \(T(e_1)\neq 0\) |
+| 取 \(c_1\) 作为答案 | 取 \(T(e_1)\) 的坐标向量 \((-16,-9,20)^T\) 作为答案 |
+
+
+
+================================================================================
+Linear_algebra_0313  direct
+可核对结论
+- 类型：矩阵
+- 结论：-12 | -5 | -19 | -9
+- 约定：基向量顺序按题目给定
+- 约定来源：继承已有解法
+
+## 检验
+取 \(B\) 的两个基向量验证。
+
+对于第一个基向量 \(b_1=\begin{bmatrix}5\\2\end{bmatrix}\)：
+\[
+[b_1]_B=\begin{bmatrix}1\\0\end{bmatrix},\qquad
+P[b_1]_B=\begin{bmatrix}-12\\-19\end{bmatrix}.
+\]
+还原为
+\[
+M_C\begin{bmatrix}-12\\-19\end{bmatrix}
+=
+\begin{bmatrix}-2&1\\3&-2\end{bmatrix}
+\begin{bmatrix}-12\\-19\end{bmatrix}
+=
+\begin{bmatrix}5\\2\end{bmatrix}=b_1.
+\]
+
+对于第二个基向量 \(b_2=\begin{bmatrix}1\\3\end{bmatrix}\)：
+\[
+[b_2]_B=\begin{bmatrix}0\\1\end{bmatrix},\qquad
+P[b_2]_B=\begin{bmatrix}-5\\-9\end{bmatrix}.
+\]
+还原为
+\[
+M_C\begin{bmatrix}-5\\-9\end{bmatrix}
+=
+\begin{bmatrix}1\\3\end{bmatrix}=b_2.
+\]
+
+两个基向量均成立，因此由线性性，对所有 \(x\in\mathbb R^2\) 均成立。
+---SOL---
+## 解法
+采用矩阵解法。
+
+令
+\[
+M_B=\begin{bmatrix}5&1\\2&3\end{bmatrix},\qquad
+M_C=\begin{bmatrix}-2&1\\3&-2\end{bmatrix}.
+\]
+因为任意向量满足
+\[
+x=M_B[x]_B=M_C[x]_C,
+\]
+所以
+\[
+[x]_C=M_C^{-1}M_B[x]_B.
+\]
+因此
+\[
+P=M_C^{-1}M_B.
+\]
+
+计算 \(M_C^{-1}\)：
+\[
+\det M_C=(-2)(-2)-1\cdot 3=1,
+\]
+所以
+\[
+M_C^{-1}=\begin{bmatrix}-2&-1\\-3&-2\end{bmatrix}.
+\]
+
+于是
+\[
+P=\begin{bmatrix}-2&-1\\-3&-2\end{bmatrix}
+\begin{bmatrix}5&1\\2&3\end{bmatrix}
+=
+\begin{bmatrix}
+-12&-5\\
+-19&-9
+\end{bmatrix}.
+\]
+
+
+
+================================================================================
+Linear_algebra_0313  forced_matrix
+可核对结论
+- 类型：矩阵
+- 结论：-12 | -5 | -19 | -9
+- 约定：基向量顺序按题中列举顺序
+- 约定来源：自行选取
+
+## 检验
+取 \(B\) 的第一个基向量 \(\vec{b}_1=\begin{bmatrix}5\\2\end{bmatrix}\)，则
+\[
+[\vec{b}_1]_B=\begin{bmatrix}1\\0\end{bmatrix},
+\]
+\[
+P[\vec{b}_1]_B=\begin{bmatrix}-12\\-19\end{bmatrix}.
+\]
+验证：
+\[
+-12\begin{bmatrix}-2\\3\end{bmatrix}
+-19\begin{bmatrix}1\\-2\end{bmatrix}
+=
+\begin{bmatrix}5\\2\end{bmatrix}
+=\vec{b}_1.
+\]
+再取 \(\vec{b}_2=\begin{bmatrix}1\\3\end{bmatrix}\)，
+\[
+P[\vec{b}_2]_B=\begin{bmatrix}-5\\-9\end{bmatrix},
+\]
+且
+\[
+-5\begin{bmatrix}-2\\3\end{bmatrix}
+-9\begin{bmatrix}1\\-2\end{bmatrix}
+=
+\begin{bmatrix}1\\3\end{bmatrix}
+=\vec{b}_2.
+\]
+因此 \(P\) 对基 \(B\) 成立，由线性性可知对所有 \(\vec{x}\in\mathbb R^2\) 成立。
+---SOL---
+## 解法
+本题使用矩阵解法，并按实数域处理。
+
+令基向量按列组成矩阵
+\[
+M_B=\begin{bmatrix}5&1\\2&3\end{bmatrix},\qquad
+M_C=\begin{bmatrix}-2&1\\3&-2\end{bmatrix}.
+\]
+因为 \(\vec{x}=M_B[\vec{x}]_B=M_C[\vec{x}]_C\)，所以
+\[
+[\vec{x}]_C=M_C^{-1}M_B[\vec{x}]_B.
+\]
+因此
+\[
+P=M_C^{-1}M_B.
+\]
+计算
+\[
+\det M_C=(-2)(-2)-(1)(3)=1,
+\]
+所以
+\[
+M_C^{-1}=\begin{bmatrix}-2&-1\\-3&-2\end{bmatrix}.
+\]
+于是
+\[
+P=\begin{bmatrix}-2&-1\\-3&-2\end{bmatrix}
+\begin{bmatrix}5&1\\2&3\end{bmatrix}
+=
+\begin{bmatrix}-12&-5\\-19&-9\end{bmatrix}.
+\]
+
+
+
+================================================================================
+Linear_algebra_0313  forced_space
+可核对结论
+- 类型：矩阵
+- 结论：-12 | -5 | -19 | -9
+- 约定：B,C 按题中顺序视为有序基；P 的列依次为 [b1]_C,[b2]_C
+- 约定来源：自行选取
+
+## 检验
+设
+\[
+[\vec x]_B=\begin{bmatrix}s\\t\end{bmatrix}.
+\]
+则
+\[
+P[\vec x]_B=
+\begin{bmatrix}
+-12s-5t\\
+-19s-9t
+\end{bmatrix}.
+\]
+用 \(C\)-坐标还原：
+\[
+(-12s-5t)\mathbf c_1+(-19s-9t)\mathbf c_2
+=
+\begin{bmatrix}5s+t\\2s+3t\end{bmatrix}
+=s\mathbf b_1+t\mathbf b_2
+=\vec x.
+\]
+因此 \([\vec x]_C=P[\vec x]_B\) 成立。
+---SOL---
+## 解法
+按实数域处理；本解采用线性空间解法。
+
+记
+\[
+B=(\mathbf b_1,\mathbf b_2),\qquad 
+\mathbf b_1=\begin{bmatrix}5\\2\end{bmatrix},\quad
+\mathbf b_2=\begin{bmatrix}1\\3\end{bmatrix},
+\]
+且
+\[
+C=(\mathbf c_1,\mathbf c_2),\qquad 
+\mathbf c_1=\begin{bmatrix}-2\\3\end{bmatrix},\quad
+\mathbf c_2=\begin{bmatrix}1\\-2\end{bmatrix}.
+\]
+
+若
+\[
+[\vec x]_B=\begin{bmatrix}\alpha\\ \beta\end{bmatrix},
+\]
+则
+\[
+\vec x=\alpha \mathbf b_1+\beta \mathbf b_2.
+\]
+因为取 \(C\)-坐标是线性映射，所以
+\[
+[\vec x]_C
+=\alpha[\mathbf b_1]_C+\beta[\mathbf b_2]_C.
+\]
+因此 \(P\) 的列应为 \([\mathbf b_1]_C\) 和 \([\mathbf b_2]_C\)。
+
+先求 \([\mathbf b_1]_C\)。设
+\[
+\mathbf b_1=r\mathbf c_1+s\mathbf c_2.
+\]
+即
+\[
+r\begin{bmatrix}-2\\3\end{bmatrix}
++s\begin{bmatrix}1\\-2\end{bmatrix}
+=\begin{bmatrix}5\\2\end{bmatrix}.
+\]
+分量方程为
+\[
+-2r+s=5,\qquad 3r-2s=2.
+\]
+由第一式得 \(s=5+2r\)。代入第二式：
+\[
+3r-2(5+2r)=2
+\Rightarrow -r-10=2
+\Rightarrow r=-12.
+\]
+于是
+\[
+s=5+2(-12)=-19.
+\]
+所以
+\[
+[\mathbf b_1]_C=\begin{bmatrix}-12\\-19\end{bmatrix}.
+\]
+
+再求 \([\mathbf b_2]_C\)。设
+\[
+\mathbf b_2=u\mathbf c_1+v\mathbf c_2.
+\]
+即
+\[
+u\begin{bmatrix}-2\\3\end{bmatrix}
++v\begin{bmatrix}1\\-2\end{bmatrix}
+=\begin{bmatrix}1\\3\end{bmatrix}.
+\]
+分量方程为
+\[
+-2u+v=1,\qquad 3u-2v=3.
+\]
+由第一式得 \(v=1+2u\)。代入第二式：
+\[
+3u-2(1+2u)=3
+\Rightarrow -u-2=3
+\Rightarrow u=-5.
+\]
+于是
+\[
+v=1+2(-5)=-9.
+\]
+所以
+\[
+[\mathbf b_2]_C=\begin{bmatrix}-5\\-9\end{bmatrix}.
+\]
+
+因此
+\[
+P=
+\begin{bmatrix}
+[\mathbf b_1]_C & [\mathbf b_2]
+
+================================================================================
+Linear_algebra_0313  translate_to_matrix
+可核对结论
+- 类型：矩阵
+- 结论：-12 | -5 | -19 | -9
+- 约定：按题目 \(B,C\) 原始顺序，\(P\) 的列依次对应 \(B\) 的第 1、第 2 个向量
+- 约定来源：继承已有解法
+
+## 检验
+代回坐标变换关系。对任意 \([\vec x]_B=(u,v)^T\)，有
+
+\[
+M_C P(u,v)^T
+=
+M_C(M_C^{-1}M_B)(u,v)^T
+=
+M_B(u,v)^T
+=
+\vec x.
+\]
+
+等价地验证矩阵：
+
+\[
+M_C P
+=
+\begin{bmatrix}-2&1\\3&-2\end{bmatrix}
+\begin{bmatrix}-12&-5\\-19&-9\end{bmatrix}
+=
+\begin{bmatrix}5&1\\2&3\end{bmatrix}
+=
+M_B.
+\]
+
+因此 \(P\) 满足 \([\vec x]_C=P[\vec x]_B\)。
+---SOL---
+## 另一种解法
+本次按矩阵解法书写。数域未说明，按实数域处理。
+
+设两个有序基按题目给出的顺序写成矩阵：
+
+\[
+M_B=\begin{bmatrix}5&1\\2&3\end{bmatrix},
+\qquad
+M_C=\begin{bmatrix}-2&1\\3&-2\end{bmatrix}.
+\]
+
+对任意 \(\vec x\in\mathbb R^2\)，标准坐标满足
+
+\[
+\vec x=M_B[\vec x]_B=M_C[\vec x]_C.
+\]
+
+因此
+
+\[
+M_C[\vec x]_C=M_B[\vec x]_B
+\]
+
+两边左乘 \(M_C^{-1}\)，得
+
+\[
+[\vec x]_C=M_C^{-1}M_B[\vec x]_B.
+\]
+
+所以
+
+\[
+P=M_C^{-1}M_B.
+\]
+
+求 \(M_C^{-1}\)：
+
+\[
+\det M_C=(-2)(-2)-1\cdot 3=1,
+\]
+
+因此
+
+\[
+M_C^{-1}=
+\frac{1}{1}
+\begin{bmatrix}-2&-1\\-3&-2\end{bmatrix}
+=
+\begin{bmatrix}-2&-1\\-3&-2\end{bmatrix}.
+\]
+
+于是
+
+\[
+P=M_C^{-1}M_B
+=
+\begin{bmatrix}-2&-1\\-3&-2\end{bmatrix}
+\begin{bmatrix}5&1\\2&3\end{bmatrix}
+=
+\begin{bmatrix}
+-12&-5\\
+-19&-9
+\end{bmatrix}.
+\]
+
+
+---CORR---
+## 步骤对应
+- 已有解法把 \(P\) 的第 \(j\) 列看作第 \(j\) 个 \(B\)-基向量的 \(C\)-坐标向量；本次矩阵解法中对应为 \(P=M_C^{-1}M_B\)，其第 \(j\) 列就是 \(M_C^{-1}\) 乘 \(M_B\) 的第 \(j\) 列。
+- 已有解法中解 \(C a=(5,2)^T\)；本次对应计算 \(M_C^{-1}\begin{bmatrix}5\\2\end{bmatrix}\)，得到 \(P\) 的第一列。
+- 已有解法中解 \(C b=(1,3)^T\)；本次对应计算 \(M_C^{-1}\begin{bmatrix}1\\3\end{bmatrix}\)，得到 \(P\) 的第二列。
+- 已有解法中两个坐标为 \((-12,-19)^T\) 和 \((-5,-9)^T\)；本次对应矩阵乘法得到的两列。
+- 已有解法用 \(C^{-1}\) 求坐标；本次用同一个 \(M_C^{-1}\) 写入矩阵计算。
+
+
+
+================================================================================
+Linear_algebra_0313  translate_to_space
+可核对结论
+- 类型：矩阵
+- 结论：-12 | -5 | -19 | -9
+- 约定：\(P\) 的列依次为 \([b_1]_C,[b_2]_C\)，基顺序按题目
+- 约定来源：继承已有解法
+
+## 检验
+Check the two columns by expressing \(b_1,b_2\) in the basis \(C\).
+
+For \(b_1\),
+\[
+-12c_1-19c_2
+=
+-12\begin{pmatrix}-2\\3\end{pmatrix}
+-19\begin{pmatrix}1\\-2\end{pmatrix}
+=
+\begin{pmatrix}24-19\\-36+38\end{pmatrix}
+=
+\begin{pmatrix}5\\2\end{pmatrix}
+=b_1.
+\]
+For \(b_2\),
+\[
+-5c_1-9c_2
+=
+-5\begin{pmatrix}-2\\3\end{pmatrix}
+-9\begin{pmatrix}1\\-2\end{pmatrix}
+=
+\begin{pmatrix}10-9\\-15+18\end{pmatrix}
+=
+\begin{pmatrix}1\\3\end{pmatrix}
+=b_2.
+\]
+Thus for every \(x\in\mathbb R^2\), if \([x]_B=(r,s)\), then
+\[
+[x]_C=r[b_1]_C+s[b_2]_C=P[x]_B,
+\]
+as required.
+---SOL---
+## 另一种解法
+This is a linear space solution.
+
+Let \(V=\mathbb R^2\). Write the ordered bases as
+\[
+B=(b_1,b_2),\qquad C=(c_1,c_2),
+\]
+where
+\[
+b_1=\begin{pmatrix}5\\2\end{pmatrix},\quad
+b_2=\begin{pmatrix}1\\3\end{pmatrix},\quad
+c_1=\begin{pmatrix}-2\\3\end{pmatrix},\quad
+c_2=\begin{pmatrix}1\\-2\end{pmatrix}.
+\]
+The coordinate maps
+\[
+[\cdot]_B:V\to\mathbb R^2,\qquad [\cdot]_C:V\to\mathbb R^2
+\]
+are linear isomorphisms. The required matrix \(P\) is the matrix of the identity map \(\operatorname{id}_V\) with respect to the ordered bases \(B\) and \(C\):
+\[
+P=[\operatorname{id}_V]_{C\leftarrow B}.
+\]
+Thus the \(j\)-th column of \(P\) is the \(C\)-coordinate vector of \(b_j\). We need \([b_1]_C\) and \([b_2]_C\).
+
+Take a general vector \(v=(r,s)\). Express it as a linear combination of \(c_1,c_2\):
+\[
+v=\alpha c_1+\beta c_2.
+\]
+Then
+\[
+\alpha\begin{pmatrix}-2\\3\end{pmatrix}
++\beta\begin{pmatrix}1\\-2\end{pmatrix}
+=
+\begin{pmatrix}r\\s\end{pmatrix},
+\]
+so
+\[
+-2\alpha+\beta=r,\qquad 3\alpha-2\beta=s.
+\]
+Solving gives
+\[
+\alpha=-2r-s,\qquad \beta=-3r-2s.
+\]
+Therefore
+\[
+[v]_C=
+\begin{pmatrix}-2r-s\\-3r-2s\end{pmatrix}.
+\]
+Applying this to \(b_1=(5,2)\),
+\[
+[b_1]_C=
+\begin{pmatrix}-2(5)-2\\-3(5)-2(2)\end{pmatrix}
+=
+\begin{pmatrix}-12\\-19\end{pmatrix}.
+\]
+Applying this to \(b_2=(1,3)\),
+\[
+[b_2]_C=
+\begin{pmatrix}-2(1)-3\\-3(1)-2(3)\end{pmatrix}
+=
+\begin{pmatrix}-5\\-9\end{pmatrix}.
+\]
+---CORR---
+## 步骤对应
+| 已有矩阵解法 | 本次线性空间解法 |
+|---|---|
+| 用矩阵 \(B\) 表示基 \(B\) 的列 | 看作有序基 \(B=(b_1,b_2)\) |
+| 用矩阵 \(C\) 表示基 \(C\) 的列 | 看作有序基 \(C=(c_1,c_2)\) |
+| \(P=C^{-1}B\) | \(P=[\operatorname{id}_V]_{C\leftarrow B}\)，列向量为 \([b_j]_C\) |
+| 求 \(C^{-1}\) | 解 \(v=\alpha c_1+\beta c_2\)，得到 \(C\)-坐标公式 |
+| 计算 \(C^{-1}B\) 的列 | 计算 \([b_1]_C=(-12,-19)\)，\([b_2]_C=(-5,-9)\) |
+| 按列写出 \(P\) | 将上述坐标向量作为列写出 \(P\) |
+
+
+
+================================================================================
+Linear_algebra_0333  direct
+可核对结论
+- 类型：基（basis）
+- 结论：x | x^2+9
+- 约定：basis order is \(p(x)=x\), \(q(x)=x^2+9\)
+- 约定来源：自行选取
+
+## 检验
+For \(p(x)=x\):
+\[
+p'(5)=1,\qquad p(1)=1,
+\]
+so \(p'(5)=p(1)\).
+
+For \(q(x)=x^2+9\):
+\[
+q'(x)=2x,\qquad q'(5)=10,\qquad q(1)=10,
+\]
+so \(q'(5)=q(1)\).
+
+Both polynomials satisfy the defining condition, and they are linearly independent, so they form a valid basis.
+---SOL---
+## 解法
+**Linear space解法**（using subspaces, bases, and linear conditions; scalar field assumed to be \(\mathbb R\)).
+
+Every polynomial in \(\mathbb P_3[x]\) has the form
+\[
+f(x)=a+bx+cx^2.
+\]
+Then
+\[
+f'(x)=b+2cx.
+\]
+The condition is
+\[
+f'(5)=f(1).
+\]
+Compute both sides:
+\[
+f'(5)=b+10c,
+\]
+and
+\[
+f(1)=a+b+c.
+\]
+Thus
+\[
+b+10c=a+b+c,
+\]
+so
+\[
+a=9c.
+\]
+Therefore every \(f(x)\) in the given space has the form
+\[
+f(x)=9c+bx+cx^2
+= b x + c(x^2+9).
+\]
+Hence
+\[
+\{x,\ x^2+9\}
+\]
+spans the space.
+
+These two polynomials are linearly independent: if
+\[
+b x + c(x^2+9)=0,
+\]
+then the coefficient of \(x^2\) gives \(c=0\), and then the coefficient of \(x\) gives \(b=0\).
+
+Therefore,
+\[
+p(x)=x,\qquad q(x)=x^2+9
+\]
+form a basis.
+
+
+
+================================================================================
+Linear_algebra_0333  forced_matrix
+可核对结论
+- 类型：基（basis）
+- 结论：x | x^2+9
+- 约定：\(B=(1,x,x^2)\); \(p=x,\ q=x^2+9\)
+- 约定来源：自行选取
+
+## 检验
+For \(p(x)=x\):
+\[
+p'(5)=1=p(1).
+\]
+For \(q(x)=x^2+9\):
+\[
+q'(x)=2x,\qquad q'(5)=10,
+\]
+and
+\[
+q(1)=1+9=10.
+\]
+Thus both polynomials satisfy the condition. Their coordinate vectors \((0,1,0)^T\) and \((9,0,1)^T\) are linearly independent. The matrix \(A\) has rank \(1\), so its nullspace has dimension \(3-1=2\), matching the two basis vectors.
+---SOL---
+## 解法
+Over the real numbers, this solution uses the matrix method with coordinates relative to the standard basis \(B=\{1,x,x^2\}\).
+
+Write a general polynomial as
+\[
+f(x)=a+bx+cx^2.
+\]
+Then
+\[
+[f]_B=\begin{pmatrix}a\\b\\c\end{pmatrix}.
+\]
+The condition is
+\[
+f'(5)=f(1).
+\]
+Compute:
+\[
+f'(x)=b+2cx,
+\]
+so
+\[
+f'(5)=b+10c,
+\]
+and
+\[
+f(1)=a+b+c.
+\]
+Thus
+\[
+f'(5)-f(1)=(b+10c)-(a+b+c)=-a+9c.
+\]
+The condition \(f'(5)=f(1)\) becomes
+\[
+-a+9c=0.
+\]
+In matrix form, the subspace is the nullspace of
+\[
+A=\begin{bmatrix}-1&0&9\end{bmatrix}.
+\]
+The augmented matrix is already reduced:
+\[
+\begin{bmatrix}
+-1&0&9&|&0
+\end{bmatrix}.
+\]
+So
+\[
+a=9c.
+\]
+Hence the coordinate vectors in the nullspace are
+\[
+\begin{pmatrix}a\\b\\c\end{pmatrix}
+=
+\begin{pmatrix}9c\\b\\c\end{pmatrix}
+=
+b\begin{pmatrix}0\\1\\0\end{pmatrix}
++
+c\begin{pmatrix}9\\0\\1\end{pmatrix}.
+\]
+Therefore, a coordinate basis is
+\[
+(0,1,0)^T,\qquad (9,0,1)^T.
+\]
+Converting back to polynomials:
+\[
+(0,1,0)^T \leftrightarrow x,
+\]
+and
+\[
+(9,0,1)^T \leftrightarrow 9+x^2.
+\]
+Thus
+\[
+p(x)=x,\qquad q(x)=x^2+9.
+\]
+
+
+
+================================================================================
+Linear_algebra_0333  forced_space
+可核对结论
+- 类型：基
+- 结论：x | x^2+9
+- 约定：p(x)=x，q(x)=x^2+9，顺序按题目给出的 p,q
+- 约定来源：自行选取
+
+## 检验
+For \(p(x)=x\):
+\[
+p'(5)=1=p(1).
+\]
+For \(q(x)=x^2+9\):
+\[
+q'(5)=10=q(1).
+\]
+Both satisfy the condition. They are linearly independent, and \(\dim V=2\), so they form a basis.
+---SOL---
+## 解法
+Using the linear-space approach.
+
+Let  
+\[
+V=\{f\in \mathbb P_3[x]: f'(5)=f(1)\}.
+\]
+Define the linear map  
+\[
+L:\mathbb P_3[x]\to \mathbb R,\qquad L(f)=f'(5)-f(1).
+\]
+Since differentiation and evaluation are linear, \(L\) is linear, and
+\[
+V=\ker L.
+\]
+
+The space \(\mathbb P_3[x]\) has basis \(\{1,x,x^2\}\), so \(\dim \mathbb P_3[x]=3\). Since
+\[
+L(1)=0-1=-1\neq 0,
+\]
+the map \(L\) is not zero, so \(\operatorname{im}L=\mathbb R\). By the rank-nullity theorem,
+\[
+\dim V=\dim \ker L=3-1=2.
+\]
+
+Now write a general polynomial as
+\[
+f(x)=a x^2+b x+c.
+\]
+Then
+\[
+f'(x)=2a x+b,
+\]
+so
+\[
+f'(5)=10a+b,\qquad f(1)=a+b+c.
+\]
+The condition \(f'(5)=f(1)\) gives
+\[
+10a+b=a+b+c,
+\]
+hence
+\[
+c=9a.
+\]
+Thus every \(f\in V\) has the form
+\[
+f(x)=a x^2+b x+9a=b x+a(x^2+9).
+\]
+Therefore
+\[
+V=\operatorname{span}\{x,\ x^2+9\}.
+\]
+These two polynomials are linearly independent: if
+\[
+\lambda x+\mu(x^2+9)=0,
+\]
+then comparing the \(x^2\)-coefficient gives \(\mu=0\), and then \(\lambda=0\).
+
+Thus a basis is
+\[
+\{x,\ x^2+9\}.
+\]
+
+
+
+================================================================================
+Linear_algebra_0333  translate_to_matrix
+可核对结论
+- 类型：基
+- 结论：9+x^2 | x
+- 约定：\(p(x)=9+x^2\)，\(q(x)=x\)，顺序不交换
+- 约定来源：继承已有解法
+
+## 检验
+For \(p(x)=9+x^2\):
+\[
+p'(x)=2x,\quad p'(5)=10,\quad p(1)=10,
+\]
+so \(p'(5)=p(1)\).
+
+For \(q(x)=x\):
+\[
+q'(x)=1,\quad q'(5)=1,\quad q(1)=1,
+\]
+so \(q'(5)=q(1)\).
+
+Also,
+\[
+[L]_E\begin{bmatrix}9\\0\\1\end{bmatrix}
+=
+[-1,0,9]\begin{bmatrix}9\\0\\1\end{bmatrix}
+=0,
+\qquad
+[L]_E\begin{bmatrix}0\\1\\0\end{bmatrix}
+=
+[-1,0,9]\begin{bmatrix}0\\1\\0\end{bmatrix}
+=0.
+\]
+Moreover, \(\operatorname{rank}[L]_E=1\), so the nullspace has dimension \(2\), matching the size of the basis. No computational error was found in the given solution.
+---SOL---
+## 另一种解法
+This is a matrix solution. Work over \(\mathbb R\), since no field is specified.
+
+Use the standard basis \(E=\{1,x,x^2\}\) of \(\mathbb P_3[x]\), where polynomials have degree \(<3\). Write
+\[
+f(x)=a+bx+cx^2 \quad\leftrightarrow\quad [f]_E=\begin{bmatrix}a\\b\\c\end{bmatrix}.
+\]
+Define the linear map
+\[
+L(f)=f'(5)-f(1).
+\]
+Then the given condition \(f'(5)=f(1)\) is exactly \(L(f)=0\).
+
+Compute the matrix of \(L\) relative to \(E\):
+\[
+L(1)=0-1=-1,\qquad L(x)=1-1=0,\qquad L(x^2)=10-1=9.
+\]
+Thus
+\[
+[L]_E=\begin{bmatrix}-1&0&9\end{bmatrix}.
+\]
+So
+\[
+L(f)=0
+\iff
+\begin{bmatrix}-1&0&9\end{bmatrix}
+\begin{bmatrix}a\\b\\c\end{bmatrix}=0.
+\]
+The corresponding augmented matrix is
+\[
+\left[\begin{array}{ccc|c}-1&0&9&0\end{array}\right].
+\]
+Row-reduce:
+\[
+\left[\begin{array}{ccc|c}-1&0&9&0\end{array}\right]
+\xrightarrow{-R_1}
+\left[\begin{array}{ccc|c}1&0&-9&0\end{array}\right].
+\]
+The pivot is in column \(1\), so \(b,c\) are free variables. The solution is
+\[
+\begin{bmatrix}a\\b\\c\end{bmatrix}
+=
+\begin{bmatrix}9c\\b\\c\end{bmatrix}
+=
+c\begin{bmatrix}9\\0\\1\end{bmatrix}
++
+b\begin{bmatrix}0\\1\\0\end{bmatrix}.
+\]
+Taking \((b,c)=(0,1)\) gives the coordinate vector \((9,0,1)^T\), and taking \((b,c)=(1,0)\) gives \((0,1,0)^T\). Therefore a basis of the nullspace is
+\[
+\left\{
+\begin{bmatrix}9\\0\\1\end{bmatrix},
+\begin{bmatrix}0\\1\\0\end{bmatrix}
+\right\}.
+\]
+Since \(\operatorname
+---CORR---
+## 步骤对应
+- 已有解法写出一般多项式 \(f(x)=a+bx+cx^2\)。  
+  矩阵解法中用标准基 \(E=\{1,x,x^2\}\) 将其表示为坐标向量 \((a,b,c)^T\)。
+- 已有解法由 \(f'(5)=f(1)\) 得到约束 \(a=9c\)。  
+  矩阵解法中定义 \(L(f)=f'(5)-f(1)\)，得到矩阵 \([L]_E=[-1,0,9]\)，方程为 \([-1,0,9](a,b,c)^T=0\)。
+- 已有解法指出 \(b\) 自由并写成 \(f=c(9+x^2)+bx\)。  
+  矩阵解法行化简增广矩阵，得到自由变量 \(b,c\)，解为 \((a,b,c)^T=(9c,b,c)^T\)。
+- 已有解法给出基 \(\{9+x^2,x\}\)。  
+  矩阵解法给出零空间基 \(\{(9,0,1)^T,(0,1,0)^T\}\)，再映射回多项式。
+- 已有解法用线性无关和维数确认这是基。  
+  矩阵解法用 \(\operatorname{rank}[L]_E=1\)、零空间维数 \(3-1=2\) 确认这是基。
+
+
+
+================================================================================
+Linear_algebra_0333  translate_to_space
+可核对结论
+- 类型：基
+- 结论：9+x^2 | x
+- 约定：有序基为 \((p,q)=(9+x^2,x)\)；\(P_3[x]\) 的有序基为 \((1,x,x^2)\)
+- 约定来源：继承已有解法
+
+## 检验
+代回条件：
+\[
+p'(x)=2x,\quad p'(5)=10=p(1),
+\]
+\[
+q'(x)=1,\quad q'(5)=1=q(1).
+\]
+且 \(p,q\) 线性无关，\(\ker L\) 的维数为 \(2\)，因此 \(\{p,q\}\) 确为题设空间的一组基。
+---SOL---
+## 另一种解法
+本次给出线性空间解法。数域未说明，按实数域处理。
+
+令 \(V=\mathbb P_3[x]\)，即次数小于 \(3\) 的多项式空间。固定有序基  
+\[
+B=(1,x,x^2).
+\]
+任意 \(f\in V\) 可写为
+\[
+f(x)=a+bx+cx^2.
+\]
+
+定义线性映射
+\[
+L:V\to \mathbb R,\qquad L(f)=f'(5)-f(1).
+\]
+求导和代入都是线性运算，所以 \(L\) 是线性的。题设空间就是
+\[
+\ker L=\{f\in V\mid f'(5)=f(1)\}.
+\]
+
+在基 \(B\) 上计算：
+\[
+L(1)=0-1=-1,
+\]
+\[
+L(x)=1-1=0,
+\]
+\[
+L(x^2)=2\cdot 5-1=9.
+\]
+因此对 \(f=a+bx+cx^2\)，由线性性得
+\[
+L(f)=aL(1)+bL(x)+cL(x^2)=-a+9c.
+\]
+所以
+\[
+f\in\ker L
+\iff -a+9c=0
+\iff a=9c.
+\]
+此时一般元为
+\[
+f(x)=9c+bx+cx^2=bx+c(9+x^2).
+\]
+故
+\[
+\ker L=\operatorname{Span}(x,\ 9+x^2).
+\]
+
+再说明 \(x\) 与 \(9+x^2\) 线性无关。若
+\[
+\alpha x+\beta(9+x^2)=0,
+\]
+则比较常数项得 \(9\beta=0\)，所以 \(\beta=0\)，进而 \(\alpha=0\)。因此它们线性无关。
+
+另一方面，\(V\) 的维数为 \(3\)。由于 \(L(x^2)=9\neq 0\)，\(\operatorname{im}L\) 是 \(\mathbb R\) 的非零子空间，所以 \(\dim\operatorname{im}L=1\)。由秩-零化度定理，
+\[
+\dim\ker L=\dim V-\dim\operatorname{im}L=3-1=2.
+\]
+因此 \(\{x,9+x^2\}\) 是 \(\ker L\) 的一组基。按已有解法继承的顺序，取
+\[
+p(x)=9+x^2,\qquad q(x)=x.
+\]
+
+
+---CORR---
+## 步骤对应
+- 已有解法将 \(a+bx+cx^2\) 等同于坐标列 \((a,b,c)\)；本次固定同一有序基 \(B=(1,x,x^2)\)，写为 \(f=a\cdot 1+b\cdot x+c\cdot x^2\)。
+- 已有解法由 \(f'(5)=f(1)\) 得到 \(-a+9c=0\)；本次定义 \(L(f)=f'(5)-f(1)\)，在基上算出 \(L(1)=-1,L(x)=0,L(x^2)=9\)，线性展开得到同一条件。
+- 已有解法求行向量 \((-1,0,9)\) 的零空间，得有序坐标基 \((9,0,1),(0,1,0)\)；本次求 \(\ker L\) 的一般元 \(f=bx+c(9+x^2)\)，得生成元 \(x,9+x^2\)。
+- 已有解法把坐标基还原为多项式并锁定 \(p=9+x^2,q=x\)；本次继承同一顺序，取有序基 \((p,q)=(9+x^2,x)\)。
+- 已有解法通过零空间维数为 \(2\) 确认是基；本次用秩-零化度定理得到 \(\dim\ker L=2\)。
+
+
+
+================================================================================
+Linear_algebra_0345  direct
+可核对结论
+- 类型：特征值、特征向量
+- 结论：-4 | 1 | 1 | 1 | 0 | 1 | 0 | 1 | 4 | 1 | -1 | 0
+- 约定：特征向量取最简整数形式，首非零分量为 1
+- 约定来源：自行选取
+
+## 检验
+直接代回：
+\[
+A\begin{bmatrix}1\\1\\1\end{bmatrix}
+=
+\begin{bmatrix}-4\\-4\\-4\end{bmatrix}
+=
+-4\begin{bmatrix}1\\1\\1\end{bmatrix},
+\]
+\[
+A\begin{bmatrix}1\\0\\1\end{bmatrix}
+=
+\begin{bmatrix}0\\0\\0\end{bmatrix}
+=
+0\begin{bmatrix}1\\0\\1\end{bmatrix},
+\]
+\[
+A\begin{bmatrix}1\\-1\\0\end{bmatrix}
+=
+\begin{bmatrix}4\\-4\\0\end{bmatrix}
+=
+4\begin{bmatrix}1\\-1\\0\end{bmatrix}.
+\]
+均满足 \(Av=\lambda v\)。
+---SOL---
+## 解法
+数域未说明，按实数域处理；本题采用矩阵解法。
+
+先求特征多项式：
+\[
+A-\lambda I=
+\begin{bmatrix}
+-\lambda&-4&0\\
+-8&-4-\lambda&8\\
+-4&-4&4-\lambda
+\end{bmatrix}
+\]
+所以
+\[
+\det(A-\lambda I)
+=
+-\lambda(\lambda-4)(\lambda+4).
+\]
+因此特征值为
+\[
+\lambda=-4,\ 0,\ 4.
+\]
+按从小到大排列：
+\[
+\lambda_1=-4,\qquad \lambda_2=0,\qquad \lambda_3=4.
+\]
+
+### 1. \(\lambda_1=-4\)
+解 \((A+4I)v=0\)：
+\[
+A+4I=
+\begin{bmatrix}
+4&-4&0\\
+-8&0&8\\
+-4&-4&8
+\end{bmatrix}
+\sim
+\begin{bmatrix}
+1&-1&0\\
+0&1&-1\\
+0&0&0
+\end{bmatrix}.
+\]
+得 \(x=y=z\)。取特征向量
+\[
+v_1=\begin{bmatrix}1\\1\\1\end{bmatrix}.
+\]
+
+### 2. \(\lambda_2=0\)
+解 \(Av=0\)：
+\[
+A=
+\begin{bmatrix}
+0&-4&0\\
+-8&-4&8\\
+-4&-4&4
+\end{bmatrix}
+\sim
+\begin{bmatrix}
+1&0&-1\\
+0&1&0\\
+0&0&0
+\end{bmatrix}.
+\]
+得 \(y=0,\ x=z\)。取特征向量
+\[
+v_2=\begin{bmatrix}1\\0\\1\end{bmatrix}.
+\]
+
+### 3. \(\lambda_3=4\)
+解 \((A-4I)v=0\)：
+\[
+A-4I=
+\begin{bmatrix}
+-4&-4&0\\
+-8&-8&8\\
+-4&-4&0
+\end{bmatrix}
+\sim
+\begin{bmatrix}
+1&1&0\\
+0&0&1\\
+0&0&0
+\end{bmatrix}.
+\]
+得 \(z=0,\ y=-x\)。取特征向量
+\[
+v_3=\begin{bmatrix}1\\-1\\0\end{bmatrix}.
+\]
+
+
+
+================================================================================
+Linear_algebra_0345  forced_matrix
+可核对结论
+- 类型：特征值与特征向量
+- 结论：-4 | 1 | 1 | 1 | 0 | 1 | 0 | 1 | 4 | 1 | -1 | 0
+- 约定：特征值按升序；特征向量取首非零分量为 1 的整数代表
+- 约定来源：自行选取
+
+## 检验
+直接代入验证：
+\[
+A\begin{bmatrix}1\\1\\1\end{bmatrix}
+=
+\begin{bmatrix}-4\\-4\\-4\end{bmatrix}
+=
+-4\begin{bmatrix}1\\1\\1\end{bmatrix},
+\]
+\[
+A\begin{bmatrix}1\\0\\1\end{bmatrix}
+=
+\begin{bmatrix}0\\0\\0\end{bmatrix}
+=
+0\begin{bmatrix}1\\0\\1\end{bmatrix},
+\]
+\[
+A\begin{bmatrix}1\\-1\\0\end{bmatrix}
+=
+\begin{bmatrix}4\\-4\\0\end{bmatrix}
+=
+4\begin{bmatrix}1\\-1\\0\end{bmatrix}.
+\]
+所得结果正确。
+---SOL---
+## 解法
+数域未说明，按实数域处理；本题采用矩阵解法。
+
+设
+\[
+A=\begin{bmatrix}
+0&-4&0\\
+-8&-4&8\\
+-4&-4&4
+\end{bmatrix}.
+\]
+求特征多项式：
+\[
+\det(A-\lambda I)
+=
+\begin{vmatrix}
+-\lambda&-4&0\\
+-8&-4-\lambda&8\\
+-4&-4&4-\lambda
+\end{vmatrix}
+= -\lambda^3+16\lambda
+= -\lambda(\lambda-4)(\lambda+4).
+\]
+所以特征值为
+\[
+\lambda=-4,0,4.
+\]
+按升序排列：
+\[
+\lambda_1=-4,\qquad \lambda_2=0,\qquad \lambda_3=4.
+\]
+
+### 对 \(\lambda_1=-4\)
+
+\[
+A-(-4)I=A+4I=
+\begin{bmatrix}
+4&-4&0\\
+-8&0&8\\
+-4&-4&8
+\end{bmatrix}
+\sim
+\begin{bmatrix}
+1&0&-1\\
+0&1&-1\\
+0&0&0
+\end{bmatrix}.
+\]
+得
+\[
+x-z=0,\qquad y-z=0,
+\]
+故可取特征向量
+\[
+v_1=\begin{bmatrix}1\\1\\1\end{bmatrix}.
+\]
+
+### 对 \(\lambda_2=0\)
+
+\[
+A-0I=A=
+\begin{bmatrix}
+0&-4&0\\
+-8&-4&8\\
+-4&-4&4
+\end{bmatrix}
+\sim
+\begin{bmatrix}
+0&1&0\\
+1&0&-1\\
+0&0&0
+\end{bmatrix}.
+\]
+得
+\[
+y=0,\qquad x=z,
+\]
+故可取特征向量
+\[
+v_2=\begin{bmatrix}1\\0\\1\end{bmatrix}.
+\]
+
+### 对 \(\lambda_3=4\)
+
+\[
+A-4I=
+\begin{bmatrix}
+-4&-4&0\\
+-8&-8&8\\
+-4&-4&0
+\end{bmatrix}
+\sim
+\begin{bmatrix}
+1&1&0\\
+0&0&1\\
+0&0&0
+\end{bmatrix}.
+\]
+得
+\[
+x+y=0,\qquad z=0,
+\]
+故可取特征向量
+\[
+v_3=\begin{bmatrix}1\\-1\\0\end{bmatrix}.
+\]
+
+
+
+================================================================================
+Linear_algebra_0345  forced_space
+可核对结论
+- 类型：标量（特征值）与基/特征向量
+- 结论：-4 | 1 | 1 | 1 | 0 | 1 | 0 | 1 | 4 | 1 | -1 | 0
+- 约定：特征向量取一维特征子空间中以首非零坐标 \(x=1\) 的代表元
+- 约定来源：自行选取
+
+## 检验
+\[
+T(1,1,1)=(-4,-4,-4)=-4(1,1,1),
+\]
+\[
+T(1,0,1)=(0,0,0)=0(1,0,1),
+\]
+\[
+T(1,-1,0)=(4,-4,0)=4(1,-1,0).
+\]
+因此所得向量分别满足 \(T(v_i)=\lambda_i v_i\)。
+---SOL---
+## 解法
+线性空间解法（over \(\mathbb R\)）。  
+Let \(T:\mathbb R^3\to\mathbb R^3\) be the linear map whose standard-basis representation is the given matrix:
+\[
+T(x,y,z)=(-4y,\,-8x-4y+8z,\,-4x-4y+4z).
+\]
+A scalar \(\lambda\) is an eigenvalue if \(\ker(T-\lambda I)\ne\{0\}\). The characteristic polynomial is
+\[
+\chi_T(t)=\det(tI-T)
+=\det\begin{bmatrix}
+t&4&0\\
+8&t+4&-8\\
+4&4&t-4
+\end{bmatrix}
+=t(t-4)(t+4).
+\]
+Thus the eigenvalues, from smallest to largest, are
+\[
+\lambda_1=-4,\qquad \lambda_2=0,\qquad \lambda_3=4.
+\]
+
+For each eigenspace:
+
+- For \(\lambda=-4\):
+\[
+(T+4I)(x,y,z)=(4x-4y,\,-8x+8z,\,-4x-4y+8z)=0,
+\]
+so \(x=y=z\). Hence
+\[
+E_{-4}=\operatorname{span}\{(1,1,1)\}.
+\]
+
+- For \(\lambda=0\):
+\[
+T(x,y,z)=(-4y,\,-8x-4y+8z,\,-4x-4y+4z)=0,
+\]
+so \(y=0\) and \(x=z\). Hence
+\[
+E_0=\operatorname{span}\{(1,0,1)\}.
+\]
+
+- For \(\lambda=4\):
+\[
+(T-4I)(x,y,z)=(-4x-4y,\,-8x-8y+8z,\,-4x-4y)=0,
+\]
+so \(y=-x\) and \(z=0\). Hence
+\[
+E_4=\operatorname{span}\{(1,-1,0)\}.
+\]
+
+
+
+================================================================================
+Linear_algebra_0345  translate_to_matrix
+可核对结论
+- 类型：特征值与特征向量
+- 结论：
+-4 | 1 | 1 | 1 | 0 | 1 | 0 | 1 | 4 | 1 | -1 | 0
+- 约定：特征值升序；特征向量依次取 \((1,1,1),(1,0,1),(1,-1,0)\)
+- 约定来源：继承已有解法
+
+## 检验
+将所得向量代入原矩阵验证：
+
+\[
+A\begin{bmatrix}1\\1\\1\end{bmatrix}
+=
+\begin{bmatrix}-4\\-4\\-4\end{bmatrix}
+=-4\begin{bmatrix}1\\1\\1\end{bmatrix},
+\]
+
+\[
+A\begin{bmatrix}1\\0\\1\end{bmatrix}
+=
+\begin{bmatrix}0\\0\\0\end{bmatrix}
+=0\begin{bmatrix}1\\0\\1\end{bmatrix},
+\]
+
+\[
+A\begin{bmatrix}1\\-1\\0\end{bmatrix}
+=
+\begin{bmatrix}4\\-4\\0\end{bmatrix}
+=4\begin{bmatrix}1\\-1\\0\end{bmatrix}.
+\]
+
+结果与已有解法一致，未发现计算错误。
+---SOL---
+## 另一种解法
+本次采用矩阵解法，数域按实数域处理。设
+
+\[
+A=\begin{bmatrix}
+0&-4&0\\
+-8&-4&8\\
+-4&-4&4
+\end{bmatrix}.
+\]
+
+计算特征多项式：
+
+\[
+A-\lambda I=
+\begin{bmatrix}
+-\lambda&-4&0\\
+-8&-4-\lambda&8\\
+-4&-4&4-\lambda
+\end{bmatrix}.
+\]
+
+\[
+\det(A-\lambda I)
+=-\lambda\bigl((-4-\lambda)(4-\lambda)+32\bigr)
++4\bigl((-8)(4-\lambda)+32\bigr)
+=-\lambda^3+16\lambda
+=-\lambda(\lambda-4)(\lambda+4).
+\]
+
+因此特征值为
+
+\[
+\lambda=-4,\ 0,\ 4.
+\]
+
+按从小到大排列：
+
+\[
+\lambda_1=-4,\qquad \lambda_2=0,\qquad \lambda_3=4.
+\]
+
+### 对 \(\lambda_1=-4\)
+
+解 \((A+4I)x=0\)：
+
+\[
+A+4I=
+\begin{bmatrix}
+4&-4&0\\
+-8&0&8\\
+-4&-4&8
+\end{bmatrix}
+\sim
+\begin{bmatrix}
+1&0&-1\\
+0&1&-1\\
+0&0&0
+\end{bmatrix}.
+\]
+
+所以
+
+\[
+x=z,\qquad y=z.
+\]
+
+取 \(z=t\)，得特征向量
+
+\[
+t\begin{bmatrix}1\\1\\1\end{bmatrix}.
+\]
+
+取生成元
+
+\[
+\begin{bmatrix}1\\1\\1\end{bmatrix}.
+\]
+
+### 对 \(\lambda_2=0\)
+
+解 \(Ax=0\)：
+
+\[
+A=
+\begin{bmatrix}
+0&-4&0\\
+-8&-4&8\\
+-4&-4&4
+\end{bmatrix}
+\sim
+\begin{bmatrix}
+1&0&-1\\
+0&1&0\\
+0&0&0
+\end{bmatrix}.
+\]
+
+所以
+
+\[
+x=z,\qquad y=0.
+\]
+
+取 \(z=t\)，得特征向量
+
+\[
+t\begin{bmatrix}1\\0\\1\end{bmatrix}.
+\]
+
+取生成元
+
+\[
+\begin{bmatrix}1\\0\\1\end{bmatrix}.
+\]
+
+### 对 \(\lambda_3=4\)
+
+解 \((A-4I)x=0\)：
+
+\[
+A-4I=
+\begin{bmatrix}
+-4&-4&0\\
+-8&-8&8\\
+-4&-4&0
+\end{bmatrix}
+\sim
+\begin{bmatrix}
+1&1&0\\
+0&0&1\\
+0&0&0
+\end{bmatrix}.
+\]
+
+所以
+
+\[
+x+y=0,\qquad z=0.
+\]
+
+取 \(x=s\)，则 \(y=-s\)，得特征向量
+
+\[
+s\begin{bmatrix}1\\-1\\0\end{bmatrix}.
+\]
+
+取生成元
+
+\[
+\begin{bmatrix}1\\-1\\0\end{bmatri
+---CORR---
+## 步骤对应
+
+| 已有线性空间解法 | 本次矩阵解法 |
+|---|---|
+| 特征值 \(\lambda\) 满足 \(\ker(T-\lambda \mathrm{id})\neq\{0\}\) | 特征值满足 \(\det(A-\lambda I)=0\) |
+| 特征值为 \(-4,0,4\) 并从小到大排列 | 由 \(\det(A-\lambda I)=-\lambda(\lambda-4)(\lambda+4)\) 得根 \(-4,0,4\) |
+| \(\ker(T+4\mathrm{id})\) 由 \((1,1,1)\) 张成 | 解 \((A+4I)x=0\)，得 \(t(1,1,1)^T\) |
+| \(\ker(T)\) 由 \((1,0,1)\) 张成 | 解 \(Ax=0\)，得 \(t(1,0,1)^T\) |
+| \(\ker(T-4\mathrm{id})\) 由 \((1,-1,0)\) 张成 | 解 \((A-4I)x=0\)，得 \(s(1,-1,0)^T\) |
+
+
+
+================================================================================
+Linear_algebra_0345  translate_to_space
+可核对结论
+- 类型：特征值与特征向量
+- 结论：-4 | 1 | 1 | 1 | 0 | 1 | 0 | 1 | 4 | 1 | -1 | 0
+- 约定：特征值从小到大；特征向量依次取 \((1,1,1),(1,0,1),(1,-1,0)\)
+- 约定来源：继承已有解法
+
+## 检验
+将所得向量代回 \(T(v)=\lambda v\)：
+
+\[
+T(1,1,1)=(-4,-4,-4)=-4(1,1,1),
+\]
+
+\[
+T(1,0,1)=(0,0,0)=0(1,0,1),
+\]
+
+\[
+T(1,-1,0)=(4,-4,0)=4(1,-1,0).
+\]
+
+三个特征子空间均为一维，且三者维数之和为 \(3=\dim\mathbb R^3\)，与特征多项式的三个单根一致。
+---SOL---
+## 另一种解法
+本解采用线性空间写法：把矩阵看成某个线性算子在标准基下的坐标表示，特征值问题归结为 \(\ker(T-\lambda \mathrm{id})\) 是否非零。
+
+设 \(V=\mathbb R^3\)，题目未说明数域，按实数域处理。取标准基
+
+\[
+\mathcal E=\{e_1,e_2,e_3\}.
+\]
+
+定义线性算子 \(T:V\to V\)，它在 \(\mathcal E\) 下的坐标矩阵为
+
+\[
+[T]_{\mathcal E}=
+\begin{pmatrix}
+0&-4&0\\
+-8&-4&8\\
+-4&-4&4
+\end{pmatrix}.
+\]
+
+也就是说
+
+\[
+T(x,y,z)=(-4y,\,-8x-4y+8z,\,-4x-4y+4z).
+\]
+
+称 \(\lambda\) 是 \(T\) 的特征值，若存在非零向量 \(v\) 使
+
+\[
+T(v)=\lambda v,
+\]
+
+即
+
+\[
+v\in \ker(T-\lambda \mathrm{id}),\qquad v\ne 0.
+\]
+
+计算特征多项式：
+
+\[
+\chi_T(\lambda)
+=\det([T]_{\mathcal E}-\lambda I)
+=\det
+\begin{pmatrix}
+-\lambda&-4&0\\
+-8&-4-\lambda&8\\
+-4&-4&4-\lambda
+\end{pmatrix}.
+\]
+
+展开得
+
+\[
+\chi_T(\lambda)=-\lambda(\lambda-4)(\lambda+4).
+\]
+
+所以特征值为
+
+\[
+\lambda=-4,\ 0,\ 4.
+\]
+
+按从小到大排列：
+
+\[
+\lambda_1=-4,\qquad \lambda_2=0,\qquad \lambda_3=4.
+\]
+
+---
+
+求 \(\lambda_1=-4\) 的特征空间。解
+
+\[
+\ker(T+4\mathrm{id}).
+\]
+
+令 \(v=(x,y,z)\)，则
+
+\[
+(T+4\mathrm{id})(x,y,z)
+=
+(4x-4y,\,-8x+8z,\,-4x-4y+8z)
+=
+(0,0,0).
+\]
+
+于是 \(x=y\)，且 \(x=z\)。因此
+
+\[
+\ker(T+4\mathrm{id})
+=
+\operatorname{span}\{(1,1,1)\}.
+\]
+
+取特征向量
+
+\[
+(1,1,1).
+\]
+
+---
+
+求 \(\lambda_2=0\) 的特征空间。解
+
+\[
+\ker T.
+\]
+
+由
+
+\[
+T(x,y,z)=(-4y,\,-8x-4y+8z,\,-4x-4y+4z)=(0,0,0)
+\]
+
+得 \(y=0\)，且 \(x=z\)。因此
+
+\[
+\ker T
+=
+\operatorname{span}\{(1,0,1)\}.
+\]
+
+取特征向量
+
+\[
+(1,0,1).
+\]
+
+---
+
+求 \(\lambda_3=4\) 的特征空间。解
+
+\[
+\ker(T-4\mathrm{id}).
+\]
+
+由
+
+\[
+(T-4\mathrm{id})(x,y,z)
+=
+(-4x-4y,\,-8x-8y+8z,\,-4x-4y)
+=
+(0,0,0)
+\]
+
+得 \(y=-x
+---CORR---
+## 步骤对应
+- 已给矩阵解法：写出矩阵 \(A\) 并计算 \(\det(A-\lambda I)\)。  
+  本次线性空间解法：定义线性算子 \(T\)，计算 \(\det([T]_{\mathcal E}-\lambda I)\) 求特征值。
+
+- 已给矩阵解法：对 \(\lambda=-4\) 行化简 \(A+4I\)，取零向量 \((1,1,1)\)。  
+  本次线性空间解法：解 \(\ker(T+4\mathrm{id})\)，取基向量 \((1,1,1)\)。
+
+- 已给矩阵解法：对 \(\lambda=0\) 行化简 \(A\)，取零向量 \((1,0,1)\)。  
+  本次线性空间解法：解 \(\ker T\)，取基向量 \((1,0,1)\)。
+
+- 已给矩阵解法：对 \(\lambda=4\) 行化简 \(A-4I\)，原零向量 \((-1,1,0)\) 缩放为 \((1,-1,0)\)。  
+  本次线性空间解法：解 \(\ker(T-4\mathrm{id})\)，沿用同一缩放，取 \((1,-1,0)\)。
+
+
+
+================================================================================
+Linear_algebra_0468  direct
+可核对结论
+- 类型：矩阵
+- 结论：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64
+- 约定：无
+- 约定来源：自行选取
+
+## 检验
+设 \(p(t)=a+bt+ct^2\)，其标准基坐标为 \((a,b,c)^T\)。由矩阵乘法：
+
+\[
+A\begin{pmatrix}a\\b\\c\end{pmatrix}
+=
+\begin{pmatrix}
+a+6b+36c\\
+8b+96c\\
+64c
+\end{pmatrix}
+\]
+
+对应多项式为：
+
+\[
+(a+6b+36c)+(8b+96c)t+64ct^2
+\]
+
+而直接计算：
+
+\[
+p(8t+6)=a+b(8t+6)+c(8t+6)^2
+=a+6b+36c+(8b+96c)t+64ct^2
+\]
+
+两者一致，因此矩阵 \(A\) 正确。
+---SOL---
+## 解法
+采用矩阵解法；题中数域未说明，按实数域处理。
+
+对标准基 \(\lbrace 1,t,t^2\rbrace\) 逐项作用：
+
+\[
+T(1)=1
+\]
+所以坐标为 \((1,0,0)^T\)。
+
+\[
+T(t)=8t+6
+\]
+所以坐标为 \((6,8,0)^T\)。
+
+\[
+T(t^2)=(8t+6)^2=64t^2+96t+36
+\]
+所以坐标为 \((36,96,64)^T\)。
+
+将这些坐标作为矩阵的列，得到：
+
+\[
+A=\begin{pmatrix}
+1 & 6 & 36\\
+0 & 8 & 96\\
+0 & 0 & 64
+\end{pmatrix}
+\]
+
+
+
+================================================================================
+Linear_algebra_0468  forced_matrix
+可核对结论
+- 类型：矩阵
+- 结论：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64
+- 约定：按 \(1,t,t^2\) 顺序读列
+- 约定来源：继承已有解法
+
+## 检验
+Let \(p(t)=a+bt+ct^2\). Then \([p(t)]_{\mathcal B}=[a,b,c]^T\). Applying \(A\) gives
+
+\[
+A
+\begin{bmatrix}
+a\\
+b\\
+c
+\end{bmatrix}
+=
+\begin{bmatrix}
+a+6b+36c\\
+8b+96c\\
+64c
+\end{bmatrix}.
+\]
+
+Meanwhile,
+
+\[
+p(8t+6)
+=a+b(8t+6)+c(8t+6)^2
+=(a+6b+36c)+(8b+96c)t+64c t^2,
+\]
+
+which has exactly that coordinate vector. Therefore the matrix entries are correct.
+---SOL---
+## 解法
+Scalars are real since no field is specified, and this solution uses the matrix method. Compute the images of the standard basis vectors and write their coordinates as columns relative to the ordered basis \(\mathcal B=\{1,t,t^2\}\):
+
+\[
+T(1)=1,
+\]
+so
+\[
+[T(1)]_{\mathcal B}=
+\begin{bmatrix}
+1\\
+0\\
+0
+\end{bmatrix}.
+\]
+
+\[
+T(t)=8t+6,
+\]
+so
+\[
+[T(t)]_{\mathcal B}=
+\begin{bmatrix}
+6\\
+8\\
+0
+\end{bmatrix}.
+\]
+
+\[
+T(t^2)=(8t+6)^2=64t^2+96t+36=36+96t+64t^2,
+\]
+so
+\[
+[T(t^2)]_{\mathcal B}=
+\begin{bmatrix}
+36\\
+96\\
+64
+\end{bmatrix}.
+\]
+
+Thus the matrix \(A\) has these coordinate vectors as its columns:
+
+\[
+A=
+\begin{bmatrix}
+1 & 6 & 36\\
+0 & 8 & 96\\
+0 & 0 & 64
+\end{bmatrix}.
+\]
+
+
+
+================================================================================
+Linear_algebra_0468  forced_space
+可核对结论
+- 类型：矩阵
+- 结论：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64
+- 约定：按行优先列出矩阵元素；矩阵列为 \(T(1),T(t),T(t^2)\) 的坐标
+- 约定来源：自行选取
+
+## 检验
+取任意 \(f(t)=a+bt+ct^2\)，其坐标向量为 \((a,b,c)^T\)。计算
+\[
+A
+\begin{pmatrix}
+a\\
+b\\
+c
+\end{pmatrix}
+=
+\begin{pmatrix}
+a+6b+36c\\
+8b+96c\\
+64c
+\end{pmatrix}.
+\]
+而
+\[
+T(f)(t)
+=a+b(8t+6)+c(8t+6)^2
+=(a+6b+36c)+(8b+96c)t+64c t^2.
+\]
+其坐标向量正是上式，矩阵表示正确。
+---SOL---
+## 解法
+采用线性空间解法，按实数域处理。矩阵只作为坐标表示。
+
+设标准基为有序基  
+\[
+B=(1,t,t^2).
+\]
+线性映射在该基下的矩阵 \(A=[T]_B\) 的第 \(j\) 列是第 \(j\) 个基向量经过 \(T\) 后关于 \(B\) 的坐标向量。
+
+依次计算基向量的像：
+
+\[
+T(1)=1,
+\]
+所以
+\[
+[T(1)]_B=
+\begin{pmatrix}
+1\\
+0\\
+0
+\end{pmatrix}.
+\]
+
+\[
+T(t)=8t+6,
+\]
+所以
+\[
+[T(t)]_B=
+\begin{pmatrix}
+6\\
+8\\
+0
+\end{pmatrix}.
+\]
+
+\[
+T(t^2)=(8t+6)^2=64t^2+96t+36,
+\]
+所以
+\[
+[T(t^2)]_B=
+\begin{pmatrix}
+36\\
+96\\
+64
+\end{pmatrix}.
+\]
+
+因此
+\[
+A=
+\begin{pmatrix}
+1 & 6 & 36\\
+0 & 8 & 96\\
+0 & 0 & 64
+\end{pmatrix}.
+\]
+
+
+
+================================================================================
+Linear_algebra_0468  translate_to_matrix
+可核对结论
+- 类型：矩阵
+- 结论：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64
+- 约定：标准基按 \(1,t,t^2\) 排序，矩阵按列填充
+- 约定来源：继承已有解法
+
+## 检验
+取任意 \(f(t)=a+bt+ct^2\)，其坐标列为 \((a,b,c)^T\)。计算
+\[
+A
+\begin{pmatrix}
+a\\
+b\\
+c
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 6 & 36\\
+0 & 8 & 96\\
+0 & 0 & 64
+\end{pmatrix}
+\begin{pmatrix}
+a\\
+b\\
+c
+\end{pmatrix}
+=
+\begin{pmatrix}
+a+6b+36c\\
+8b+96c\\
+64c
+\end{pmatrix}.
+\]
+另一方面，
+\[
+T(f(t))
+=a+b(8t+6)+c(8t+6)^2
+=(a+6b+36c)+(8b+96c)t+64c t^2,
+\]
+其坐标列正是上面的结果，因此矩阵正确。
+---SOL---
+## 另一种解法
+本次采用矩阵解法，按实数域处理。取题目给定的标准基  
+\[
+B=\{1,t,t^2\},
+\]
+并把多项式 \(a+bt+ct^2\) 对应到坐标列向量 \((a,b,c)^T\)。所求矩阵 \(A\) 的第 \(j\) 列为 \(T(b_j)\) 在基 \(B\) 下的坐标列。
+
+计算基向量的像：
+\[
+T(1)=1,
+\]
+所以坐标列为
+\[
+(1,0,0)^T.
+\]
+
+\[
+T(t)=8t+6,
+\]
+所以坐标列为
+\[
+(6,8,0)^T.
+\]
+
+\[
+T(t^2)=(8t+6)^2=64t^2+96t+36,
+\]
+所以坐标列为
+\[
+(36,96,64)^T.
+\]
+
+将三个坐标列按顺序拼成矩阵：
+\[
+A=
+\begin{bmatrix}
+1 & 6 & 36\\
+0 & 8 & 96\\
+0 & 0 & 64
+\end{bmatrix}.
+\]
+
+
+---CORR---
+## 步骤对应
+- 已有解法：在有序基 \(B=\{1,t,t^2\}\) 下按列定义矩阵 \([T]_B\)。  
+  本次解法：把矩阵 \(A\) 的第 \(j\) 列取为 \(T(b_j)\) 的坐标列。
+
+- 已有解法：计算 \(T(1)=1\)，得到列 \((1,0,0)\)。  
+  本次解法：得到坐标列 \((1,0,0)^T\)，作为 \(A\) 的第一列。
+
+- 已有解法：计算 \(T(t)=6+8t\)，得到列 \((6,8,0)\)。  
+  本次解法：得到坐标列 \((6,8,0)^T\)，作为 \(A\) 的第二列。
+
+- 已有解法：计算 \(T(t^2)=36+96t+64t^2\)，得到列 \((36,96,64)\)。  
+  本次解法：得到坐标列 \((36,96,64)^T\)，作为 \(A\) 的第三列。
+
+- 已有解法：按行写出 \([T]_B\)。  
+  本次解法：把三个坐标列拼成 \(3\times 3\) 矩阵 \(A\)。
+
+
+
+================================================================================
+Linear_algebra_0468  translate_to_space
+可核对结论
+- 类型：矩阵
+- 结论：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64
+- 约定：标准基 {1,t,t^2} 且第 j 列为 T(第 j 个基向量) 的坐标
+- 约定来源：继承已有解法
+
+## 检验
+Let \(f(t)=c_0+c_1t+c_2t^2\), so \([f]_\alpha=(c_0,c_1,c_2)^T\). Then
+\[
+A[f]_\alpha=
+\begin{pmatrix}
+1&6&36\\
+0&8&96\\
+0&0&64
+\end{pmatrix}
+\begin{pmatrix}
+c_0\\ c_1\\ c_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+c_0+6c_1+36c_2\\
+8c_1+96c_2\\
+64c_2
+\end{pmatrix}.
+\]
+This gives the polynomial
+\[
+c_0+6c_1+36c_2+(8c_1+96c_2)t+64c_2t^2.
+\]
+Direct substitution gives
+\[
+T(f(t))=c_0+c_1(8t+6)+c_2(8t+6)^2
+=c_0+6c_1+36c_2+(8c_1+96c_2)t+64c_2t^2.
+\]
+The two expressions match, so the matrix is correct.
+---SOL---
+## 另一种解法
+This solution is presented in the linear-space style.
+
+Let \(V=P_2\) be the real vector space of polynomials of degree at most \(2\), with the given ordered basis
+\[
+\alpha=(1,t,t^2).
+\]
+The map \(T:V\to V\) defined by \(T(f(t))=f(8t+6)\) is linear, since for polynomials \(f,g\in V\) and scalars \(c\in\mathbb R\),
+\[
+T(f+g)(t)=(f+g)(8t+6)=f(8t+6)+g(8t+6)
+\]
+and
+\[
+T(cf)(t)=cf(8t+6).
+\]
+
+The requested matrix is the representation matrix \([T]_\alpha\). By definition, its \(j\)-th column is the coordinate vector of \(T(\alpha_j)\) with respect to \(\alpha\).
+
+For the first basis vector \(1\):
+\[
+T(1)=1=1\cdot 1+0\cdot t+0\cdot t^2,
+\]
+so
+\[
+[T(1)]_\alpha=(1,0,0)^T.
+\]
+
+For the second basis vector \(t\):
+\[
+T(t)=8t+6=6\cdot 1+8\cdot t+0\cdot t^2,
+\]
+so
+\[
+[T(t)]_\alpha=(6,8,0)^T.
+\]
+
+For the third basis vector \(t^2\):
+\[
+T(t^2)=(8t+6)^2=36+96t+64t^2,
+\]
+so
+\[
+[T(t^2)]_\alpha=(36,96,64)^T.
+\]
+
+Therefore, the representation matrix is
+\[
+[T]_\alpha=
+\begin{pmatrix}
+1&6&36\\
+0&8&96\\
+0&0&64
+\end{pmatrix}.
+\]
+
+
+---CORR---
+## 步骤对应
+- 已有解法使用有序基 \(\{1,t,t^2\}\)；本次解法将其视为有序基 \(\alpha=(1,t,t^2)\)，求线性映射的表示矩阵。
+- 已有解法计算 \(T(1)=1\) 并得到坐标 \((1,0,0)\)；本次解法对应基向量 \(1\) 的像在 \(\alpha\) 下的坐标列。
+- 已有解法计算 \(T(t)=8t+6\) 并得到坐标 \((6,8,0)\)；本次解法对应基向量 \(t\) 的像在 \(\alpha\) 下的坐标列。
+- 已有解法计算 \(T(t^2)=36+96t+64t^2\) 并得到坐标 \((36,96,64)\)；本次解法对应基向量 \(t^2\) 的像在 \(\alpha\) 下的坐标列。
+- 已有解法将这些坐标列依次排列成矩阵；本次解法按表示矩阵定义将这些坐标列排列为 \([T]_\alpha\)。
+
+
+
+================================================================================
+Linear_algebra_0494  direct
+可核对结论  
+- 类型：基  
+- 结论：-2 | 1 | 0 | 1 | 0 | 1 | 2 | 1  
+- 约定：自由变量取 \(y,z\)；核基顺序如上；像基取第一列方向  
+- 约定来源：自行选取  
+
+## 检验  
+核基向量代入：
+\[
+A\begin{bmatrix}-2\\1\\0\end{bmatrix}
+=
+\begin{bmatrix}0\\0\end{bmatrix},
+\qquad
+A\begin{bmatrix}1\\0\\1\end{bmatrix}
+=
+\begin{bmatrix}0\\0\end{bmatrix}.
+\]
+像空间方面，\(A\) 的三列均为 \(\begin{bmatrix}2\\1\end{bmatrix}\) 的倍数，且 \(\operatorname{rank}(A)=1\)，因此像由 \(\begin{bmatrix}2\\1\end{bmatrix}\) 张成。结论成立。
+---SOL---
+## 解法  
+采用矩阵解法；数域未说明，按实数域处理。  
+
+先对 \(A\) 做初等行变换：
+\[
+\begin{bmatrix}
+2&4&-2\\
+1&2&-1
+\end{bmatrix}
+\xrightarrow{R_1/2}
+\begin{bmatrix}
+1&2&-1\\
+1&2&-1
+\end{bmatrix}
+\xrightarrow{R_2-R_1}
+\begin{bmatrix}
+1&2&-1\\
+0&0&0
+\end{bmatrix}.
+\]
+所以 \(\operatorname{rank}(A)=1\)。
+
+核空间 \(\ker(A)\) 满足
+\[
+x+2y-z=0.
+\]
+取自由变量 \(y=s,z=t\)，则
+\[
+x=-2s+t.
+\]
+于是
+\[
+\begin{bmatrix}x\\y\\z\end{bmatrix}
+=
+s\begin{bmatrix}-2\\1\\0\end{bmatrix}
++
+t\begin{bmatrix}1\\0\\1\end{bmatrix}.
+\]
+因此核的一组基为
+\[
+\left\{
+\begin{bmatrix}-2\\1\\0\end{bmatrix},
+\begin{bmatrix}1\\0\\1\end{bmatrix}
+\right\}.
+\]
+
+像空间 \(\operatorname{im}(A)\) 是 \(A\) 的列空间：
+\[
+\operatorname{col}(A)=\operatorname{span}
+\left\{
+\begin{bmatrix}2\\1\end{bmatrix},
+\begin{bmatrix}4\\2\end{bmatrix},
+\begin{bmatrix}-2\\-1\end{bmatrix}
+\right\}.
+\]
+后两列分别是第一列的 \(2\) 倍和 \(-1\) 倍，所以像的一组基为
+\[
+\left\{
+\begin{bmatrix}2\\1\end{bmatrix}
+\right\}.
+\]
+
+
+
+================================================================================
+Linear_algebra_0494  forced_matrix
+可核对结论
+- 类型：基
+- 结论：-2 | 1 | 0 | 1 | 0 | 1 | 2 | 1
+- 约定：核基按自由变量 \(x_2,x_3\) 取标准值；像基取原矩阵第 1 列
+- 约定来源：自行选取
+
+## 检验
+将核的两个基向量代入：
+\[
+A\begin{bmatrix}-2\\1\\0\end{bmatrix}
+=
+\begin{bmatrix}0\\0\end{bmatrix},
+\qquad
+A\begin{bmatrix}1\\0\\1\end{bmatrix}
+=
+\begin{bmatrix}0\\0\end{bmatrix}.
+\]
+像的基向量张成所有列：
+\[
+\begin{bmatrix}4\\2\end{bmatrix}
+=2\begin{bmatrix}2\\1\end{bmatrix},\qquad
+\begin{bmatrix}-2\\-1\end{bmatrix}
+=-\begin{bmatrix}2\\1\end{bmatrix}.
+\]
+且 \(\operatorname{rank}(A)=1\)，与核维数 \(3-1=2\)、像维数 \(1\) 一致。
+---SOL---
+## 解法
+按实数域处理；本题使用矩阵解法。
+
+对 \(A\) 做初等行变换：
+\[
+A=\begin{bmatrix}2&4&-2\\1&2&-1\end{bmatrix}
+\xrightarrow{R_2\leftarrow R_2-\frac12R_1}
+\begin{bmatrix}2&4&-2\\0&0&0\end{bmatrix}
+\xrightarrow{R_1\leftarrow \frac12R_1}
+\begin{bmatrix}1&2&-1\\0&0&0\end{bmatrix}.
+\]
+RREF 中有 \(1\) 个主元列，所以 \(\operatorname{rank}(A)=1\)。
+
+求核：解 \(A\mathbf{x}=\mathbf{0}\)，即
+\[
+x_1+2x_2-x_3=0.
+\]
+取 \(x_2=s,\ x_3=t\) 为自由变量，则
+\[
+x_1=-2s+t.
+\]
+于是
+\[
+\mathbf{x}
+=
+s\begin{bmatrix}-2\\1\\0\end{bmatrix}
++
+t\begin{bmatrix}1\\0\\1\end{bmatrix}.
+\]
+因此核的一组基为
+\[
+\left\{
+\begin{bmatrix}-2\\1\\0\end{bmatrix},
+\begin{bmatrix}1\\0\\1\end{bmatrix}
+\right\}.
+\]
+
+求像：RREF 中主元列是第 \(1\) 列，所以原矩阵的第 \(1\) 列可作为像的一组基。也可直接看出各列都是第 \(1\) 列的倍数：
+\[
+\begin{bmatrix}4\\2\end{bmatrix}
+=2\begin{bmatrix}2\\1\end{bmatrix},\qquad
+\begin{bmatrix}-2\\-1\end{bmatrix}
+=-\begin{bmatrix}2\\1\end{bmatrix}.
+\]
+因此像的一组基为
+\[
+\left\{
+\begin{bmatrix}2\\1\end{bmatrix}
+\right\}.
+\]
+
+
+
+================================================================================
+Linear_algebra_0494  forced_space
+可核对结论
+- 类型：基
+- 结论：-2 | 1 | 0 | 1 | 0 | 1 | 2 | 1
+- 约定：核基第1个为 \((-2,1,0)\)，第2个为 \((1,0,1)\)；像基为 \((2,1)\)
+- 约定来源：自行选取
+
+## 检验
+将核基向量代入：
+\[
+A\begin{pmatrix}-2\\1\\0\end{pmatrix}
+=\begin{pmatrix}0\\0\end{pmatrix},\qquad
+A\begin{pmatrix}1\\0\\1\end{pmatrix}
+=\begin{pmatrix}0\\0\end{pmatrix}.
+\]
+所以它们都属于核空间，且核空间维数为 \(2\)。
+
+像空间由 \(A\) 的列向量张成，所有列向量都是 \(\begin{pmatrix}2\\1\end{pmatrix}\) 的倍数，且 \(\begin{pmatrix}2\\1\end{pmatrix}\) 非零，所以像空间维数为 \(1\)。 \(\dim\ker T+\dim\operatorname{im}T=2+1=3=\dim\mathbb R^3\)，符合秩-零化度定理。
+---SOL---
+## 解法
+采用线性空间解法；数域未说明，按实数域 \(\mathbb R\) 处理。
+
+设线性映射
+\[
+T:\mathbb R^3\to\mathbb R^2,\qquad T(x)=Ax.
+\]
+
+先求像空间。设 \(e_1,e_2,e_3\) 为 \(\mathbb R^3\) 的标准基，则
+\[
+T(e_1)=\begin{pmatrix}2\\1\end{pmatrix},\quad
+T(e_2)=\begin{pmatrix}4\\2\end{pmatrix},\quad
+T(e_3)=\begin{pmatrix}-2\\-1\end{pmatrix}.
+\]
+因此
+\[
+\operatorname{im}T
+=\operatorname{span}\left\{T(e_1),T(e_2),T(e_3)\right\}
+=\operatorname{span}\left\{\begin{pmatrix}2\\1\end{pmatrix},\begin{pmatrix}4\\2\end{pmatrix},\begin{pmatrix}-2\\-1\end{pmatrix}\right\}.
+\]
+由于
+\[
+\begin{pmatrix}4\\2\end{pmatrix}=2\begin{pmatrix}2\\1\end{pmatrix},\qquad
+\begin{pmatrix}-2\\-1\end{pmatrix}=-\begin{pmatrix}2\\1\end{pmatrix},
+\]
+所以
+\[
+\operatorname{im}T=\operatorname{span}\left\{\begin{pmatrix}2\\1\end{pmatrix}\right\}.
+\]
+向量 \(\begin{pmatrix}2\\1\end{pmatrix}\neq 0\)，因此线性无关，故它是像空间的一个基。
+
+再求核空间。
+\[
+\ker T=\{x\in\mathbb R^3:T(x)=0\}.
+\]
+设 \(x=(x_1,x_2,x_3)^T\)，则
+\[
+T(x)=\begin{pmatrix}2x_1+4x_2-2x_3\\x_1+2x_2-x_3\end{pmatrix}
+=\begin{pmatrix}0\\0\end{pmatrix}.
+\]
+两个方程都等价于
+\[
+x_1+2x_2-x_3=0,
+\]
+即
+\[
+x_1=-2x_2+x_3.
+\]
+取 \(x_2=s,\ x_3=t\)，得
+\[
+x=
+\begin{pmatrix}-2s+t\\s\\t\end{pmatrix}
+=s\begin{pmatrix}-2\\1\\0\end{pmatrix}
++t\begin{pmatrix}1\\0\\1\end{pmatrix}.
+\]
+这两个向量不是彼此的标量倍数，所以线性无关。由秩-零化度定理，
+\[
+\dim\ker T=\dim\mathbb R^3-\dim\operatorname{im}T=3-1=2,
+\]
+因此它们构成核空间的一个基。
+
+
+
+================================================================================
+Linear_algebra_0494  translate_to_matrix
+可核对结论
+- 类型：基
+- 结论：-1 | 0 | -1 | 0 | -1 | -2 | 2 | 1
+- 约定：核基顺序为 \(\begin{bmatrix}-1\\0\\-1\end{bmatrix},\begin{bmatrix}0\\-1\\-2\end{bmatrix}\)，像基为 \(\begin{bmatrix}2\\1\end{bmatrix}\)
+- 约定来源：继承已有解法
+
+## 检验
+对核空间基向量代入验证：
+\[
+A\begin{bmatrix}-1\\0\\-1\end{bmatrix}
+=
+\begin{bmatrix}
+0\\0
+\end{bmatrix},
+\qquad
+A\begin{bmatrix}
+0\\-1\\-2
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\0
+\end{bmatrix}.
+\]
+且二者线性无关，核空间维数确为 \(2\)。
+
+对像空间：
+\[
+\begin{bmatrix}4\\2\end{bmatrix}
+=2\begin{bmatrix}2\\1\end{bmatrix},\qquad
+\begin{bmatrix}-2\\-1\end{bmatrix}
+=-\begin{bmatrix}2\\1\end{bmatrix}.
+\]
+所以列空间由 \(\begin{bmatrix}2\\1\end{bmatrix}\) 张成，像空间维数为 \(1\)。
+---SOL---
+## 另一种解法
+题中未说明数域，以下按实数域 \(\mathbb R\) 处理。本次采用矩阵解法。
+
+令
+\[
+A=\begin{bmatrix}
+2&4&-2\\
+1&2&-1
+\end{bmatrix}.
+\]
+
+求核空间：解 \(Ax=0\)。对增广矩阵作初等行变换：
+\[
+\left[\begin{array}{ccc|c}
+2&4&-2&0\\
+1&2&-1&0
+\end{array}\right]
+\xrightarrow{\frac12 R_1}
+\left[\begin{array}{ccc|c}
+1&2&-1&0\\
+1&2&-1&0
+\end{array}\right]
+\xrightarrow{R_2-R_1}
+\left[\begin{array}{ccc|c}
+1&2&-1&0\\
+0&0&0&0
+\end{array}\right].
+\]
+因此
+\[
+x+2y-z=0,\qquad x=-2y+z.
+\]
+矩阵 \(A\) 的秩为 \(1\)，所以
+\[
+\dim\ker A=3-\operatorname{rank}(A)=3-1=2.
+\]
+
+为沿用已有解法锁定的基向量，取
+\[
+(y,z)=(0,-1)\implies v_1=
+\begin{bmatrix}
+-1\\0\\-1
+\end{bmatrix},
+\]
+\[
+(y,z)=(-1,-2)\implies v_2=
+\begin{bmatrix}
+0\\-1\\-2
+\end{bmatrix}.
+\]
+二者都满足 \(x+2y-z=0\)，且不是数量倍数，所以线性无关。又核空间维数为 \(2\)，故
+\[
+\ker A=\operatorname{span}\left\{
+\begin{bmatrix}
+-1\\0\\-1
+\end{bmatrix},
+\begin{bmatrix}
+0\\-1\\-2
+\end{bmatrix}
+\right\}.
+\]
+
+求像空间：像空间就是矩阵 \(A\) 的列空间。将 \(A\) 的列记为
+\[
+c_1=\begin{bmatrix}2\\1\end{bmatrix},\quad
+c_2=\begin{bmatrix}4\\2\end{bmatrix},\quad
+c_3=\begin{bmatrix}-2\\-1\end{bmatrix}.
+\]
+可见
+\[
+c_2=2c_1,\qquad c_3=-c_1.
+\]
+因此
+\[
+\operatorname{col}(A)=\operatorname{span}\{c_1,c_2,c_3\}
+=\operatorname{span}\left\{\begin{bmatrix}2\\1\end{bmatrix}\right\}.
+\]
+所以
+\[
+\operatorname{im}A=\operatorname{span}\left\{
+\begin{bmatrix}2\\1\end{bmatrix}
+\right\}.
+\]
+
+
+---CORR---
+## 步骤对应
+| 已有线性空间解法 | 本次矩阵解法 |
+| --- | --- |
+| 研究 \(T(x)=Ax\) 的核与像 | 研究 \(Ax=0\) 的核空间和 \(A\) 的列空间 |
+| 方程化为 \(x=-2y+z\) | 对增广矩阵初等行变换得 \(x=-2y+z\) |
+| 取核空间基 \(v_1=(-1,0,-1),v_2=(0,-1,-2)\) | 沿用同一组基 \(v_1,v_2\) |
+| 由列向量平行得 \(\operatorname{im}T=\operatorname{span}\{(2,1)\}\) | 由 \(c_2=2c_1,c_3=-c_1\) 得 \(\operatorname{col}(A)=\operatorname{span}\{(2,1)\}\) |
+| 核空间维数 \(2\) | \(\operatorname{rank}(A)=1\)，故零空间维数 \(3-1=2\) |
+
+
+
+================================================================================
+Linear_algebra_0494  translate_to_space
+可核对结论
+- 类型：基
+- 结论：-1 | 0 | -1 | 0 | -1 | -2 | 2 | 1
+- 约定：kernel basis \((-1,0,-1),(0,-1,-2)\); image basis \((2,1)\); real field
+- 约定来源：继承已有解法
+
+## 检验
+For the kernel vectors:
+\[
+T(-1,0,-1)=(0,0),\qquad T(0,-1,-2)=(0,0).
+\]
+They are linearly independent in \(\mathbb R^3\), and since \(\ker T\) is \(2\)-dimensional, they form a basis.
+
+For the image vector:
+\[
+T(1,0,0)=(2,1),
+\]
+so \((2,1)\in\operatorname{im}T\). Every vector in the image is a scalar multiple of \((2,1)\), so it is a basis for the image. The inherited values are consistent.
+---SOL---
+## 另一种解法
+This solution is written in linear-space language.
+
+Let \(T:\mathbb R^3\to \mathbb R^2\) be the linear map represented by \(A\) in the standard bases, so
+\[
+T(x,y,z)=(2x+4y-2z,\ x+2y-z).
+\]
+Let \(e_1,e_2,e_3\) be the standard basis of \(\mathbb R^3\). Then
+\[
+T(e_1)=(2,1),\qquad T(e_2)=(4,2)=2(2,1),\qquad T(e_3)=(-2,-1)=-(2,1).
+\]
+Thus for \(v=(x,y,z)=xe_1+ye_2+ze_3\),
+\[
+T(v)=xT(e_1)+yT(e_2)+zT(e_3)
+=(x+2y-z)(2,1).
+\]
+
+Therefore
+\[
+\ker T=\{v\in\mathbb R^3:T(v)=0\}
+=\{(x,y,z):x+2y-z=0\}.
+\]
+This is a plane through the origin, so it is a \(2\)-dimensional subspace of \(\mathbb R^3\). Use \(y,z\) as parameters:
+\[
+(x,y,z)=(-2y+z,y,z).
+\]
+Choose the same specializations as in the existing solution:
+\[
+(y,z)=(0,-1)\implies v_1=(-1,0,-1),
+\]
+\[
+(y,z)=(-1,-2)\implies v_2=(0,-1,-2).
+\]
+The vectors \(v_1,v_2\) are linearly independent, and every kernel vector can be written as
+\[
+(-2y+z,y,z)=(2y-z)v_1+(-y)v_2.
+\]
+Hence
+\[
+\{v_1,v_2\}=\{(-1,0,-1),(0,-1,-2)\}
+\]
+is a basis for \(\ker T\).
+
+For the image,
+\[
+\operatorname{im}T=\{T(v):v\in\mathbb R^3\}
+=\{(x+2y-z)(2,1):x,y,z\in\mathbb R\}
+=\operatorname{span}\{(2,1)\}.
+\]
+Since \((2,1)\neq 0\), the singleton
+\[
+\{(2,1)\}
+\]
+is a basis for \(\operatorname{im}T\). Also,
+\[
+\dim\ker T+\dim\operatorname{im}T=2+1=3=\dim\mathbb R^3,
+\]
+as required by rank-nullity.
+
+
+---CORR---
+## 步骤对应
+| 已有矩阵解法 | 本次线性空间解法 |
+|---|---|
+| Row reduction gives \(x+2y-z=0\) | The map satisfies \(T(v)=(x+2y-z)(2,1)\), so the kernel condition is \(x+2y-z=0\) |
+| General null-space vector \((-2y+z,y,z)\) | Same parameterized form of vectors in \(\ker T\) |
+| Specialize \((y,z)=(0,-1),(-1,-2)\) to get the kernel basis | Same specializations produce \(v_1=(-1,0,-1)\), \(v_2=(0,-1,-2)\) |
+| Pivot in column 1 gives image basis \(\{(2,1)\}\) | The image is \(\operatorname{span}\{(2,1)\}\), and \(T(e_1)=(2,1)\) |
+| Two kernel basis vectors and one image basis vector | \(\dim\ker T=2\), \(\dim\operatorname{im}T=1\), rank-nullity holds |
+
+
+
+================================================================================
+Linear_algebra_0501  direct
+可核对结论
+- 类型：零空间的一组基
+- 结论：5 | -2 | 1 | 0 | -7 | 2 | 0 | 1
+- 约定：自由变量为 \(x_3,x_4\)，基向量按先 \(x_3\) 后 \(x_4\) 的顺序排列
+- 约定来源：自行选取
+
+## 检验
+将 \(\vec{u},\vec{v}\) 代回 \(A\vec{x}=\vec{0}\)：
+
+\[
+A\vec{u}
+=
+\begin{bmatrix}
+1&3&1&1\\
+0&1&2&-2\\
+-1&-2&1&-3
+\end{bmatrix}
+\begin{bmatrix}
+5\\
+-2\\
+1\\
+0
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\
+0\\
+0
+\end{bmatrix},
+\]
+
+\[
+A\vec{v}
+=
+\begin{bmatrix}
+1&3&1&1\\
+0&1&2&-2\\
+-1&-2&1&-3
+\end{bmatrix}
+\begin{bmatrix}
+-7\\
+2\\
+0\\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\
+0\\
+0
+\end{bmatrix}.
+\]
+
+且 \(\vec{u},\vec{v}\) 线性无关，因此它们确实张成 \(\ker(A)\)。
+---SOL---
+## 解法
+采用矩阵解法，数域按实数域 \(\mathbb R\) 处理。
+
+求 \(A\vec{x}=\vec{0}\) 的解空间，即 \(\ker(A)\)。对增广矩阵作初等行变换：
+
+\[
+\left[\begin{array}{cccc|c}
+1&3&1&1&0\\
+0&1&2&-2&0\\
+-1&-2&1&-3&0
+\end{array}\right]
+\]
+
+第 3 行加第 1 行：
+
+\[
+\to
+\left[\begin{array}{cccc|c}
+1&3&1&1&0\\
+0&1&2&-2&0\\
+0&1&2&-2&0
+\end{array}\right]
+\]
+
+第 3 行减第 2 行：
+
+\[
+\to
+\left[\begin{array}{cccc|c}
+1&3&1&1&0\\
+0&1&2&-2&0\\
+0&0&0&0&0
+\end{array}\right]
+\]
+
+第 1 行减去第 2 行的 3 倍，得到行最简形：
+
+\[
+\to
+\left[\begin{array}{cccc|c}
+1&0&-5&7&0\\
+0&1&2&-2&0\\
+0&0&0&0&0
+\end{array}\right]
+\]
+
+因此：
+
+\[
+\begin{cases}
+x_1-5x_3+7x_4=0,\\
+x_2+2x_3-2x_4=0.
+\end{cases}
+\]
+
+令自由变量 \(x_3=s,\ x_4=t\)，则
+
+\[
+\begin{cases}
+x_1=5s-7t,\\
+x_2=-2s+2t,\\
+x_3=s,\\
+x_4=t.
+\end{cases}
+\]
+
+所以
+
+\[
+\vec{x}
+=
+s
+\begin{bmatrix}
+5\\
+-2\\
+1\\
+0
+\end{bmatrix}
++
+t
+\begin{bmatrix}
+-7\\
+2\\
+0\\
+1
+\end{bmatrix}.
+\]
+
+因此可取
+
+\[
+\vec{u}=
+\begin{bmatrix}
+5\\
+-2\\
+1\\
+0
+\end{bmatrix},
+\qquad
+\vec{v}=
+\begin{bmatrix}
+-7\\
+2\\
+0\\
+1
+\end{bmatrix}.
+\]
+
+它们线性无关，且 \(\operatorname{rank}(A)=2\)，故零空间维数为 \(4-2=2\)，所以 \(\vec{u},\vec{v}\) 张成整个零空间。
+
+
+
+================================================================================
+Linear_algebra_0501  forced_matrix
+可核对结论
+- 类型：基
+- 结论：5 | -2 | 1 | 0 | -7 | 2 | 0 | 1
+- 约定：自由变量取 x3,x4；u 对 x3，v 对 x4
+- 约定来源：自行选取
+
+## 检验
+\[
+A\vec u=
+\begin{bmatrix}
+1&3&1&1\\
+0&1&2&-2\\
+-1&-2&1&-3
+\end{bmatrix}
+\begin{bmatrix}
+5\\
+-2\\
+1\\
+0
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\
+0\\
+0
+\end{bmatrix}.
+\]
+
+\[
+A\vec v=
+\begin{bmatrix}
+1&3&1&1\\
+0&1&2&-2\\
+-1&-2&1&-3
+\end{bmatrix}
+\begin{bmatrix}
+-7\\
+2\\
+0\\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\
+0\\
+0
+\end{bmatrix}.
+\]
+
+且 \(\vec u,\vec v\) 线性无关，所以它们张成整个解空间。
+---SOL---
+## 解法
+按实数域处理；使用矩阵解法。
+
+求 \(A\vec x=\vec 0\) 的解。对 \(A\) 做初等行变换：
+
+\[
+\begin{bmatrix}
+1&3&1&1\\
+0&1&2&-2\\
+-1&-2&1&-3
+\end{bmatrix}
+\xrightarrow{R_3+R_1}
+\begin{bmatrix}
+1&3&1&1\\
+0&1&2&-2\\
+0&1&2&-2
+\end{bmatrix}
+\xrightarrow{R_3-R_2}
+\begin{bmatrix}
+1&3&1&1\\
+0&1&2&-2\\
+0&0&0&0
+\end{bmatrix}
+\]
+
+\[
+\xrightarrow{R_1-3R_2}
+\begin{bmatrix}
+1&0&-5&7\\
+0&1&2&-2\\
+0&0&0&0
+\end{bmatrix}.
+\]
+
+所以方程组为  
+\[
+x_1-5x_3+7x_4=0,\qquad x_2+2x_3-2x_4=0.
+\]
+
+令自由变量 \(x_3=s,\ x_4=t\)，则
+
+\[
+\vec x=
+\begin{bmatrix}
+5s-7t\\
+-2s+2t\\
+s\\
+t
+\end{bmatrix}
+=
+s\begin{bmatrix}
+5\\
+-2\\
+1\\
+0
+\end{bmatrix}
++
+t\begin{bmatrix}
+-7\\
+2\\
+0\\
+1
+\end{bmatrix}.
+\]
+
+因此可取
+
+\[
+\vec u=\begin{bmatrix}5\\-2\\1\\0\end{bmatrix},
+\qquad
+\vec v=\begin{bmatrix}-7\\2\\0\\1\end{bmatrix}.
+\]
+
+
+
+================================================================================
+Linear_algebra_0501  forced_space
+可核对结论
+- 类型：基
+- 结论：5 | -2 | 1 | 0 | -7 | 2 | 0 | 1
+- 约定：\(\vec u\) 取 \((x_3,x_4)=(1,0)\)，\(\vec v\) 取 \((0,1)\)
+- 约定来源：自行选取
+
+## 检验
+Substitution gives
+\[
+A\vec u=\begin{bmatrix}0\\0\\0\end{bmatrix},
+\qquad
+A\vec v=\begin{bmatrix}0\\0\\0\end{bmatrix}.
+\]
+The third row functional is \(-1\) times the first plus the second, while the first two row functionals are independent, so \(\operatorname{rank}T=2\). By rank-nullity,
+\[
+\dim\ker T=4-2=2.
+\]
+Since \(\vec u,\vec v\) are also independent, they span the whole kernel.
+---SOL---
+## 解法
+Linear space solution. The field is \(\mathbb R\).
+
+Let \(T:\mathbb R^4\to\mathbb R^3\) be \(T(\vec x)=A\vec x\). We need \(\ker T\). For \(\vec x=(x_1,x_2,x_3,x_4)\), the condition \(T(\vec x)=\vec0\) is
+
+\[
+\begin{cases}
+x_1+3x_2+x_3+x_4=0,\\
+x_2+2x_3-2x_4=0,\\
+-x_1-2x_2+x_3-3x_4=0.
+\end{cases}
+\]
+
+The third equation is redundant because
+\[
+(-1,-2,1,-3)=-(1,3,1,1)+(0,1,2,-2).
+\]
+Thus it suffices to solve the first two equations.
+
+From the second equation,
+\[
+x_2=-2x_3+2x_4.
+\]
+Substitute into the first equation:
+\[
+x_1+3(-2x_3+2x_4)+x_3+x_4=0
+\]
+so
+\[
+x_1=5x_3-7x_4.
+\]
+Therefore every solution is
+\[
+\vec x=
+\begin{bmatrix}
+5x_3-7x_4\\
+-2x_3+2x_4\\
+x_3\\
+x_4
+\end{bmatrix}
+=
+x_3
+\begin{bmatrix}
+5\\
+-2\\
+1\\
+0
+\end{bmatrix}
++
+x_4
+\begin{bmatrix}
+-7\\
+2\\
+0\\
+1
+\end{bmatrix}.
+\]
+Hence
+\[
+\ker T=\operatorname{span}\left\{
+\begin{bmatrix}5\\-2\\1\\0\end{bmatrix},
+\begin{bmatrix}-7\\2\\0\\1\end{bmatrix}
+\right\}.
+\]
+
+
+
+================================================================================
+Linear_algebra_0501  translate_to_matrix
+可核对结论
+- 类型：基
+- 结论： -7 | 2 | 0 | 1 | 5 | -2 | 1 | 0
+- 约定：自由变量 \(x_3,x_4\)；\(\vec{u}\) 来自 \((x_3,x_4)=(0,1)\)，\(\vec{v}\) 来自 \((x_3,x_4)=(1,0)\)，不缩放
+- 约定来源：继承已有解法
+
+## 检验
+\[
+A\vec{u}
+=
+\begin{bmatrix}
+1 & 3 & 1 & 1\\
+0 & 1 & 2 & -2\\
+-1 & -2 & 1 & -3
+\end{bmatrix}
+\begin{bmatrix}
+-7\\2\\0\\1
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\0\\0
+\end{bmatrix}.
+\]
+\[
+A\vec{v}
+=
+\begin{bmatrix}
+1 & 3 & 1 & 1\\
+0 & 1 & 2 & -2\\
+-1 & -2 & 1 & -3
+\end{bmatrix}
+\begin{bmatrix}
+5\\-2\\1\\0
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\0\\0
+\end{bmatrix}.
+\]
+The row-reduced form has two nonzero rows, so \(\operatorname{rank}(A)=2\), and the nullspace has dimension \(4-2=2\). Thus \(\vec{u},\vec{v}\) span the entire solution set
+---SOL---
+## 另一种解法
+Matrix solution. The field is not stated, so take it to be \(\mathbb R\).  
+The set of vectors mapped to the zero vector is the solution set of \(A\vec{x}=\vec{0}\). Form the augmented matrix and row-reduce:
+
+\[
+\left[\begin{array}{cccc|c}
+1 & 3 & 1 & 1 & 0\\
+0 & 1 & 2 & -2 & 0\\
+-1 & -2 & 1 & -3 & 0
+\end{array}\right]
+\]
+
+Row operations:
+- \(R_3 \leftarrow R_3 + R_1\):
+\[
+\left[\begin{array}{cccc|c}
+1 & 3 & 1 & 1 & 0\\
+0 & 1 & 2 & -2 & 0\\
+0 & 1 & 2 & -2 & 0
+\end{array}\right]
+\]
+- \(R_3 \leftarrow R_3 - R_2\):
+\[
+\left[\begin{array}{cccc|c}
+1 & 3 & 1 & 1 & 0\\
+0 & 1 & 2 & -2 & 0\\
+0 & 0 & 0 & 0 & 0
+\end{array}\right]
+\]
+- \(R_1 \leftarrow R_1 - 3R_2\):
+\[
+\left[\begin{array}{cccc|c}
+1 & 0 & -5 & 7 & 0\\
+0 & 1 & 2 & -2 & 0\\
+0 & 0 & 0 & 0 & 0
+\end{array}\right]
+\]
+
+Thus the equations are
+\[
+x_1 - 5x_3 + 7x_4 = 0,\qquad
+x_2 + 2x_3 - 2x_4 = 0.
+\]
+So
+\[
+x_1 = 5x_3 - 7x_4,\qquad
+x_2 = -2x_3 + 2x_4,
+\]
+with \(x_3,x_4\) free.
+
+Taking \(x_4=1,\ x_3=0\) gives
+\[
+\vec{u} = \begin{bmatrix}
+-7\\
+2\\
+0\\
+1
+\end{bmatrix}.
+\]
+Taking \(x_3=1,\ x_4=0\) gives
+\[
+\vec{v} = \begin{bmatrix}
+5\\
+-2\\
+1\\
+0
+\end{bmatrix}.
+\]
+The row-reduced matrix has two pivot columns, so \(\operatorname{rank}(A)=2\). Hence the solution set has dimension \(4-2=2\). The two vectors above are linearly independent and therefore span the whole solution set.
+
+
+---CORR---
+## 步骤对应
+- 已有解法中的 \(\ker(T)\) 对应本次矩阵解法中 \(A\vec{x}=\vec{0}\) 的解空间。
+- 已有解法中解 \(T(x)=0\) 对应本次对增广矩阵 \([A \mid 0]\) 做行化简。
+- 已有解法中第一个生成元由 \(x_4=1,\ x_3=0\) 得到，对应本次取 \((x_3,x_4)=(0,1)\)，得到 \(\vec{u}\)。
+- 已有解法中第二个生成元由 \(x_3=1,\ x_4=0\) 得到，对应本次取 \((x_3,x_4)=(1,0)\)，得到 \(\vec{v}\)。
+- 已有解法中 \(\ker(T)\) 是二维平面，对应本次 \(\operatorname{rank}(A)=2\)、零空间维数为 \(2\)，\(\vec{u},\vec{v}\) 张成整个解空间。
+
+
+
+================================================================================
+Linear_algebra_0501  translate_to_space
+可核对结论
+- 类型：基
+- 结论：-7 | 2 | 0 | 1 | 5 | -2 | 1 | 0
+- 约定：x3,x4 自由；x4-向量在前；系数取 1
+- 约定来源：继承已有解法
+
+## 检验
+直接代入：
+\[
+A\vec u=\begin{pmatrix}0\\0\\0\end{pmatrix},\qquad
+A\vec v=\begin{pmatrix}0\\0\\0\end{pmatrix}.
+\]
+且 \(\vec u,\vec v\) 线性无关；由秩-零化度定理知 \(\dim\ker T=2\)，所以它们张成整个映射到零向量的集合。
+---SOL---
+## 另一种解法
+本次采用线性空间写法。未说明数域，按实数域 \(\mathbb R\) 处理。
+
+令 \(T:\mathbb R^4\to \mathbb R^3\) 为线性映射，其在标准基下的矩阵为 \(A\)。题中所求就是
+\[
+\ker T=\{\vec x\in\mathbb R^4:T(\vec x)=\vec 0\}.
+\]
+对坐标向量 \(\vec x=(x_1,x_2,x_3,x_4)\)，定义坐标线性泛函
+\[
+f_1(\vec x)=x_1+3x_2+x_3+x_4,
+\]
+\[
+f_2(\vec x)=x_2+2x_3-2x_4,
+\]
+\[
+f_3(\vec x)=-x_1-2x_2+x_3-3x_4.
+\]
+它们就是 \(A\) 的三行与 \(\vec x\) 的内积。因为
+\[
+f_3=f_2-f_1,
+\]
+所以
+\[
+f_1(\vec x)=0,\quad f_2(\vec x)=0,\quad f_3(\vec x)=0
+\]
+等价于
+\[
+f_1(\vec x)=0,\quad f_2(\vec x)=0.
+\]
+因此
+\[
+\ker T=\ker f_1\cap \ker f_2.
+\]
+
+考虑线性映射
+\[
+F:\mathbb R^4\to\mathbb R^2,\qquad \vec x\mapsto (f_1(\vec x),f_2(\vec x)).
+\]
+由于 \(f_1,f_2\) 线性无关，\(F\) 的秩为 \(2\)。由秩-零化度定理，
+\[
+\dim\ker F=4-2=2.
+\]
+所以 \(\ker T\) 的维数为 \(2\)，只需找到其中两个线性无关的向量。
+
+解
+\[
+f_1(\vec x)=0,\qquad f_2(\vec x)=0.
+\]
+取自由变量
+\[
+x_3=s,\qquad x_4=t.
+\]
+由 \(f_2(\vec x)=0\) 得
+\[
+x_2=-2s+2t.
+\]
+代入 \(f_1(\vec x)=0\) 得
+\[
+x_1=5s-7t.
+\]
+于是
+\[
+\vec x=s(5,-2,1,0)+t(-7,2,0,1).
+\]
+这两个向量线性无关，且 \(\dim\ker T=2\)，故它们张成整个核空间。
+
+沿用已有解法的顺序约定：先列 \(x_4\)-向量，再列 \(x_3\)-向量，得到
+\[
+\vec u=(-7,2,0,1),\qquad \vec v=(5,-2,1,0).
+\]
+
+
+---CORR---
+## 步骤对应
+- 已有解法：对 \(A\) 作行变换，第三行消为 \(0\)。本次：将第三个坐标泛函写成 \(f_3=f_2-f_1\)，得到 \(\ker T=\ker f_1\cap \ker f_2\)。
+- 已有解法：回代得 \(x_1=5x_3-7x_4,\ x_2=-2x_3+2x_4\)，\(x_3,x_4\) 自由。本次：在核方程中取 \(x_3=s,\ x_4=t\)，得到同样表达式。
+- 已有解法：零空间向量写作 \(x_3(5,-2,1,0)+x_4(-7,2,0,1)\)。本次：核空间基写作 \(s(5,-2,1,0)+t(-7,2,0,1)\)。
+- 已有解法：锁定 \(\vec u=(-7,2,0,1)\)，\(\vec v=(5,-2,1,0)\)。本次：沿用同样的顺序和缩放。
+

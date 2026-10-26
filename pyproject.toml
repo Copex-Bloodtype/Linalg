@@ -1,0 +1,20 @@
+[project]
+name = "linalg-agent"
+version = "0.1.0"
+description = "线性代数双管线解题 agent。默认 DeepSeek V4 Pro，模型可替换。"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "openai>=1.40.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+linalg-agent = "linalg_agent.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["linalg_agent*"]

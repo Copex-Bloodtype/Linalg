@@ -1,0 +1,340 @@
+{
+  "authored_before_model_calls": true,
+  "version_used": "v1",
+  "selection": [
+    "从五种同时容许矩阵计算和线性空间叙述的主题中各取一道，而不是随机抽到纯抄写或迭代法的题。",
+    "Linear_algebra_0310：列空间里的一个非零向量，取哪一列是不唯一的。",
+    "Linear_algebra_0494：核与像的基，顺序和缩放不唯一。",
+    "Linear_algebra_0501：核的一对生成元，顺序不唯一。",
+    "Linear_algebra_0345：特征值按题目要求从小到大，特征向量的缩放不唯一。",
+    "Linear_algebra_0313：过渡矩阵由有序基决定，列与基向量的对应是两种写法的关联。",
+    "Linear_algebra_0333：多项式空间的有序基不唯一。",
+    "Linear_algebra_0054：自由变量和特解的取法不唯一。",
+    "Linear_algebra_0468：线性映射在指定有序基下的矩阵，列与 T(基向量) 的对应是关联本身。",
+    "未收入只要求抄增广矩阵、只问定义域维数、Gauss-Seidel 迭代，或题干已经给出行最简形的题。"
+  ],
+  "items": [
+    {
+      "id": "Linear_algebra_0310",
+      "topic": "Euclidean spaces",
+      "subtopic": "Row, column, and null spaces",
+      "level": "",
+      "keywords": [
+        "matrix' 'null space"
+      ],
+      "problem_v1": "Let A=\\left[\\begin{array}{cccc}-16 &-9 &20 &-12\\cr-4 &3 &5 &4\\cr 0 &6 &0 &8 \\end{array}\\right]. Find a non-zero vector in the column space of $A$.\n\\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}",
+      "answer_v1": [
+        "-16",
+        "-9",
+        "20"
+      ],
+      "answer_type_v1": [
+        "NV",
+        "NV",
+        "NV"
+      ],
+      "version": "v1",
+      "verified_blanks": [
+        "-16",
+        "-9",
+        "20"
+      ],
+      "conventions": "取 A 的第一列，不取其他列，也不取列的线性组合。",
+      "answer_note": "",
+      "reference_matrix": "Matrix solution.\nA is the 3 by 4 matrix with columns c1=(-16,-9,20), c2=(-9,3,6), c3=(20,5,0), c4=(-12,4,8).\nThe column space is the span of these four columns. Column c1 is not the zero vector, so it belongs to the column space.\nConvention locked by this solution: report c1 itself, not another column and not a sum of columns.\nCheckable values: -16, -9, 20.\n",
+      "reference_space": "Linear-space solution.\nLet T: R^4 -> R^3 be T(x)=Ax. The column space of A is the image of T.\nThe first standard basis vector e1 satisfies T(e1)=Ae1, which is the first column of A. That image is (-16,-9,20), which is not zero, so it is a nonzero vector of im(T).\nConvention locked by this solution: use the image of e1, not the image of another basis vector.\nCheckable values: -16, -9, 20.\n"
+    },
+    {
+      "id": "Linear_algebra_0494",
+      "topic": "Linear transformations",
+      "subtopic": "Kernel and image",
+      "level": "",
+      "keywords": [],
+      "problem_v1": "Let A=\\left[\\begin{array}{ccc} 2 &4 &-2\\cr 1 &2 &-1 \\end{array}\\right]. Find bases for the kernel and image of $A$ (or, equivalently, for the linear transformation $T(x)=Ax$).\nA basis for the kernel of $A$ is $\\Bigg\\lbrace$ \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}, \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array} $\\Bigg\\rbrace.$\nA basis for the image of $A$ is $\\Bigg\\lbrace$ \\begin {array}{c} [ANS] \\\\ [ANS] \\end{array} $\\Bigg\\rbrace.$",
+      "answer_v1": [
+        "-1",
+        "0",
+        "-1",
+        "0",
+        "-1",
+        "-2",
+        "2",
+        "1"
+      ],
+      "answer_type_v1": [
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV"
+      ],
+      "version": "v1",
+      "verified_blanks": [
+        "-1",
+        "0",
+        "-1",
+        "0",
+        "-1",
+        "-2",
+        "2",
+        "1"
+      ],
+      "conventions": "核的有序基先写 (-1,0,-1)，再写 (0,-1,-2)；像的基只取 (2,1)。不改用行最简形直接给出的参数基。",
+      "answer_note": "",
+      "reference_matrix": "Matrix solution.\nA = [ 2  4  -2 ; 1  2  -1 ].\nRow reduction: replace row 2 by row 2 - (1/2) row 1. The second row becomes zero, and row 1 says x + 2y - z = 0, so x = -2y + z.\nThe general null-space vector is (-2y+z, y, z).\nThe ordered basis requested here is not the standard parameter basis. Specialize (y,z)=(0,-1) to get (-1,0,-1), then (y,z)=(-1,-2) to get (0,-1,-2).\nThe single pivot is in column 1, so a basis of the column space is the first column (2,1).\nConvention locked by this solution: kernel basis ((-1,0,-1), (0,-1,-2)), image basis ((2,1)).\nCheckable values: -1, 0, -1, 0, -1, -2, 2, 1.\n",
+      "reference_space": "Linear-space solution.\nLet T: R^3 -> R^2, T(x)=Ax. Then ker(T)={x: Ax=0} and im(T)={Ax: x in R^3}.\nThe equation Ax=0 reduces to the single constraint x = -2y + z. Thus ker(T) is 2-dimensional. Choose the ordered basis\nv1=(-1,0,-1), v2=(0,-1,-2).\nBoth satisfy the constraint, and neither is a scalar multiple of the other, so they form a basis. Do not replace them by (-2,1,0) and (1,0,1).\nThe two columns of A are parallel: (4,2)=2(2,1) and (-2,-1)=-(2,1). Hence im(T)=span{(2,1)}, and the chosen basis vector of the image is (2,1).\nConvention locked by this solution: the same ordered bases as above.\nCheckable values: -1, 0, -1, 0, -1, -2, 2, 1.\n"
+    },
+    {
+      "id": "Linear_algebra_0501",
+      "topic": "Linear transformations",
+      "subtopic": "Kernel and image",
+      "level": "4",
+      "keywords": [
+        "matrix",
+        "basis",
+        "kernel",
+        "linear",
+        "transformation"
+      ],
+      "problem_v1": "Let A=\\left[\\begin{array}{cccc} 1 &3 &1 &1\\cr 0 &1 &2 &-2\\cr-1 &-2 &1 &-3 \\end{array}\\right]. Find a pair of vectors $\\vec{u}, \\vec{v}$ in ${\\mathbb R}^4$ that span the set of all $\\vec{x}\\in {\\mathbb R}^4$ that are mapped into the zero vector by the transformation $\\vec{x} \\mapsto A\\vec{x}$.\n$\\vec{u}=$ \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}, $\\vec{v}=$ \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}.",
+      "answer_v1": [
+        "-7",
+        "2",
+        "0",
+        "1",
+        "5",
+        "-2",
+        "1",
+        "0"
+      ],
+      "answer_type_v1": [
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV"
+      ],
+      "version": "v1",
+      "verified_blanks": [
+        "-7",
+        "2",
+        "0",
+        "1",
+        "5",
+        "-2",
+        "1",
+        "0"
+      ],
+      "conventions": "有序对先写自由变量 x4 对应的向量 u=(-7,2,0,1)，再写自由变量 x3 对应的向量 v=(5,-2,1,0)。",
+      "answer_note": "",
+      "reference_matrix": "Matrix solution.\nA = [ 1  3  1  1 ; 0  1  2  -2 ; -1  -2  1  -3 ].\nAdd row 1 to row 3, then subtract row 2 from the new row 3. Row 3 vanishes.\nBack substitution gives x1 = 5 x3 - 7 x4 and x2 = -2 x3 + 2 x4, with x3 and x4 free.\nNull-space vector = x3(5,-2,1,0) + x4(-7,2,0,1).\nConvention locked by this solution: list the x4-vector first and the x3-vector second,\nu=(-7,2,0,1), v=(5,-2,1,0).\nCheckable values: -7, 2, 0, 1, 5, -2, 1, 0.\n",
+      "reference_space": "Linear-space solution.\nLet T: R^4 -> R^3, T(x)=Ax. The set of vectors sent to zero is ker(T).\nSolving T(x)=0 produces the plane\nker(T) = span{ (-7,2,0,1), (5,-2,1,0) }.\nThe first generator is the vector in which the free coordinate x4 equals 1 and x3 equals 0. The second is the vector in which x3 equals 1 and x4 equals 0.\nConvention locked by this solution: keep this order. Do not swap the two generators and do not rescale them.\nCheckable values: -7, 2, 0, 1, 5, -2, 1, 0.\n"
+    },
+    {
+      "id": "Linear_algebra_0345",
+      "topic": "Eigenvalues and eigenvectors",
+      "subtopic": "Computing eigenvalues and eigenvectors",
+      "level": "3",
+      "keywords": [],
+      "problem_v1": "Find the eigenvalues and eigenvectors of the matrix \\left[\\begin{array}{ccc} 0 &-4 &0\\cr-8 &-4 &8\\cr-4 &-4 &4 \\end{array}\\right]. From smallest to largest, the eigenvalues are $\\lambda_1 < \\lambda_2 < \\lambda_3$ where\n$\\lambda_1=$ [ANS] has an eigenvector \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}, $\\lambda_2=$ [ANS] has an eigenvector \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}, $\\lambda_3=$ [ANS] has an eigenvector \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}.",
+      "answer_v1": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "0",
+        "1",
+        "1",
+        "-1",
+        "0"
+      ],
+      "answer_type_v1": [
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV"
+      ],
+      "version": "v1",
+      "verified_blanks": [
+        "-4",
+        "1",
+        "1",
+        "1",
+        "0",
+        "1",
+        "0",
+        "1",
+        "4",
+        "1",
+        "-1",
+        "0"
+      ],
+      "conventions": "特征值按从小到大 -4, 0, 4。每个特征向量取首个非零坐标为正的那个方向：(1,1,1), (1,0,1), (1,-1,0)。",
+      "answer_note": "数据集 answer_v1 只有 9 个数，对应三个特征向量，缺少三个特征值。核对用 SymPy 复核后的 12 个空。",
+      "reference_matrix": "Matrix solution.\nA = [ 0  -4  0 ; -8  -4  8 ; -4  -4  4 ].\nThe characteristic polynomial det(A-λI) has roots λ=-4, λ=0 and λ=4. Order them increasingly: λ1=-4, λ2=0, λ3=4.\nFor λ=-4, row-reduce A+4I and take the null vector (1,1,1).\nFor λ=0, row-reduce A and take (1,0,1).\nFor λ=4, row-reduce A-4I. One null vector is (-1,1,0); multiply by -1 so the first nonzero entry is positive, obtaining (1,-1,0).\nConvention locked by this solution: increasing eigenvalues, and the positive-first-entry scaling above.\nCheckable values: -4, 1, 1, 1, 0, 1, 0, 1, 4, 1, -1, 0.\n",
+      "reference_space": "Linear-space solution.\nLet T: R^3 -> R^3, T(x)=Ax. A scalar λ is an eigenvalue when ker(T-λ id) is nontrivial, and its eigenvectors are the nonzero vectors in that kernel.\nThose kernels are nontrivial exactly for λ=-4, 0, 4. Order the eigenvalues increasingly.\nker(T+4 id) is spanned by (1,1,1).\nker(T) is spanned by (1,0,1).\nker(T-4 id) is spanned by (1,-1,0), the scalar multiple of (-1,1,0) whose first nonzero coordinate is positive.\nConvention locked by this solution: this order and these three generators, not the opposite scaling of the third vector.\nCheckable values: -4, 1, 1, 1, 0, 1, 0, 1, 4, 1, -1, 0.\n"
+    },
+    {
+      "id": "Linear_algebra_0313",
+      "topic": "Euclidean spaces",
+      "subtopic": "Coordinate vectors and change of basis",
+      "level": "3",
+      "keywords": [],
+      "problem_v1": "Let $B$ be the basis of ${\\mathbb R}^2$ consisting of the vectors \\left\\lbrace \\left[\\begin{array}{c} 5\\cr 2 \\end{array}\\right], \\left[\\begin{array}{c} 1\\cr 3 \\end{array}\\right] \\right\\rbrace, and let $C$ be the basis consisting of \\left\\lbrace \\left[\\begin{array}{c}-2\\cr 3 \\end{array}\\right], \\left[\\begin{array}{c} 1\\cr-2 \\end{array}\\right] \\right\\rbrace.\nFind a matrix $P$ such that $[\\vec{x}]_C=P [\\vec{x}]_B$ for all $\\vec{x}$ in ${\\mathbb R}^2$.\n$P=$ \\begin {array}{cc} [ANS] & [ANS] \\\\ [ANS] & [ANS] \\end{array}",
+      "answer_v1": [
+        "-12",
+        "-5",
+        "-19",
+        "-9"
+      ],
+      "answer_type_v1": [
+        "NV",
+        "NV",
+        "NV",
+        "NV"
+      ],
+      "version": "v1",
+      "verified_blanks": [
+        "-12",
+        "-5",
+        "-19",
+        "-9"
+      ],
+      "conventions": "B 与 C 都保持题目给出的顺序。P 的第 j 列是 B 的第 j 个向量在 C 下的坐标，不交换两列。",
+      "answer_note": "",
+      "reference_matrix": "Matrix solution.\nLet the columns of B be (5,2) and (1,3), and the columns of C be (-2,3) and (1,-2), in the given order.\nThe change-of-coordinate matrix satisfies P = C^{-1} B.\ndet(C)=(-2)(-2)-(1)(3)=1, so C^{-1} = [ -2  -1 ; -3  -2 ].\nThen P = C^{-1} B = [ -12  -5 ; -19  -9 ].\nConvention locked by this solution: do not swap the ordered bases, so the columns stay in this order.\nCheckable values: -12, -5, -19, -9.\n",
+      "reference_space": "Linear-space solution.\nB and C are ordered bases of R^2. The matrix P represents the identity map from (R^2, B) to (R^2, C): its j-th column is the C-coordinate vector of the j-th B-basis vector.\nSolve C a = (5,2). Since C^{-1} = [ -2  -1 ; -3  -2 ], the coordinate vector is (-12,-19).\nSolve C b = (1,3). The coordinate vector is (-5,-9).\nTherefore P = [ -12  -5 ; -19  -9 ].\nConvention locked by this solution: column j corresponds to the j-th vector of B in the problem's order.\nCheckable values: -12, -5, -19, -9.\n"
+    },
+    {
+      "id": "Linear_algebra_0333",
+      "topic": "Abstract vector spaces",
+      "subtopic": "Basis and dimension",
+      "level": "2",
+      "keywords": [
+        "linear algebra",
+        "span"
+      ],
+      "problem_v1": "Find a basis $\\lbrace p(x), q(x) \\rbrace$ for the vector space $\\lbrace f(x)\\in{\\mathbb P}_3[x] \\mid f'(5)=f(1) \\rbrace$ where ${\\mathbb P}_3[x]$ is the vector space of polynomials in $x$ with degree less than 3. $p(x)=$ [ANS], $q(x)=$ [ANS]",
+      "answer_v1": [
+        "9+x^2",
+        "x"
+      ],
+      "answer_type_v1": [
+        "EX",
+        "EX"
+      ],
+      "version": "v1",
+      "verified_blanks": [
+        "9+x**2",
+        "x"
+      ],
+      "conventions": "有序基先写 p(x)=9+x^2，再写 q(x)=x。不交换，也不改用别的标量倍。",
+      "answer_note": "",
+      "reference_matrix": "Matrix solution.\nIdentify a polynomial a + b x + c x^2 with the coordinate column (a,b,c) in the ordered basis {1, x, x^2}. Degree less than 3 is exactly this 3-dimensional space.\nf'(x)=b+2c x, so f'(5)=b+10c and f(1)=a+b+c. The condition f'(5)=f(1) is -a + 9c = 0, or a=9c, with b free.\nThe coordinate condition is the row (-1, 0, 9). Its null space has the ordered basis (9,0,1), then (0,1,0), corresponding to 9+x^2 and x.\nConvention locked by this solution: p(x)=9+x^2 and q(x)=x, in that order.\nCheckable values: 9+x^2, x.\n",
+      "reference_space": "Linear-space solution.\nLet V={f in P_3[x]: f'(5)=f(1)}, where P_3[x] means polynomials of degree less than 3. A general element is f(x)=a+bx+cx^2.\nThe condition f'(5)=f(1) is one linear constraint and forces a=9c, while b stays free. Hence every such f is\nf(x)=c(9+x^2)+b x,\nso {9+x^2, x} spans V. The two polynomials are linearly independent, and dim V=2, so they form a basis.\nConvention locked by this solution: name p(x)=9+x^2 and q(x)=x. Do not swap them.\nCheckable values: 9+x^2, x.\n"
+    },
+    {
+      "id": "Linear_algebra_0054",
+      "topic": "Systems of linear equations",
+      "subtopic": "Systems with 4 or more variables",
+      "level": "3",
+      "keywords": [
+        "Matrix",
+        "System of Equations"
+      ],
+      "problem_v1": "Given the augmented matrix below, solve the associated system of equations. For your variables, use $x1$, $x2$, $x3$, $x4$, $x5$, $x6$, $x7$, and $x8$.\n\\left[\\begin{array}{rrrrrrrr|r} 1 &4 &-4 &-3 &1 &1 &-2 &0 &-1 \\cr 0 &0 &0 &0 &1 &3 &-4 &0 &0 \\cr 0 &0 &0 &0 &0 &1 &-1 &-2 &-7 \\cr 0 &0 &0 &0 &0 &0 &0 &1 &-6 \\cr \\end{array}\\right] The solution is ([ANS], [ANS], [ANS], [ANS], [ANS], [ANS], [ANS], [ANS])",
+      "answer_v1": [
+        "-1-4*(x2)--4*(x3)--3*(x4)-1*(0-3*(-7--1*(x7)--2*(-6))--4*(x7)-0*(-6))-1*(-7--1*(x7)--2*(-6))--2*(x7)-0*(-6)",
+        "x2",
+        "x3",
+        "x4",
+        "0-3*(-7--1*(x7)--2*(-6))--4*(x7)-0*(-6)",
+        "-7--1*(x7)--2*(-6)",
+        "x7",
+        "-6"
+      ],
+      "answer_type_v1": [
+        "EX",
+        "EX",
+        "EX",
+        "EX",
+        "EX",
+        "EX",
+        "EX",
+        "NV"
+      ],
+      "version": "v1",
+      "verified_blanks": [
+        "-39-4*x2+4*x3+3*x4",
+        "x2",
+        "x3",
+        "x4",
+        "57+x7",
+        "-19+x7",
+        "x7",
+        "-6"
+      ],
+      "conventions": "自由变量按列号取 x2、x3、x4、x7。特解取这些自由变量全为 0 的那一个：(-39,0,0,0,57,-19,0,-6)。",
+      "answer_note": "数据集给出未化简的回代表达式。SymPy 化简后与上面八个式子相同。自由变量仍是 x2, x3, x4, x7。",
+      "reference_matrix": "Matrix solution.\nThe augmented matrix is already in echelon form, with pivots in columns 1, 5, 6 and 8.\nBack-substitution yields\nx8 = -6,\nx6 = x7 - 19,\nx5 = x7 + 57,\nx1 = -39 - 4 x2 + 4 x3 + 3 x4,\nwhile x2, x3, x4 and x7 are free.\nConvention locked by this solution: keep exactly these free variables. The particular solution is the one in which every free variable is 0, namely (-39,0,0,0,57,-19,0,-6). Do not move the particular solution by adding a null-space vector.\nCheckable values, in order x1 through x8: -39-4*x2+4*x3+3*x4, x2, x3, x4, 57+x7, -19+x7, x7, -6.\n",
+      "reference_space": "Linear-space solution.\nLet the coefficient matrix be the 4 by 8 matrix of the given system, and let T(x)=Ax on R^8. The solution set is one particular solution plus ker(T).\nRead the pivots: free coordinates are x2, x3, x4, x7, in that index order. Set all of them to 0 to choose the particular solution\np = (-39, 0, 0, 0, 57, -19, 0, -6).\nThe corresponding ordered basis of the kernel is\n(-4,1,0,0,0,0,0,0), (4,0,1,0,0,0,0,0), (3,0,0,1,0,0,0,0), (0,0,0,0,1,1,1,0).\nConvention locked by this solution: this particular solution and this order of free variables.\nCheckable values, in order x1 through x8: -39-4*x2+4*x3+3*x4, x2, x3, x4, 57+x7, -19+x7, x7, -6.\n"
+    },
+    {
+      "id": "Linear_algebra_0468",
+      "topic": "Linear transformations",
+      "subtopic": "Associated matrices",
+      "level": "4",
+      "keywords": [],
+      "problem_v1": "Find the matrix $A$ of the linear transformation $T(f(t))=f(8 t+6)$ from $P_2$ to $P_2$ with respect to the standard basis for $P_2$, $\\left\\lbrace 1, t, t^2 \\right\\rbrace$.\n$A=$ \\begin {array}{ccc} [ANS] & [ANS] & [ANS] \\\\ [ANS] & [ANS] & [ANS] \\\\ [ANS] & [ANS] & [ANS] \\end{array}",
+      "answer_v1": [
+        "1",
+        "6",
+        "36",
+        "0",
+        "8",
+        "96",
+        "0",
+        "0",
+        "64"
+      ],
+      "answer_type_v1": [
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV",
+        "NV"
+      ],
+      "version": "v1",
+      "verified_blanks": [
+        "1",
+        "6",
+        "36",
+        "0",
+        "8",
+        "96",
+        "0",
+        "0",
+        "64"
+      ],
+      "conventions": "定义域和到达域都使用题目给出的有序基 {1, t, t^2}。第 j 列是 T 作用在第 j 个基向量上的坐标，不按行填写。",
+      "answer_note": "",
+      "reference_matrix": "Matrix solution.\nUse the ordered basis {1, t, t^2}. Compute the images and expand them in this basis.\nT(1)=1, with coordinates (1,0,0).\nT(t)=8t+6, with coordinates (6,8,0).\nT(t^2)=(8t+6)^2=36+96t+64t^2, with coordinates (36,96,64).\nPlace these coordinates in the columns:\nA = [ 1  6  36 ; 0  8  96 ; 0  0  64 ].\nConvention locked by this solution: column j is the coordinate vector of T applied to the j-th basis polynomial. Do not transpose the matrix.\nCheckable values, row by row: 1, 6, 36, 0, 8, 96, 0, 0, 64.\n",
+      "reference_space": "Linear-space solution.\nT: P_2 -> P_2 is the linear map T(f)(t)=f(8t+6). Relative to the ordered basis B={1, t, t^2} of both domain and codomain, the matrix of T is defined by using [T(b_j)]_B as its j-th column.\nT(1)=1 gives column (1,0,0).\nT(t)=6+8t gives column (6,8,0).\nT(t^2)=36+96t+64t^2 gives column (36,96,64).\nSo [T]_B = [ 1  6  36 ; 0  8  96 ; 0  0  64 ].\nConvention locked by this solution: the basis order is the one in the problem, and the matrix is filled by columns.\nCheckable values, row by row: 1, 6, 36, 0, 8, 96, 0, 0, 64.\n"
+    }
+  ]
+}

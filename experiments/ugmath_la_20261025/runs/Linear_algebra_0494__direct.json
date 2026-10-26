@@ -1,0 +1,78 @@
+{
+  "item_id": "Linear_algebra_0494",
+  "topic": "Linear transformations",
+  "subtopic": "Kernel and image",
+  "condition": "direct",
+  "version": "v1",
+  "problem": "Let A=\\left[\\begin{array}{ccc} 2 &4 &-2\\cr 1 &2 &-1 \\end{array}\\right]. Find bases for the kernel and image of $A$ (or, equivalently, for the linear transformation $T(x)=Ax$).\nA basis for the kernel of $A$ is $\\Bigg\\lbrace$ \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}, \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array} $\\Bigg\\rbrace.$\nA basis for the image of $A$ is $\\Bigg\\lbrace$ \\begin {array}{c} [ANS] \\\\ [ANS] \\end{array} $\\Bigg\\rbrace.$",
+  "dataset_answer": [
+    "-1",
+    "0",
+    "-1",
+    "0",
+    "-1",
+    "-2",
+    "2",
+    "1"
+  ],
+  "verified_blanks": [
+    "-1",
+    "0",
+    "-1",
+    "0",
+    "-1",
+    "-2",
+    "2",
+    "1"
+  ],
+  "reference_conventions": "核的有序基先写 (-1,0,-1)，再写 (0,-1,-2)；像的基只取 (2,1)。不改用行最简形直接给出的参数基。",
+  "started_at": "2026-10-25T06:31:32.655874+00:00",
+  "finished_at": "2026-10-25T06:32:11.679250+00:00",
+  "error": null,
+  "pipeline": "solve",
+  "result_condition": "direct",
+  "model": "deepseek-v4-pro",
+  "usage": {
+    "prompt_tokens": 851,
+    "completion_tokens": 4024,
+    "total_tokens": 4875
+  },
+  "reasoning": "We need answer in Chinese? User says Chinese. Need solve. Need obey structure. Need only one approach. Since problem matrix A find bases kernel/image. We need decide matrix or linear space. Since user didn't specify, self-select most direct. The problem is matrix with T(x)=Ax. Either matrix approach natural. We can declare matrix approach. Need compute basis for kernel and image.\n\nLet's solve. A = [[2,4,-2],[1,2,-1]] (2x3). Rows dependent row2 = half row1? row1 = 2*row2 indeed. Rank 1. Image is span of columns? Columns all multiples? Column1 [2,1], column2 [4,2]=2 col1, column3[-2,-1]=-col1. Image basis can be {[2,1]^T} (or [1,2]? Actually columns: col1 (2,1). Okay). Kernel = nullspace Ax=0. Since rank 1, nullity = 3-1=2. Equation 2x+4y-2z=0 and x+2y-z=0 same. So x+2y-z=0 => z = x+2y or x = z - 2y. Need basis vectors. Let's pick free variables y,z maybe.\n\nSolve x + 2y - z = 0. Let y=s, z=t, then x = z - 2y = t - 2s. Vector (x,y,z) = s(-2,1,0)+t(1,0,1). So kernel basis {(-2,1,0), (1,0,1)}. Check A * (-2,1,0) = [2(-2)+4(1)+0=-4+4=0; -2+2=0], okay. A*(1,0,1)=[2-2=0;1-1=0]. Good.\n\nNeed output structure exactly: ## 题目, ## 解法, ## 约定, ## 答案, ## 可核对结论, ## 检验. Need mention real field if unspecified? User says did not specify; by requirement: \"数域未说明时按实数域处理，并在开头声明.\" We should declare at start maybe in 解法: \"按实数域；采用矩阵解法...\" But user wants output structure. We can in 题目? Need start. The solution must use the language of question. Chinese. Do that. In 题目: maybe exactly restate. Then 解法: \"采用矩阵解法；数域按实数域。\" Then steps.\n\nNeed \"## 约定\" list choices. We choose free variables y,z; image basis vector [2;1] maybe scale; kernel basis order. Need list. Then source \"来源：自行选取\" since no existing. Need \"## 答案\" final. For kernel basis list two vectors order as above. Image basis one vector.\n\nNeed \"## 可核对结论\" with type maybe: \"基\". \"结论\" line must contain only [ANS] values in order separated by ' | '. But the prompt from user includes placeholders. Need provide only ANS values. Need format maybe -2 | 1 | 0 | 1 | 0 | 1 | 2 | 1? Wait they said in order separated by ' | '. Hmm question has three [ANS] for first kernel vector and three for second, image has two [ANS]. But maybe each bracket corresponds to entry. Could line include entries: first kernel vector entries -2, 1, 0; second 1,0,1; image 2,1. Separated by | gives: -2 | 1 | 0 | 1 | 0 | 1 | 2 | 1. Need no words. That's likely.\n\nNeed maybe \"结论：-2 | 1 | 0 | 1 | 0 | 1 | 2 | 1\". Need check if they want vector matrices maybe as columns? The problem says basis for kernel is { [ANS],[ANS],[ANS], [ANS],[ANS],[ANS] }? Wait original: \"A basis for the kernel of A is $\\Bigg\\lbrace$ \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}, \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array} $\\Bigg\\rbrace.$\" So two column vectors. The line of conclusion should maybe contain first vector entries then second. Yes.\n\nNeed include \"类型：基\". Then \"约定：自由变量取 y,z；核基向量顺序与缩放为 s 和 t 的系数；像基取第一列方向 [2;1]\" one line. \"约定来源：自行选取\".\n\nNeed \"检验\": verify kernel vectors satisfy Ax=0, image basis spans column space and rank 1. Could say A kernel basis vectors multiply to zero, image vector is column 1; rank A=1 and columns all multiples, so image basis spans image. Enough.\n\nNeed ensure no contradictory due to matrix approach: We will compute RREF maybe. Let's produce concise but complete.\n\nLet's draft final.\n\nNeed maybe \"题目精确复述\" maybe include A and find bases. Good.\n\nPotential issue: The row space/image: For matrix A, image (column space) is span of columns. Columns are [2,1], [4,2], [-2,-1]. [4,2] = 2[2,1], [-2,-1] = -[2,1]. So basis for image: { [2,1] }. If they prefer image of linear transformation T(x)=Ax maps R^3 to R^2, image is line in R^2. Good.\n\nKernel: solve. RREF of A? We can use augmented? Matrix A row reduce: [2 4 -2; 1 2 -1]. Divide row1 by 2 gives [1 2 -1; 1 2 -1]; row2-row1 => [1 2 -1; 0 0 0]. Thus x + 2y - z=0. Let y=s,z=t => x=-2s + t? Wait from x+2y-z=0 -> x = -2y + z = -2s + t. That gives vector (x,y,z) = (-2s+t, s, t) = s(-2,1,0)+t(1,0,1). Yes.\n\nLet's double-check A*(1,0,1): row1 2*1 + 0 + (-2)*1 =0. row2 1 + 0 -1=0. Good.\nA*(-2,1,0): 2*-2 +4*1 +0 =0; -2+2=0. Good.\n\nNeed perhaps mention \"若取自由变量为 y,z\" etc. Good.\n\nNow final with required structure. Need no extraneous? Ensure the 可核对结论 \"结论\" line contains only [ANS] values. But if user asks \"line starting with 结论 must contain only the [ANS] values in order...\" We can format:\n结论：-2 | 1 | 0 | 1 | 0 | 1 | 2 | 1\nThis line has \"结论：\" prefix? It says \"line starting with 结论 must contain only the [ANS] values in order, separated by ' | '. Do not add words on that line.\" \"结论\" prefix likely okay as the line label? We need match format from prompt:\n- 结论：写成...\nMaybe in 可核对结论, line starting with 结论. They said \"must contain only the [ANS] values in order ... Do not add words on that line.\" That might mean after \"结论：\" only values. We'll use \"结论：-2 | 1 | 0 | 1 | 0 | 1 | 2 | 1\". Good.\n\nNeed maybe not include \"矩阵解法\" in title? Fine.\n\nLet's think if there is any hidden issue: They may want \"A basis for kernel of A is ...\" They might output \"kernel basis has exactly two vectors\". Okay.\n\nNeed maybe they want \"image basis is { [2;1] }\" but maybe if \"image\" as \"image of A\" maybe columns space; yes. Could alternatively choose [1; 1/2]? Since [2;1] and [1;2] no. [1;2] is row not column. Need use [2;1] or [1;1/2]? Actually any nonzero column. We pick [2,1]^T. In R^2, linear span of [2,1]. If [1, 0.5] could be okay. But use integer basis [2,1].\n\nLet's prepare final.\n\nNeed maybe \"数域未说明按实数域\" maybe in 解法: \"按实数域处理；采用矩阵解法。由于 A 是 2×3 矩阵...\" That satisfies. Could mention early.\n\nPotential issue with \"核\" and \"像\" terminology: In Chinese \"kernel\" = \"核\" or \"零空间\"; \"image\" = \"像\" or \"列空间\". Good.\n\nLet's provide.\n\nBut before final, let's consider if \"题目所用的语言\" includes English? User says \"题目是中文时用中文\", but given problem partly English (statement). Actually user message is Chinese and problem includes English.\"题目所用的语言\" maybe means if question is Chinese, answer in Chinese; if English, answer in English. Here title \"【题目】 Let A=... Find bases...\" It's mainly English; user instruction in Chinese says '题目是中文时用中文'. But problem is English. Do we answer in English? The meta instructions say \"用题目所用的语言作答。题目是中文时用中文.\" The \"题目\" includes English sentence. Hmm Could be English. But user's surrounding message is Chinese. Need decide. The problem statement is in English: \"Let A=[...]. Find bases...\" They likely expect answer maybe Chinese since instructions are in Chinese and they say output structure with Chinese headers (## 题目, ## 解法 etc). The user specifically says \"按下面的结构输出\" with Chinese labels. So answer in Chinese is acceptable. But maybe \"题目是中文时用中文\" since the prompt is in Chinese? Hmm. They also say \"用户只给你题目\" and write problem in English. I'd use Chinese as these instructions use Chinese. We can use Chinese for explanation; final basis can be mathematical. Good.\n\nNeed maybe mention \"本题数域未说明，按实数域处理\" in 解法. We can do.\n\nLet's draft final exactly:\n\n## 题目\nLet A=[...]. Find bases for kernel and image of A (or T(x)=Ax).\n\n## 解法\n采用矩阵解法；数域按实数域处理。\nStep 1: Row reduce A to RREF:\n[2 4 -2; 1 2 -1] -> R1/2 -> [1 2 -1; 1 2 -1] -> R2-R1 -> [1 2 -1; 0 0 0]\nThus rank A=1.\n\nKernel: solve x+2y-z=0. Take free variables y=s,z=t. Then x=-2s+t, so\nkernel = span{ (-2,1,0)^T, (1,0,1)^T }.\nThese vectors are linearly independent (not multiples).\n\nImage: column space = span{col1,col2,col3}. col2=2 col1, col3=-col1, so image = span{(2,1)^T}. Therefore basis.\n\n## 约定\n- Kernel free variables: y,z.\n- Kernel basis order and scaling: (-2,1,0)^T, (1,0,1)^T.\n- Image basis scaling and direction: choose first column (2,1)^T.\n\n来源：自行选取\n\n## 答案\nA basis for kernel of A is { [-2,1,0]^T, [1,0,1]^T }.\nA basis for image of A is { [2,1]^T }.\n\n## 可核对结论\n- 类型：基\n- 结论：-2 | 1 | 0 | 1 | 0 | 1 | 2 | 1\n- 约定：自由变量取 y,z；核基顺序与像基取第一列方向\n- 约定来源：自行选取\n\n## 检验\nKernel: A[-2,1,0]^T = [0;0], A[1,0,1]^T = [0;0]. Image: columns are multiples of (2,1)^T; rank A=1, so span matches. Therefore bases valid.\n\nNeed maybe \"rank A=1\" and \"dim kernel = 3-1=2\" ensuring two kernel vectors. Could include in solution. Add:\nSince rank=1, nullity=2, matches two kernel basis vectors. In 检验.\n\nShould I ensure \"基础解系\" maybe? Fine.\n\nNow, any possible idea user wanted \"in section 可核对结论, line starting with 结论 must contain only [ANS] values in order, separated by ' | '. Do not add words on that line.\" In our final, \"结论：-2 | 1 | 0 | 1 | 0 | 1 | 2 | 1\" includes \"结论：\" as label. That's likely okay. But \"must contain only the [ANS] values\" maybe if line has \"结论：\" prefix it contains colon. Yet the formatting line includes label. The original prompt says:\n\"- 结论：写成可以逐项核对的式子，不用口语\" and then additional requirement \"the line starting with 结论 must contain only the [ANS] values in order, separated by ' | '. Do not add words on that line.\" So line should be exactly \"结论：-2 | 1 | 0 | 1 | 0 | 1 | 2 | 1\". The prefix \"结论：\" is part of line label. That's fine.\n\nNeed maybe no \"kernel\" etc in conclusion line. Good.\n\nLet's ensure no commas etc. Good.\n\nNeed maybe specify vectors are column vectors but plain list. Good.\n\nCould there be a different free variable choice? If I select y,z, kernel vectors as above. Good.\n\nLet's think if there is any nuance \"image\" = \"image of A\" maybe can include all vectors of form Ax. Since A has rank 1, image dimension 1. Basis for image in R^2 could be { [2;1] }. The actual span of A times vectors: For any x=(x,y,z), A x = (2x+4y-2z, x+2y-z) = (2u, u) where u=x+2y-z; so image = span{(2,1)}. This is another way maybe more direct. We can mention both column space and transformation image. Since row reduce, fine.\n\nNeed maybe \"kernel basis vectors line independent not multiples\" but in R^3 they are not multiples. Good.\n\nLet's maybe in solution also mention \"image of T(x)=Ax is column space\". Good.\n\nNow final answer should be in Chinese but mathematical. Need not use too much.\n\nLet's output final accordingly.",
+  "content": "## 题目  \nLet \\(A=\\begin{bmatrix}2&4&-2\\\\1&2&-1\\end{bmatrix}\\)。求 \\(A\\)（或线性变换 \\(T(x)=Ax\\)）的核与像的基。\n\n## 解法  \n采用矩阵解法；数域未说明，按实数域处理。  \n\n先对 \\(A\\) 做初等行变换：\n\\[\n\\begin{bmatrix}\n2&4&-2\\\\\n1&2&-1\n\\end{bmatrix}\n\\xrightarrow{R_1/2}\n\\begin{bmatrix}\n1&2&-1\\\\\n1&2&-1\n\\end{bmatrix}\n\\xrightarrow{R_2-R_1}\n\\begin{bmatrix}\n1&2&-1\\\\\n0&0&0\n\\end{bmatrix}.\n\\]\n所以 \\(\\operatorname{rank}(A)=1\\)。\n\n核空间 \\(\\ker(A)\\) 满足\n\\[\nx+2y-z=0.\n\\]\n取自由变量 \\(y=s,z=t\\)，则\n\\[\nx=-2s+t.\n\\]\n于是\n\\[\n\\begin{bmatrix}x\\\\y\\\\z\\end{bmatrix}\n=\ns\\begin{bmatrix}-2\\\\1\\\\0\\end{bmatrix}\n+\nt\\begin{bmatrix}1\\\\0\\\\1\\end{bmatrix}.\n\\]\n因此核的一组基为\n\\[\n\\left\\{\n\\begin{bmatrix}-2\\\\1\\\\0\\end{bmatrix},\n\\begin{bmatrix}1\\\\0\\\\1\\end{bmatrix}\n\\right\\}.\n\\]\n\n像空间 \\(\\operatorname{im}(A)\\) 是 \\(A\\) 的列空间：\n\\[\n\\operatorname{col}(A)=\\operatorname{span}\n\\left\\{\n\\begin{bmatrix}2\\\\1\\end{bmatrix},\n\\begin{bmatrix}4\\\\2\\end{bmatrix},\n\\begin{bmatrix}-2\\\\-1\\end{bmatrix}\n\\right\\}.\n\\]\n后两列分别是第一列的 \\(2\\) 倍和 \\(-1\\) 倍，所以像的一组基为\n\\[\n\\left\\{\n\\begin{bmatrix}2\\\\1\\end{bmatrix}\n\\right\\}.\n\\]\n\n## 约定  \n- 核空间的自由变量取 \\(y,z\\)。  \n- 核的基中向量顺序与缩放为：\n  \\[\n  \\begin{bmatrix}-2\\\\1\\\\0\\end{bmatrix},\n  \\begin{bmatrix}1\\\\0\\\\1\\end{bmatrix}.\n  \\]\n- 像的基取 \\(A\\) 的第一列方向：\n  \\[\n  \\begin{bmatrix}2\\\\1\\end{bmatrix}.\n  \\]\n\n来源：自行选取\n\n## 答案  \n\\[\n\\ker(A)=\\operatorname{span}\n\\left\\{\n\\begin{bmatrix}-2\\\\1\\\\0\\end{bmatrix},\n\\begin{bmatrix}1\\\\0\\\\1\\end{bmatrix}\n\\right\\}.\n\\]\n\n\\[\n\\operatorname{im}(A)=\\operatorname{span}\n\\left\\{\n\\begin{bmatrix}2\\\\1\\end{bmatrix}\n\\right\\}.\n\\]\n\n## 可核对结论  \n- 类型：基  \n- 结论：-2 | 1 | 0 | 1 | 0 | 1 | 2 | 1  \n- 约定：自由变量取 \\(y,z\\)；核基顺序如上；像基取第一列方向  \n- 约定来源：自行选取  \n\n## 检验  \n核基向量代入：\n\\[\nA\\begin{bmatrix}-2\\\\1\\\\0\\end{bmatrix}\n=\n\\begin{bmatrix}0\\\\0\\end{bmatrix},\n\\qquad\nA\\begin{bmatrix}1\\\\0\\\\1\\end{bmatrix}\n=\n\\begin{bmatrix}0\\\\0\\end{bmatrix}.\n\\]\n像空间方面，\\(A\\) 的三列均为 \\(\\begin{bmatrix}2\\\\1\\end{bmatrix}\\) 的倍数，且 \\(\\operatorname{rank}(A)=1\\)，因此像由 \\(\\begin{bmatrix}2\\\\1\\end{bmatrix}\\) 张成。结论成立。",
+  "request": {
+    "system": "你是线性代数解题助手。用户只给你题目，不给你现成解法。请完整求解。\n\n两种写法只能取一种作为推理主线。\n\n矩阵解法：以具体矩阵为对象。使用增广矩阵与初等行变换、秩、行列式、特征多项式 det(A-λI)、相似与合同、过渡矩阵的乘法。结论从这些计算得出。\n\n线性空间解法：以向量空间、子空间、基、维数和线性映射为对象。使用线性无关与张成、解空间（核）加特解、子空间的和与交、维数公式、核与像、秩-零化度定理，把特征值看成使 T(v)=λv 的数，把特征子空间写成 ker(T-λid)。坐标和矩阵只能作为表示，推理主线落在空间和映射上。\n\n要求：\n- 用题目所用的语言作答。题目是中文时用中文。\n- 数域未说明时按实数域处理，并在开头声明。\n- 严格按用户消息里的「写法」执行。那里指定了某种写法时，只用那一种，即使题目原文要求另一种。\n- 那里没有指定写法时，只自选一种最直接的，并在解法开头声明是矩阵解法还是线性空间解法。不要两种都写。\n- 写出关键步骤。矩阵、向量、空间和基都写清楚。\n- 不唯一的选择由你自己取，约定来源写「自行选取」。\n- 条件不够或题目自相矛盾时，指出缺什么，不要编造数据。\n\n按下面的结构输出：\n\n## 题目\n精确复述要求解的对象。\n\n## 解法\n开头用一句话声明写法，然后逐步推导。\n\n## 约定\n列出本题里不唯一、但这份解答实际采用的选择。常见的有：哪个未知数是自由变量、特解、基的顺序与缩放、特征值的排列、过渡矩阵的列顺序。没有这种选择就写「无」。\n接着单独写一行来源，只能是下面二者之一：\n- 来源：自行选取\n- 来源：继承已有解法\n\n## 答案\n只写最终结论。\n\n## 可核对结论\n- 类型：通解、标量、矩阵、基、维数、是否，或其他\n- 结论：写成可以逐项核对的式子，不用口语\n- 约定：把实际采用的选择压缩成一行\n- 约定来源：自行选取，或继承已有解法\n\n## 检验\n能代回原题、核对秩或维数就做。做不到就说明原因。\n\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "【题目】\nLet A=\\left[\\begin{array}{ccc} 2 &4 &-2\\cr 1 &2 &-1 \\end{array}\\right]. Find bases for the kernel and image of $A$ (or, equivalently, for the linear transformation $T(x)=Ax$).\nA basis for the kernel of $A$ is $\\Bigg\\lbrace$ \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array}, \\begin {array}{c} [ANS] \\\\ [ANS] \\\\ [ANS] \\end{array} $\\Bigg\\rbrace.$\nA basis for the image of $A$ is $\\Bigg\\lbrace$ \\begin {array}{c} [ANS] \\\\ [ANS] \\end{array} $\\Bigg\\rbrace.$\n\nIn the section 可核对结论, the line starting with 结论 must contain only the [ANS] values in order, separated by ' | '. Do not add words on that line.\n\n【写法】\n未指定写法。请只自选矩阵解法或线性空间解法中的一种，在解法开头声明，不要两种都写。\n"
+      }
+    ]
+  },
+  "blank_score": {
+    "parsed": true,
+    "correct": false,
+    "n_expected": 8,
+    "n_got": 8,
+    "matches": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true
+    ],
+    "got": [
+      "-2",
+      "1",
+      "0",
+      "1",
+      "0",
+      "1",
+      "2",
+      "1"
+    ]
+  },
+  "convention_source": "chosen"
+}

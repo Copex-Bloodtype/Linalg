@@ -1,0 +1,82 @@
+{
+  "item_id": "Linear_algebra_0468",
+  "topic": "Linear transformations",
+  "subtopic": "Associated matrices",
+  "condition": "direct",
+  "version": "v1",
+  "problem": "Find the matrix $A$ of the linear transformation $T(f(t))=f(8 t+6)$ from $P_2$ to $P_2$ with respect to the standard basis for $P_2$, $\\left\\lbrace 1, t, t^2 \\right\\rbrace$.\n$A=$ \\begin {array}{ccc} [ANS] & [ANS] & [ANS] \\\\ [ANS] & [ANS] & [ANS] \\\\ [ANS] & [ANS] & [ANS] \\end{array}",
+  "dataset_answer": [
+    "1",
+    "6",
+    "36",
+    "0",
+    "8",
+    "96",
+    "0",
+    "0",
+    "64"
+  ],
+  "verified_blanks": [
+    "1",
+    "6",
+    "36",
+    "0",
+    "8",
+    "96",
+    "0",
+    "0",
+    "64"
+  ],
+  "reference_conventions": "定义域和到达域都使用题目给出的有序基 {1, t, t^2}。第 j 列是 T 作用在第 j 个基向量上的坐标，不按行填写。",
+  "started_at": "2026-10-25T07:04:59.899716+00:00",
+  "finished_at": "2026-10-25T07:05:24.217112+00:00",
+  "error": null,
+  "pipeline": "solve",
+  "result_condition": "direct",
+  "model": "deepseek-v4-pro",
+  "usage": {
+    "prompt_tokens": 795,
+    "completion_tokens": 2490,
+    "total_tokens": 3285
+  },
+  "reasoning": "我们需要回答中文？用户要求中文。题目英文，但要求按结构输出中文。需要精确复述题目。解法开头声明一种写法。用户未指定写法，自选最直接。这是线性变换在标准基下求矩阵，最直接矩阵解法：对标准基1,t,t^2作用T，坐标列构成矩阵。也可看作线性空间解法但矩阵解法简单。需要声明矩阵解法。\n\n需要仔细计算：T(f(t))=f(8t+6)。P_2 standard basis {1,t,t^2}。对每个基向量代入8t+6：\n\nT(1)=1. In basis {1,t,t^2}: coordinates (1,0,0).\nT(t)=8t+6 = 6*1 + 8*t + 0*t^2, coords (6,8,0).\nT(t^2)=(8t+6)^2 = 64 t^2 + 96 t + 36, coords (36,96,64).\n\n矩阵列是坐标列：\n[[1,6,36],\n [0,8,96],\n [0,0,64]]\n\n需要按照输出结构。## 题目 精确复述要求解的对象。可以用英文原标题。或者中文复述。用户要求中文，那就中英文结合？\"求线性变换 T(f(t))=f(8t+6) 从 P_2 到 P_2 关于标准基 {1,t,t^2} 的矩阵 A。\" 精确。\n\n## 解法 开头声明写法：矩阵解法。逐步推导。给出矩阵。\n\n## 约定 本题不唯一选择有哪些？本题求矩阵标准基，结果唯一，无约定。来源：自行选取？不过“无”和来源？结构要求：## 约定 列出本题里不唯一、但这份解答实际采用的选择。常见... 没有选择就写「无」。接着单独写一行来源，只能是...。如果无选择，来源怎么办？可写来源：自行选取？但约定无。可能写来源：自行选取。或者“无”。但格式必须来源。需要写“来源：自行选取”即使无也无所谓。不过可能说无则来源？按要求：接着单独写一行来源，只能是二者之一。写来源：自行选取。\n\n## 答案 只写最终结论。矩阵。使用 [ANS]? 要求结论 must contain only [ANS] values in order, separated by ' | '. 这是可核对结论部分，不是答案部分。题目中的 array [ANS] ... 原界面要求填入。但用户额外要求：In section 可核对结论, line starting with 结论 must contain only the [ANS] values in order, separated by ' | '. Do not add words on that line.\n\n所以可核对结论行必须：结论：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64\n\n注意格式：只包含这些值顺序，用 | 分开。不要单词。类型：矩阵？可核对结论类型写矩阵。结论行只 values.\n\n## 检验 可以代回原题验证：对任意 p(t)=a+bt+ct^2, 坐标 p=(a,b,c)^T, A p = [a+6b+36c, 8b+96c, 64c]^T corresponding to (a+6b+36c)+(8b+96c)t+64c t^2. Compare direct p(8t+6)= a + b(8t+6)+ c(8t+6)^2 = a+6b+36c + (8b+96c)t +64c t^2. 一致。核验列标准基也可。\n\n需要按照中文输出。注意 \"## 题目\" etc.\n\n需要小心：数域未说明按实数域处理，并在开头声明。题目是 P_2 通常实系数。在解法开头或题目后面声明。用户要求在解法开头用一句话声明写法，并也可声明数域。可以写：\"解法：采用矩阵解法；题中数域未说明，按实数域处理。\"\n\n或许更准确：在解法开头一句话声明写法。另在题目后面？应在开头声明：数域...。结构要求：## 解法 开头用一句话声明写法，然后逐步推导。所以可以写：\"采用矩阵解法（数域未说明，按实数域处理）。\"\n\n需要检查最终答案是否包括 \"A = \\begin{pmatrix}...\"。答案部分只写最终结论，可以矩阵形式。\n\n可核对结论的“结论”行 only ANS values, 不要加词。所以：结论：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64\n注意：[ANS] values in order, separated by ' | '. 矩阵按行主序？题目 array {ccc} 共9个ANS。用户可能希望按行顺序。我们使用行主序：第一行1,6,36; 第二行0,8,96; 第三行0,0,64. 符合。\n\n潜在问题：如果按列？题目 \"In section 可核对结论, line starting with 结论 must contain only the [ANS] values in order, separated by ' | '.\" 要求原题 array中 [ANS] 顺序。原题 array 是3x3, 行优先通常第一行三个，然后第二行，第三行。我们应给行主序。最终矩阵列是作为坐标列；但是矩阵排列是 [[1,6,36],[0,8,96],[0,0,64]]。线性变换矩阵通常列是基像坐标。所以行优先 ANS order 1,6,36,0,8,96,0,0,64。\n\n需要确认如果写答案矩阵是否应该转置？我们算 T(t)=6+8t -> column 2 = (6,8,0)。在矩阵中第二列为(6,8,0)，所以第一行第二列6，第二行第二列8，第三行第二列0。所以矩阵：\n[1 6 36\n 0 8 96\n 0 0 64]\n正是列。\n\n检验。\n\n需要按照格式不要有遗漏。让我们写完整。\n\nPotential issue: 题目里 \"A= \\begin {array}{ccc} [ANS] & [ANS] & [ANS] \\\\ [ANS] & [ANS] & [ANS] \\\\ [ANS] & [ANS] & [ANS] \\end{array}\" 这是 array 不是 matrix. Our answer can be pmatrix.\n\n需要保持“结论”行只有 values. 可能 \"结论：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64\" 中冒号后空格可以吗？ \"line starting with 结论 must contain only the [ANS] values in order, separated by ' | '. Do not add words on that line.\" 如果写 \"结论：1 | ...\" 有中文词“结论”和冒号，但 line starting with 结论 must contain only values? 这有点矛盾。用户说：In the section 可核对结论, the line starting with 结论 must contain only the [ANS] values in order, separated by ' | '. Do not add words on that line. 意思该行以“结论：”开头，但除开头“结论”外只包含 values? 它说 line starting with 结论 must contain only the [ANS] values ... maybe no extra words. I will write exactly:\n结论：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64\nThis includes label \"结论：\" plus values. It satisfies. Should I avoid spaces? No matter. But \"only the [ANS] values in order\" maybe should be:\n结论：1|6|36|0|8|96|0|0|64\nI can use no spaces to be safe.\n\nBut they said separated by ' | ' with spaces. The example uses spaces? \"separated by ' | '\" maybe spaces around pipe. I can use spaces. \"结论：1 | 6 | ...\" The line contains \"结论：\" and then values. likely okay. If worried, \"结论：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64\". Good.\n\n需要 include \"类型：矩阵\" in 可核对结论; \"结论：...\" \"约定：无\" \"约定来源：自行选取\" maybe. But if 约定无, source? The format says:\n## 可核对结论\n- 类型：...\n- 结论：...\n- 约定：...\n- 约定来源：...\n\nNeed output.\n\nLet's craft.\n\nAlso need \"## 检验\" with verification. We'll include.\n\nLet's ensure \"按实数域处理\" in 解法. Use Chinese.\n\nDouble-check direct computation:\nT(t^2) = (8t+6)^2 = 64t^2 + 96t + 36. Column 3 is coefficients in ascending degree: constant 36, t coefficient 96, t^2 coefficient 64. So column 3 = (36,96,64). Matrix as above.\n\nPotential nuance: Some authors standard basis order {1,t,t^2} as basis columns coordinate [constant, t, t^2]. Yes.\n\nLet's final.",
+  "content": "## 题目\n求线性变换 \\(T(f(t))=f(8t+6)\\) 从 \\(P_2\\) 到 \\(P_2\\) 关于标准基 \\(\\lbrace 1,t,t^2\\rbrace\\) 的矩阵 \\(A\\)。\n\n## 解法\n采用矩阵解法；题中数域未说明，按实数域处理。\n\n对标准基 \\(\\lbrace 1,t,t^2\\rbrace\\) 逐项作用：\n\n\\[\nT(1)=1\n\\]\n所以坐标为 \\((1,0,0)^T\\)。\n\n\\[\nT(t)=8t+6\n\\]\n所以坐标为 \\((6,8,0)^T\\)。\n\n\\[\nT(t^2)=(8t+6)^2=64t^2+96t+36\n\\]\n所以坐标为 \\((36,96,64)^T\\)。\n\n将这些坐标作为矩阵的列，得到：\n\n\\[\nA=\\begin{pmatrix}\n1 & 6 & 36\\\\\n0 & 8 & 96\\\\\n0 & 0 & 64\n\\end{pmatrix}\n\\]\n\n## 约定\n无  \n来源：自行选取\n\n## 答案\n\n\\[\nA=\\begin{pmatrix}\n1 & 6 & 36\\\\\n0 & 8 & 96\\\\\n0 & 0 & 64\n\\end{pmatrix}\n\\]\n\n## 可核对结论\n- 类型：矩阵\n- 结论：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64\n- 约定：无\n- 约定来源：自行选取\n\n## 检验\n设 \\(p(t)=a+bt+ct^2\\)，其标准基坐标为 \\((a,b,c)^T\\)。由矩阵乘法：\n\n\\[\nA\\begin{pmatrix}a\\\\b\\\\c\\end{pmatrix}\n=\n\\begin{pmatrix}\na+6b+36c\\\\\n8b+96c\\\\\n64c\n\\end{pmatrix}\n\\]\n\n对应多项式为：\n\n\\[\n(a+6b+36c)+(8b+96c)t+64ct^2\n\\]\n\n而直接计算：\n\n\\[\np(8t+6)=a+b(8t+6)+c(8t+6)^2\n=a+6b+36c+(8b+96c)t+64ct^2\n\\]\n\n两者一致，因此矩阵 \\(A\\) 正确。",
+  "request": {
+    "system": "你是线性代数解题助手。用户只给你题目，不给你现成解法。请完整求解。\n\n两种写法只能取一种作为推理主线。\n\n矩阵解法：以具体矩阵为对象。使用增广矩阵与初等行变换、秩、行列式、特征多项式 det(A-λI)、相似与合同、过渡矩阵的乘法。结论从这些计算得出。\n\n线性空间解法：以向量空间、子空间、基、维数和线性映射为对象。使用线性无关与张成、解空间（核）加特解、子空间的和与交、维数公式、核与像、秩-零化度定理，把特征值看成使 T(v)=λv 的数，把特征子空间写成 ker(T-λid)。坐标和矩阵只能作为表示，推理主线落在空间和映射上。\n\n要求：\n- 用题目所用的语言作答。题目是中文时用中文。\n- 数域未说明时按实数域处理，并在开头声明。\n- 严格按用户消息里的「写法」执行。那里指定了某种写法时，只用那一种，即使题目原文要求另一种。\n- 那里没有指定写法时，只自选一种最直接的，并在解法开头声明是矩阵解法还是线性空间解法。不要两种都写。\n- 写出关键步骤。矩阵、向量、空间和基都写清楚。\n- 不唯一的选择由你自己取，约定来源写「自行选取」。\n- 条件不够或题目自相矛盾时，指出缺什么，不要编造数据。\n\n按下面的结构输出：\n\n## 题目\n精确复述要求解的对象。\n\n## 解法\n开头用一句话声明写法，然后逐步推导。\n\n## 约定\n列出本题里不唯一、但这份解答实际采用的选择。常见的有：哪个未知数是自由变量、特解、基的顺序与缩放、特征值的排列、过渡矩阵的列顺序。没有这种选择就写「无」。\n接着单独写一行来源，只能是下面二者之一：\n- 来源：自行选取\n- 来源：继承已有解法\n\n## 答案\n只写最终结论。\n\n## 可核对结论\n- 类型：通解、标量、矩阵、基、维数、是否，或其他\n- 结论：写成可以逐项核对的式子，不用口语\n- 约定：把实际采用的选择压缩成一行\n- 约定来源：自行选取，或继承已有解法\n\n## 检验\n能代回原题、核对秩或维数就做。做不到就说明原因。\n\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "【题目】\nFind the matrix $A$ of the linear transformation $T(f(t))=f(8 t+6)$ from $P_2$ to $P_2$ with respect to the standard basis for $P_2$, $\\left\\lbrace 1, t, t^2 \\right\\rbrace$.\n$A=$ \\begin {array}{ccc} [ANS] & [ANS] & [ANS] \\\\ [ANS] & [ANS] & [ANS] \\\\ [ANS] & [ANS] & [ANS] \\end{array}\n\nIn the section 可核对结论, the line starting with 结论 must contain only the [ANS] values in order, separated by ' | '. Do not add words on that line.\n\n【写法】\n未指定写法。请只自选矩阵解法或线性空间解法中的一种，在解法开头声明，不要两种都写。\n"
+      }
+    ]
+  },
+  "blank_score": {
+    "parsed": true,
+    "correct": true,
+    "n_expected": 9,
+    "n_got": 9,
+    "matches": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "got": [
+      "1",
+      "6",
+      "36",
+      "0",
+      "8",
+      "96",
+      "0",
+      "0",
+      "64"
+    ]
+  },
+  "convention_source": "chosen"
+}

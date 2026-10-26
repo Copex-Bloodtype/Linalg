@@ -1,0 +1,82 @@
+{
+  "item_id": "Linear_algebra_0468",
+  "topic": "Linear transformations",
+  "subtopic": "Associated matrices",
+  "condition": "translate_to_space",
+  "version": "v1",
+  "problem": "Find the matrix $A$ of the linear transformation $T(f(t))=f(8 t+6)$ from $P_2$ to $P_2$ with respect to the standard basis for $P_2$, $\\left\\lbrace 1, t, t^2 \\right\\rbrace$.\n$A=$ \\begin {array}{ccc} [ANS] & [ANS] & [ANS] \\\\ [ANS] & [ANS] & [ANS] \\\\ [ANS] & [ANS] & [ANS] \\end{array}",
+  "dataset_answer": [
+    "1",
+    "6",
+    "36",
+    "0",
+    "8",
+    "96",
+    "0",
+    "0",
+    "64"
+  ],
+  "verified_blanks": [
+    "1",
+    "6",
+    "36",
+    "0",
+    "8",
+    "96",
+    "0",
+    "0",
+    "64"
+  ],
+  "reference_conventions": "定义域和到达域都使用题目给出的有序基 {1, t, t^2}。第 j 列是 T 作用在第 j 个基向量上的坐标，不按行填写。",
+  "started_at": "2026-10-25T07:07:18.128840+00:00",
+  "finished_at": "2026-10-25T07:07:56.260104+00:00",
+  "error": null,
+  "pipeline": "translate",
+  "result_condition": "translate_to_space",
+  "model": "deepseek-v4-pro",
+  "usage": {
+    "prompt_tokens": 1118,
+    "completion_tokens": 4310,
+    "total_tokens": 5428
+  },
+  "reasoning": "我们需要回答用户。用户要求：根据已有解法类型矩阵解法，必须给出线性空间解法。题目是求线性变换 T(f(t))=f(8t+6) 从 P2 到 P2 关于标准基 {1,t,t^2} 的矩阵 A。已有解法是矩阵解法。需要输出结构：\n\n## 方法判定\n- 已给解法：矩阵解法\n- 本次给出：线性空间解法\n\n## 另一种解法\n完整推导。开头声明本次写法。线性空间解法主线必须是空间、基或线性映射，不把计算换个说法抄一遍。但题目本身是求矩阵，线性空间解法可以以映射、基、坐标表示来推理。需要保留已有解法选择：有序基 {1,t,t^2}，列是 T 作用于第 j 个基多项式的坐标列，不转置。要可独立阅读。\n\n然后步骤对应 3-6 条。左边已有解法关键步骤对象，右边本次解法对应。\n\n约定：列出不唯一选择：基的顺序 {1,t,t^2}，坐标列排列列 j = T 作用于第 j 个基向量坐标，可能还有结果下三角矩阵。来源：继承已有解法（因为已有解法锁定列顺序等）。注意用户翻译规则要求：沿用已有解法合法的不唯一选择。这里标准基顺序固定为 {1,t,t^2}，列顺序也固定。来源：继承已有解法。\n\n答案：只写最终结论。需要矩阵 A 输出？用户给的题目期望 \"[ANS]\" 值。答案可能要矩阵。\n\n可核对结论：\n- 类型：矩阵？或者通解？ 这里类型：矩阵\n- 结论：必须只包含 [ANS] values in order, separated by ' | '. 用户特别要求 line starting with 结论 must contain only [ANS] values in order, separated by ' | '. Do not add words on that line. 因此结论行只写：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64\n- 约定：把实际采用的选择压缩成一行。例如：\"标准基 {1,t,t^2} 且第 j 列为 T(第 j 个基向量) 的坐标\"\n- 约定来源：继承已有解法\n\n检验：能代回原题或核对。可以检验矩阵的第 j 列与 T(e_j) 的坐标一致；也可以验证基础向量乘法。需要做。\n\n注意：用户要求\"线性空间解法必须以空间、基或线性映射为对象... 坐标和矩阵只能作为表示，推理主线落在空间和映射上。\" 我们需要写线性空间解法但最终给矩阵。要避免只是把已有矩阵解法换个说法。可以强调把 P2 作为三维向量空间，T 是线性映射（先验证线性？），在有序基 α={1,t,t^2} 下求表示矩阵 [T]_α。推理主线：选基，对每个基向量求像，在同一个基下分解为线性组合，得到坐标向量，将坐标向量作为表示矩阵的列。这其实和矩阵解法很像，但需以映射和基为对象。因为用户说不要原计算换说法抄一遍，但这里题目决定了必须计算 T(1), T(t), T(t^2) 在基下的坐标。所以可能以映射定义展开即可。不过我们需要注意\"不是另起炉灶重做一遍\"。 已有解法已经做了计算。线性空间解法可以更像：设 α = (1,t,t^2)。T 在 α 下的表示矩阵 [T]_α 第 j 列为 [T(α_j)]_α。因此计算三个坐标向量。这实际和已有解法对应。但这是本质上唯一的推导。我们需要写完整。\n\n可能还可以通过线性映射性质：T 是 affine substitution，映射保持次数？ 我们可先验证 T 是线性的：T(af+bg)=... 也许帮助空间主线。然后找 T 在基下的作用。\n\n需要小心：用户说\"矩阵解法必须出现关键矩阵和计算。线性空间解法的推理主线必须是空间、基或线性映射。不要把原计算换个说法抄一遍。\" 这里不能只写计算列。可以详细一点：P2 是次数≤2多项式构成的3维实向量空间；有序基 α = (1,t,t^2)（题目给定标准基，顺序为 {1,t,t^2}）。线性映射 T: P2 → P2 定义为 T(f)(t)=f(8t+6)? 实际上是 T(f(t))=f(8t+6)。 注意基础域实数。\n\n对每个 j=1,2,3，T(α_j) 是 P2 中向量，可唯一写成 α 的线性组合。表示矩阵的第 j 列就是该坐标列。列出：\nT(1) = 1 = 1·1 + 0·t + 0·t^2，坐标列 (1,0,0)^T\nT(t)=8t+6 = 6·1 + 8·t + 0·t^2，坐标列 (6,8,0)^T\nT(t^2)=(8t+6)^2 = 64t^2+96t+36 = 36·1 + 96·t + 64·t^2，坐标列 (36,96,64)^T\n所以 [T]_α = \n[1 6 36\n 0 8 96\n 0 0 64].\n\n这里与已有解法相同。线性空间解法主线是基和坐标表示。\n\n还需要步骤对应。已有解法关键步骤：\n1. 选定有序基 {1,t,t^2}\n2. 计算 T(1)=1，坐标 (1,0,0)\n3. 计算 T(t)=8t+6，坐标 (6,8,0)\n4. 计算 T(t^2)=...坐标 (36,96,64)\n5. 将这些坐标放在列中形成 A\n可写 4-5 条对应。\n\n需要声明数域实数域。题目没有说明。用英语？题目是英文，用户要求用题目所用的语言作答。所以整个回答用英文。注意输出结构标题可以中文？用户指定结构为中文标题。但\"用题目所用的语言作答\"可能指的是解答语言。为了安全，输出结构按中文标题，内容英文？用户示例结构中文。我们可以标题用中文，正文英文？用户规则：\"用题目所用的语言作答。条件不够时说明缺什么，不要编造题目数据。\" 题目是英文，所以回答英文。但结构标题是中文模板。可能保留中文标题，解答内容英文。类似已有解法是英文。我认为按照要求结构输出，标题必须中文，内容英文。 \"答案\"部分最终结论英文/公式。\n\n需要仔细处理\"可核对结论\"的结论行必须 only [ANS] values in order, separated by ' | '. Do not add words. 所以那一行只写数字用竖线分隔。不能写 A= 或其他。注意用户说 \"the line starting with 结论 must contain only the [ANS] values in order, separated by ' | '. Do not add words on that line.\" 所以我们写 `结论：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64` 其中\"结论：\"是标签？ \"line starting with 结论\" 可能包含标签。原文已有解法最后 checkable values row by row。我们需要遵循：`- 结论：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64`。这行以 \"结论：\" 开头但后面只有 values。可以。\n\n需要不要在答案里出现多字？ 答案部分只写最终结论。可以写矩阵形式。没问题。\n\n检验部分：可以代回：用矩阵乘一般多项式坐标 (c0,c1,c2) 得到 (c0+6c1+36c2, 8c1+96c2, 64c2) 对应多项式 c0+6c1+36c2 + (8c1+96c2)t + 64c2 t^2；对任意 f(t)=c0+c1t+c2t^2，T(f)=c0+c1(8t+6)+c2(8t+6)^2 = c0+6c1+36c2 + (8c1+96c2)t + 64c2 t^2。一致。这能核对。另有线性映射检验。在检验中如果有继承错误？ 已有解法似乎无计算错误。\n\n需要注意\"线性空间解法\"可能可以通过线性映射性质：线性变换在基上的作用决定整个映射。我们可写步骤。\n\n需要确保\"不是另起炉灶重做一遍\"？ 我们保留已有解法计算和取法。没问题。\n\n现在生成完整回答。\n\nLet's draft.\n\n---\n\n## 方法判定\n- 已给解法：矩阵解法\n- 本次给出：线性空间解法\n\n## 另一种解法\nHere I present the linear-space solution.\n\nWork over the real numbers. Let \\(V=P_2\\), the vector space of polynomials of degree at most \\(2\\), with ordered basis\n\\[\n\\alpha=(1,t,t^2).\n\\]\nDefine \\(T:V\\to V\\) by \\(T(f)(t)=f(8t+6)\\). This is a linear map: for \\(f,g\\in V\\) and \\(c\\in\\mathbb R\\),\n\\[\nT(f+g)(t)=(f+g)(8t+6)=f(8t+6)+g(8t+6),\n\\]\nand \\(T(cf)(t)=c f(8t+6)\\).\n\nThe matrix requested is the representation \\([T]_\\alpha\\). Its \\(j\\)-th column is the coordinate vector of \\(T(\\alpha_j)\\) with respect to \\(\\alpha\\). Compute these images and coordinates:\n\\[\nT(1)=1=1\\cdot1+0\\cdot t+0\\cdot t^2,\n\\]\nso \\([T(1)]_\\alpha=(1,0,0)^T\\).\n\\[\nT(t)=8t+6=6\\cdot1+8\\cdot t+0\\cdot t^2,\n\\]\nso \\([T(t)]_\\alpha=(6,8,0)^T\\).\n\\[\nT(t^2)=(8t+6)^2=36+96t+64t^2\n=36\\cdot1+96\\cdot t+64\\cdot t^2,\n\\]\nso \\([T(t^2)]_\\alpha=(36,96,64)^T\\).\nThus\n\\[\n[T]_\\alpha =\n\\begin{pmatrix}\n1&6&36\\\\\n0&8&96\\\\\n0&0&64\n\\end{pmatrix}.\n\\]\n\n## 步骤对应\n- 已有解法以 ordered basis \\(\\{1,t,t^2\\}\\) 展开；本次解法视其为有序基 \\(\\alpha=(1,t,t^2)\\)，求线性映射的表示矩阵。\n- 已有解法计算 \\(T(1)=1\\) 并记录坐标 \\((1,0,0)\\)；本次解法对应基向量 \\(1\\) 的像在该基下的坐标列。\n- 已有解法计算 \\(T(t)=8t+6\\) 并记录坐标 \\((6,8,0)\\)；本次解法对应基向量 \\(t\\) 的像坐标列。\n- 已有解法计算 \\(T(t^2)=(8t+6)^2=36+96t+64t^2\\) 并记录坐标 \\((36,96,64)\\)；本次解法对应基向量 \\(t^2\\) 的像坐标列。\n- 已有解法把这些坐标作为列拼成矩阵；本次解法按表示矩阵的定义 \\([T]_\\alpha\\) 将这些坐标列依次排列。\n\n## 约定\n- 有序基采用题目给定的标准基 \\(\\alpha=(1,t,t^2)\\)，顺序不改变。\n- 表示矩阵的第 \\(j\\) 列是 \\(T(\\alpha_j)\\) 在 \\(\\alpha\\) 下的坐标列；不转置。\n- 数域按实数域处理。\n来源：继承已有解法\n\n## 答案\n\\[\nA=\\begin{pmatrix}\n1&6&36\\\\\n0&8&96\\\\\n0&0&64\n\\end{pmatrix}\n\\]\n\n## 可核对结论\n- 类型：矩阵\n- 结论：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64\n- 约定：标准基 {1,t,t^2} 且第 j 列为 T(第 j 个基向量) 的坐标\n- 约定来源：继承已有解法\n\n## 检验\nLet \\(f(t)=c_0+c_1t+c_2t^2\\), so \\([f]_\\alpha=(c_0,c_1,c_2)^T\\). Then\n\\[\nA[f]_\\alpha=\n\\begin{pmatrix}\n1&6&36\\\\\n0&8&96\\\\\n0&0&64\n\\end{pmatrix}\n\\begin{pmatrix}\nc_0\\\\c_1\\\\c_2\n\\end{pmatrix}\n=\n\\begin{pmatrix}\nc_0+6c_1+36c_2\\\\\n8c_1+96c_2\\\\\n64c_2\n\\end{pmatrix}.\n\\]\nThis corresponds to\n\\[\nc_0+6c_1+36c_2+(8c_1+96c_2)t+64c_2t^2.\n\\]\nDirect substitution gives\n\\[\nT(f)(t)=c_0+c_1(8t+6)+c_2(8t+6)^2\n=c_0+6c_1+36c_2+(8c_1+96c_2)t+64c_2t^2.\n\\]\nThe two expressions match, so the matrix is correct.\n\nNeed ensure \"结论 must contain only [ANS] values in order\" maybe no label? But structure says `- 结论：...` so okay. Could maybe write `- 结论：1 | 6 | ...` and line \"结论：\" is label. The user said line starting with 结论 must contain only the [ANS] values in order; but also \"Do not add words on that line.\" Hmm if we include `结论：` that's a word? It's line starting with 结论. In previous instructions, they say \"the line starting with 结论 must contain only the [ANS] values in order, separated by ' | '. Do not add words on that line.\" This likely means after \"结论：\" don't add words like \"矩阵为...\"? The example likely `- 结论：[ANS] | [ANS]`. We'll follow.\n\nNeed maybe mention \"线性空间解法\" beginning. Already did. Good.\n\nNeed confirm not too much \"matrix solution\" in alternative. We present as vector space. Fine.\n\nNeed consider if there is any issue with \"T(f(t))=f(8t+6)\" maybe T is not linear? Actually substitution affine is linear on polynomials because evaluation at linear polynomial. Yes.\n\nPotential issue: If P_2 over real numbers, yes.\n\nNow final answer must be exactly in required format. We'll use final.",
+  "content": "## 方法判定\n- 已给解法：矩阵解法\n- 本次给出：线性空间解法\n\n## 另一种解法\nThis solution is presented in the linear-space style.\n\nLet \\(V=P_2\\) be the real vector space of polynomials of degree at most \\(2\\), with the given ordered basis\n\\[\n\\alpha=(1,t,t^2).\n\\]\nThe map \\(T:V\\to V\\) defined by \\(T(f(t))=f(8t+6)\\) is linear, since for polynomials \\(f,g\\in V\\) and scalars \\(c\\in\\mathbb R\\),\n\\[\nT(f+g)(t)=(f+g)(8t+6)=f(8t+6)+g(8t+6)\n\\]\nand\n\\[\nT(cf)(t)=cf(8t+6).\n\\]\n\nThe requested matrix is the representation matrix \\([T]_\\alpha\\). By definition, its \\(j\\)-th column is the coordinate vector of \\(T(\\alpha_j)\\) with respect to \\(\\alpha\\).\n\nFor the first basis vector \\(1\\):\n\\[\nT(1)=1=1\\cdot 1+0\\cdot t+0\\cdot t^2,\n\\]\nso\n\\[\n[T(1)]_\\alpha=(1,0,0)^T.\n\\]\n\nFor the second basis vector \\(t\\):\n\\[\nT(t)=8t+6=6\\cdot 1+8\\cdot t+0\\cdot t^2,\n\\]\nso\n\\[\n[T(t)]_\\alpha=(6,8,0)^T.\n\\]\n\nFor the third basis vector \\(t^2\\):\n\\[\nT(t^2)=(8t+6)^2=36+96t+64t^2,\n\\]\nso\n\\[\n[T(t^2)]_\\alpha=(36,96,64)^T.\n\\]\n\nTherefore, the representation matrix is\n\\[\n[T]_\\alpha=\n\\begin{pmatrix}\n1&6&36\\\\\n0&8&96\\\\\n0&0&64\n\\end{pmatrix}.\n\\]\n\n## 步骤对应\n- 已有解法使用有序基 \\(\\{1,t,t^2\\}\\)；本次解法将其视为有序基 \\(\\alpha=(1,t,t^2)\\)，求线性映射的表示矩阵。\n- 已有解法计算 \\(T(1)=1\\) 并得到坐标 \\((1,0,0)\\)；本次解法对应基向量 \\(1\\) 的像在 \\(\\alpha\\) 下的坐标列。\n- 已有解法计算 \\(T(t)=8t+6\\) 并得到坐标 \\((6,8,0)\\)；本次解法对应基向量 \\(t\\) 的像在 \\(\\alpha\\) 下的坐标列。\n- 已有解法计算 \\(T(t^2)=36+96t+64t^2\\) 并得到坐标 \\((36,96,64)\\)；本次解法对应基向量 \\(t^2\\) 的像在 \\(\\alpha\\) 下的坐标列。\n- 已有解法将这些坐标列依次排列成矩阵；本次解法按表示矩阵定义将这些坐标列排列为 \\([T]_\\alpha\\)。\n\n## 约定\n- 有序基采用题目给定的标准基 \\(\\alpha=(1,t,t^2)\\)，顺序不变。\n- 表示矩阵的第 \\(j\\) 列为 \\(T(\\alpha_j)\\) 在 \\(\\alpha\\) 下的坐标列，不转置。\n- 数域按实数域处理。\n来源：继承已有解法\n\n## 答案\n\\[\nA=\n\\begin{pmatrix}\n1&6&36\\\\\n0&8&96\\\\\n0&0&64\n\\end{pmatrix}\n\\]\n\n## 可核对结论\n- 类型：矩阵\n- 结论：1 | 6 | 36 | 0 | 8 | 96 | 0 | 0 | 64\n- 约定：标准基 {1,t,t^2} 且第 j 列为 T(第 j 个基向量) 的坐标\n- 约定来源：继承已有解法\n\n## 检验\nLet \\(f(t)=c_0+c_1t+c_2t^2\\), so \\([f]_\\alpha=(c_0,c_1,c_2)^T\\). Then\n\\[\nA[f]_\\alpha=\n\\begin{pmatrix}\n1&6&36\\\\\n0&8&96\\\\\n0&0&64\n\\end{pmatrix}\n\\begin{pmatrix}\nc_0\\\\ c_1\\\\ c_2\n\\end{pmatrix}\n=\n\\begin{pmatrix}\nc_0+6c_1+36c_2\\\\\n8c_1+96c_2\\\\\n64c_2\n\\end{pmatrix}.\n\\]\nThis gives the polynomial\n\\[\nc_0+6c_1+36c_2+(8c_1+96c_2)t+64c_2t^2.\n\\]\nDirect substitution gives\n\\[\nT(f(t))=c_0+c_1(8t+6)+c_2(8t+6)^2\n=c_0+6c_1+36c_2+(8c_1+96c_2)t+64c_2t^2.\n\\]\nThe two expressions match, so the matrix is correct.",
+  "request": {
+    "system": "你是线性代数解题助手。用户会给出题目，以及矩阵解法、线性空间解法中的一份。请把同一份数学内容写成另一种，而不是另起炉灶重做一遍。\n\n两种写法只能取一种作为推理主线。\n\n矩阵解法：以具体矩阵为对象。使用增广矩阵与初等行变换、秩、行列式、特征多项式 det(A-λI)、相似与合同、过渡矩阵的乘法。结论从这些计算得出。\n\n线性空间解法：以向量空间、子空间、基、维数和线性映射为对象。使用线性无关与张成、解空间（核）加特解、子空间的和与交、维数公式、核与像、秩-零化度定理，把特征值看成使 T(v)=λv 的数，把特征子空间写成 ker(T-λid)。坐标和矩阵只能作为表示，推理主线落在空间和映射上。\n\n规则：\n- 只写用户要求的那一种写法，并让解答可以独立阅读。\n- 矩阵解法必须出现关键矩阵和计算。线性空间解法的推理主线必须是空间、基或线性映射。不要把原计算换个说法抄一遍。\n- 已有解法里合法的不唯一选择必须保留，包括自由变量、特解、基的顺序与缩放、特征值的排列、过渡矩阵的列顺序。不要换成你自己更习惯的取法。\n- 已有解法有计算错误时，可核对结论写改正后的结果，约定仍沿用其中说得通的取法，并在检验里指出错误。\n- 约定来源写「继承已有解法」。\n- 数域未说明时按实数域处理，并声明。\n- 用题目所用的语言作答。条件不够时说明缺什么，不要编造题目数据。\n\n按下面的结构输出：\n\n## 方法判定\n- 已给解法：矩阵解法或线性空间解法\n- 本次给出：另一种\n\n## 另一种解法\n完整推导。开头声明本次写法。\n\n## 步骤对应\n写 3 到 6 条。左边是已有解法的关键步骤或对象，右边是本次解法里对应的步骤或对象。\n\n## 约定\n列出本题里不唯一、但这份解答实际采用的选择。常见的有：哪个未知数是自由变量、特解、基的顺序与缩放、特征值的排列、过渡矩阵的列顺序。没有这种选择就写「无」。\n接着单独写一行来源，只能是下面二者之一：\n- 来源：自行选取\n- 来源：继承已有解法\n\n## 答案\n只写最终结论。\n\n## 可核对结论\n- 类型：通解、标量、矩阵、基、维数、是否，或其他\n- 结论：写成可以逐项核对的式子，不用口语\n- 约定：把实际采用的选择压缩成一行\n- 约定来源：自行选取，或继承已有解法\n\n## 检验\n能代回原题、核对秩或维数就做。做不到就说明原因。\n\n",
+    "messages": [
+      {
+        "role": "user",
+        "content": "【题目】\nFind the matrix $A$ of the linear transformation $T(f(t))=f(8 t+6)$ from $P_2$ to $P_2$ with respect to the standard basis for $P_2$, $\\left\\lbrace 1, t, t^2 \\right\\rbrace$.\n$A=$ \\begin {array}{ccc} [ANS] & [ANS] & [ANS] \\\\ [ANS] & [ANS] & [ANS] \\\\ [ANS] & [ANS] & [ANS] \\end{array}\n\nIn the section 可核对结论, the line starting with 结论 must contain only the [ANS] values in order, separated by ' | '. Do not add words on that line.\n\n【已有解法类型】\n矩阵解法\n\n【必须给出】\n线性空间解法\n\n【翻译规则】\n这是翻译，不是重新选题。沿用已有解法里合法的不唯一选择，不要改成你自己更习惯的取法。\n若其中有计算错误，可核对结论写改正后的结果；约定仍沿用说得通的原取法，并在检验中指出错误。\n\n【已有解法】\nMatrix solution.\nUse the ordered basis {1, t, t^2}. Compute the images and expand them in this basis.\nT(1)=1, with coordinates (1,0,0).\nT(t)=8t+6, with coordinates (6,8,0).\nT(t^2)=(8t+6)^2=36+96t+64t^2, with coordinates (36,96,64).\nPlace these coordinates in the columns:\nA = [ 1  6  36 ; 0  8  96 ; 0  0  64 ].\nConvention locked by this solution: column j is the coordinate vector of T applied to the j-th basis polynomial. Do not transpose the matrix.\nCheckable values, row by row: 1, 6, 36, 0, 8, 96, 0, 0, 64.\n"
+      }
+    ]
+  },
+  "blank_score": {
+    "parsed": true,
+    "correct": true,
+    "n_expected": 9,
+    "n_got": 9,
+    "matches": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "got": [
+      "1",
+      "6",
+      "36",
+      "0",
+      "8",
+      "96",
+      "0",
+      "0",
+      "64"
+    ]
+  },
+  "convention_source": "inherited"
+}
